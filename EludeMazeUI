@@ -1,0 +1,32 @@
+local Fluent = loadstring(game:HttpGet("https://github.com/dawid-scripts/Fluent/releases/latest/download/main.lua"))()
+local Window = Fluent:CreateWindow({
+    Title = "The Elude Maze // " .. identifyexecutor(),
+    SubTitle = "",
+    TabWidth = 120,
+    Size = UDim2.fromOffset(400, 300),
+    Acrylic = false,
+    Theme = "Dark",
+    MinimizeKey = Enum.KeyCode.H
+})
+
+local Tabs = {
+    Main = Window:AddTab({ Title = "Maze Badges", Icon = "hammer" })
+}
+
+Tabs.Main:AddButton({
+    Title = "Exposed Badge",
+    Description = "Automatically gets Exposed Badge",
+    Callback = function()
+        firetouchinterest(game.Players.LocalPlayer.Character.HumanoidRootPart, workspace.Ruins.Elude.Glove, 0)
+task.wait(0.5)
+        firetouchinterest(game.Players.LocalPlayer.Character.HumanoidRootPart, workspace.Ruins.Elude.Glove, 1) 
+    end
+})
+
+Tabs.Main:AddButton({
+    Title = "Counter Lever",
+    Description = "Pulls the lever and Pim Spawns",
+    Callback = function()
+fireclickdetector(workspace.CounterLever.ClickDetector)
+    end
+})
