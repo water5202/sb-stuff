@@ -101,7 +101,7 @@ Tabs.AutoFish:AddButton({
         end
 })
 
-Tabs.AutoFish:AddButton({
+Tabs.AutoBrickMaster:AddButton({
         Title = "Equip Brick Glove",
         Description = "",
         Callback = function()
@@ -113,6 +113,39 @@ Tabs.AutoFish:AddButton({
                         Title = "Confirm",
                         Callback = function()
                             fireclickdetector(workspace.Lobby.Brick.ClickDetector)
+                        end
+                    },
+                    {
+                        Title = "Cancel",
+                        Callback = function()
+                        end
+                    }
+                }
+            })
+        end
+})
+
+Tabs.AutoBrickMaster:AddButton({
+        Title = "Goto SafeSpot",
+        Description = "",
+        Callback = function()
+            Window:Dialog({
+                Title = "Confirm Teleport?",
+                Content = "",
+                Buttons = {
+                    {
+                        Title = "Confirm",
+                        Callback = function()
+                            localplayer.Character:WaitForChild("HumanoidRootPart").CFrame = CFrame.new(18000.6895, -119.158432, -2900.86475, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+                                task.wait(0.5)
+                            if game.Players.LocalPlayer.leaderstats.Glove.Value == "Brick" then
+                                else
+                                 Fluent:Notify({
+        Title = "Interface",
+        Content = "ZZZ is not Equipped!",
+        SubContent = "",
+        Duration = 3
+                                              })   
                         end
                     },
                     {
