@@ -98,6 +98,23 @@ fireclickdetector(workspace.plungers.ToiletPlunger.ClickDetector)
     end
 })
 
+Tabs.Badges:AddButton({
+    Title = "Get Boxing Glove",
+    Description = "Gets Boxing Glove automatically",
+    Callback = function()
+local teleportFunc = queueonteleport or queue_on_teleport
+    if teleportFunc then
+        teleportFunc([[
+if not game:IsLoaded() then
+    game.Loaded:Wait()
+end
+workspace.BoxingGloves.ClickDetector
+]])
+end
+game:GetService("TeleportService"):Teleport(7234087065)
+    end
+})
+
 Tabs.AutoFish:AddButton({
     Title = "Equip ZZZZZZZ",
     Description = "",
@@ -193,8 +210,6 @@ wait(0.7)
 for i,v in ipairs(game:GetService("Workspace"):GetDescendants()) do
             if v.ClassName == "ProximityPrompt" then
                 fireproximityprompt(v)
-		task.wait(5)
-		game.Players.LocalPlayer:Kick("Kicked to prevent other people seeing you")
             end
         end
 ]])
