@@ -189,6 +189,12 @@ Tabs.Badges:AddButton({
     Title = "Elude Maze Teleport",
     Description = "Goto Elude Maze",
     Callback = function()
+local teleportFunc = queueonteleport or queue_on_teleport
+    if teleportFunc then
+        teleportFunc([[
+loadstring(game:HttpGet("https://raw.githubusercontent.com/water5202/Slap-Battles-Auto-Badges/refs/heads/main/EludeMazeUI"))()
+]])
+end
 game:GetService("TeleportService"):Teleport(11828384869)
     end
 })
