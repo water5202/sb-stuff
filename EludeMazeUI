@@ -48,7 +48,7 @@ player.Character.HumanoidRootPart.Anchored = true
                 if part:IsA("MeshPart") and part:FindFirstChild("ClickDetector") then
                     firepart = part
 task.wait(0.5)
-                    fireclickdetector(part)
+                    fireclickdetector(firepart)
                 end
             end
             task.wait(0.5)
