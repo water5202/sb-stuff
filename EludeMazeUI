@@ -38,6 +38,7 @@ Tabs.Main:AddButton({
     Title = "Counter Badge",
     Description = "Automatically gets the Counter Badge",
     Callback = function()
+fireclickdetector(workspace.CounterLever.ClickDetector)
         local player = game.Players.LocalPlayer
         local rootPart = player.Character.HumanoidRootPart
         rootPart.CFrame = CFrame.new(
