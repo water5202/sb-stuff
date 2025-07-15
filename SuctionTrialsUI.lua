@@ -17,7 +17,9 @@ Tabs.Main:AddButton({
     Title = "Get Plunger Badge",
     Description = "placeholder :3",
     Callback = function()
+        if game.Workspace:FindFirstChild("plunger glove") then
         fireclickdetector(workspace["plunger glove"].ClickDetector)
+            end
     end
 })
 
