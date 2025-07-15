@@ -108,11 +108,11 @@ Tabs.AutoFish:AddButton({
 
 Tabs.Badges:AddButton({
     Title = "All 3 Misc Badges",
-    Description = "Duck, Orange and Knife",
+    Description = "Duck Orange and Knife",
     Callback = function()
          fireclickdetector(workspace.Lobby.Scene.knofe.ClickDetector)
 	 fireclickdetector(workspace.Arena.island5.Orange.ClickDetector)
-	 fireclickdector(workspace.Arena["default island"]["Rubber Ducky"].ClickDetector)
+	 fireclickdector(workspace.Lobby.Scene.knofe.ClickDetector)
     end
 })
 
