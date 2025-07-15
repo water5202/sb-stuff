@@ -56,5 +56,12 @@ task.wait(0.5)
     end
 })
 
+Tabs.Main:AddButton({
+    Title = "Alchemist Relic",
+    Description = "Gets the Relic",
+    Callback = function()
+fireclickdetector(workspace._ugcQuestObjectEludeHat.ClickDetector)
+    end
+})
 
 Window:SelectTab(1)
