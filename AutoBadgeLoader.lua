@@ -1,4 +1,15 @@
 local Fluent = loadstring(game:HttpGet("https://github.com/dawid-scripts/Fluent/releases/latest/download/main.lua"))()
+if game.workspace:FindFirstChild("plunger glove") then
+Fluent:Notify({
+        Title = "Interface",
+        Content = "Loading Suction Trials UI",
+        SubContent = "",
+        Duration = 3
+})
+	
+loadstring(game:HttpGet("https://raw.githubusercontent.com/water5202/Slap-Battles-Auto-Badges/refs/heads/main/SuctionTrialsUI.lua"))()
+end
+			
 local Players = game:GetService("Players")
 local localplayer = Players.LocalPlayer
 local UIS = game:GetService("UserInputService")
@@ -288,53 +299,22 @@ Tabs.Settings:AddButton({
 })
 
 Tabs.Settings:AddButton({
-        Title = "Unload UI",
-        Description = "",
-        Callback = function()
-            Window:Dialog({
-                Title = "Confirm?",
-                Content = "",
-                Buttons = {
-                    {
-                        Title = "Confirm",
-                        Callback = function()
-			BrickAutoToggle:SetValue(false)
-                            game.Workspace:WaitForChild("AutoFarmPart"):Destroy()
-                            Fluent:Destroy()
-                        end
-                    },
-                    {
-                        Title = "Cancel",
-                        Callback = function()
-                        end
-                    }
-                }
-            })
-        end
+    Title = "Unload UI",
+    Description = "Unloads UI",
+    Callback = function()
+       			BrickAutoToggle:SetValue(false)
+			AntiAfk:SetValue(false)
+                        game.Workspace:WaitForChild("AutoFarmPart"):Destroy()
+                        Fluent:Destroy()
+    end
 })
 
 Tabs.Settings:AddButton({
-        Title = "Anchor Toggle",
-        Description = "Anchors your HumanoidRootPart",
-        Callback = function()
-            Window:Dialog({
-                Title = "Confirm?",
-                Content = "",
-                Buttons = {
-                    {
-                        Title = "Confirm",
-                        Callback = function()
-                                game.Players.LocalPlayer.Character.HumanoidRootPart.Anchored = not game.Players.LocalPlayer.Character.HumanoidRootPart.Anchored
-                        end
-                    },
-                    {
-                        Title = "Cancel",
-                        Callback = function()
-                        end
-                    }
-                }
-            })
-        end
+    Title = "Anchor yourself",
+    Description = "Anchors your HumanoidRootPart",
+    Callback = function()
+        game.Players.LocalPlayer.Character.HumanoidRootPart.Anchored = not game.Players.LocalPlayer.Character.HumanoidRootPart.Anchored
+    end
 })
 
 local AntiAfk = Tabs.Settings:AddToggle("SexyAntiAfkToggle", {
