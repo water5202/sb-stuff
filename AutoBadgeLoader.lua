@@ -2,6 +2,7 @@ local Fluent = loadstring(game:HttpGet("https://github.com/dawid-scripts/Fluent/
 local Players = game:GetService("Players")
 local localplayer = Players.LocalPlayer
 local UIS = game:GetService("UserInputService")
+local HRP = localplayer.Character.HumanoidRootPart
 
 if game.Workspace:FindFirstChild("AutoFarmPart") then 
     game.Workspace.AutoFarmPart:Destroy() 
@@ -136,6 +137,10 @@ Tabs.AutoFish:AddButton({
                     {
                         Title = "Confirm",
                         Callback = function()
+local ArenaPart = workspace.Lobby.Teleport1
+                            firetouchinterest(HRP,  ArenaPart, 0)
+                            task.wait(0.1)
+                            firetouchinterest(HRP, ArenaPart, 1)
                             localplayer.Character:WaitForChild("HumanoidRootPart").CFrame = CFrame.new(18000.6895, -119.158432, -2900.86475, 1, 0, 0, 0, 1, 0, 0, 0, 1)
                                 task.wait(0.2)
                             if game.Players.LocalPlayer.leaderstats.Glove.Value == "ZZZZZZZ" then
