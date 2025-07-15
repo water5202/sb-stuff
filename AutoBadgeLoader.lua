@@ -71,6 +71,37 @@ task.wait(0.001)
     end
 end)
 
+local KeypadText = Tabs.Info:AddParagraph({
+        Title = "Keypad Spawned // No",
+        Content = "Elude Keypad"
+})
+
+task.spawn(function()
+while true do
+if game.Workspace:FindFirstChild("Keypad") then
+KeypadText:SetTitle("Keypad Spawn // Yes")
+else
+KeypadText:SetTitle("Keypad Spawn // No")
+end
+task.wait(0.001)
+    end
+end)
+
+local SiphonText = Tabs.Info:AddParagraph({
+        Title = "Siphon Orb // No",
+        Content = "Checks for Siphon orb"
+})
+
+task.spawn(function()
+while true do
+if game.Workspace:FindFirstChild("SiphonOrb") then
+SiphonText:SetTitle("Siphon Orb // Yes")
+			else
+SiphonText:SetTitle("Siphon Orb // No")
+end
+task.wait(0.001)
+    end
+end)
 
 local TimeBar = Tabs.Info:AddParagraph({
     Title = "",
