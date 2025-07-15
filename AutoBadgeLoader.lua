@@ -260,4 +260,28 @@ Tabs.Settings:AddButton({
         end
 })
 
+Tabs.Settings:AddButton({
+        Title = "Anchor Toggle",
+        Description = "Anchors your HumanoidRootPart",
+        Callback = function()
+            Window:Dialog({
+                Title = "Confirm?",
+                Content = "",
+                Buttons = {
+                    {
+                        Title = "Confirm",
+                        Callback = function()
+                                game.Players.LocalPlayer.Character.HumanoidRootPart.Anchored = not game.Players.LocalPlayer.Character.HumanoidRootPart.Anchored
+                        end
+                    },
+                    {
+                        Title = "Cancel",
+                        Callback = function()
+                        end
+                    }
+                }
+            })
+        end
+})
+
 Window:SelectTab(1)
