@@ -181,7 +181,7 @@ Tabs.Badges:AddButton({
     Callback = function()
          fireclickdetector(workspace.Lobby.Scene.knofe.ClickDetector)
 	 fireclickdetector(workspace.Arena.island5.Orange.ClickDetector)
-	 fireclickdector(workspace.Lobby.Scene.knofe.ClickDetector)
+	 fireclickdetector(workspace.Lobby.Scene.knofe.ClickDetector)
     end
 })
 
