@@ -89,6 +89,9 @@ Tabs.Badges:AddButton({
 local teleportFunc = queueonteleport or queue_on_teleport
     if teleportFunc then
         teleportFunc([[
+if not game:IsLoaded() then
+    game.Loaded:Wait()
+end
 loadstring(game:HttpGet("https://raw.githubusercontent.com/water5202/Slap-Battles-Auto-Badges/refs/heads/main/SuctionTrialsUI.lua"))()
 ]])
 end
@@ -108,7 +111,9 @@ local teleportFunc = queueonteleport or queue_on_teleport
 if not game:IsLoaded() then
     game.Loaded:Wait()
 end
-workspace.BoxingGloves.ClickDetector
+fireclickdetector(workspace.BoxingGloves.ClickDetector)
+task.wait(5)
+game:GetService("TeleportService"):Teleport(6403373529)
 ]])
 end
 game:GetService("TeleportService"):Teleport(7234087065)
