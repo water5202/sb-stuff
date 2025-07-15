@@ -162,6 +162,7 @@ HRP = localplayer.Character.HumanoidRootPart
                             firetouchinterest(HRP,  ArenaPart, 0)
                             task.wait(0.1)
                             firetouchinterest(HRP, ArenaPart, 1)
+			    task.wait(0.3)
                             localplayer.Character:WaitForChild("HumanoidRootPart").CFrame = CFrame.new(-108000.6895, -119.158432, -2900.86475, 1, 0, 0, 0, 1, 0, 0, 0, 1)
                                 task.wait(0.2)
                             if game.Players.LocalPlayer.leaderstats.Glove.Value == "ZZZZZZZ" then
@@ -194,6 +195,7 @@ HRP = localplayer.Character.HumanoidRootPart
                             firetouchinterest(HRP,  ArenaPart, 0)
                             task.wait(0.1)
                             firetouchinterest(HRP, ArenaPart, 1)
+			    task.wait(0.3)
                             localplayer.Character:WaitForChild("HumanoidRootPart").CFrame = CFrame.new(-108000.6895, -119.158432, -2900.86475, 1, 0, 0, 0, 1, 0, 0, 0, 1)
                         end
                     },
