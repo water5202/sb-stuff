@@ -1,15 +1,6 @@
 local Fluent = loadstring(game:HttpGet("https://github.com/dawid-scripts/Fluent/releases/latest/download/main.lua"))()
 
-if game.workspace:FindFirstChild("plunger glove") then
-Fluent:Notify({
-        Title = "Interface",
-        Content = "Loading Suction Trials UI",
-        SubContent = "",
-        Duration = 3
-})
-	
-loadstring(game:HttpGet("https://raw.githubusercontent.com/water5202/Slap-Battles-Auto-Badges/refs/heads/main/SuctionTrialsUI.lua"))()
-end
+
 			
 local Players = game:GetService("Players")
 local localplayer = Players.LocalPlayer
@@ -95,29 +86,18 @@ task.spawn(function()
 end)
 
 Tabs.Badges:AddButton({
-        Title = "Goto Plunger Obby",
-        Description = "",
-        Callback = function()
-            Window:Dialog({
-                Title = "Confirm?",
-                Content = "",
-                Buttons = {
-                    {
-                        Title = "Confirm",
-                        Callback = function()
-                            fireclickdetector(workspace.BountyHunterRoom.PlungerMain.ClickDetector)
-				task.wait(0.5)
-			    fireclickdetector(workspace.plungers.ToiletPlunger.ClickDetector)
-                        end
-                    },
-                    {
-                        Title = "Cancel",
-                        Callback = function()
-                        end
-                    }
-                }
-            })
-        end
+    Title = "Get Plunger",
+    Description = "Gets Plunger automatically",
+    Callback = function()
+local teleportFunc = queueonteleport or queue_on_teleport
+    if teleportFunc then
+teleportFunc([[
+task.wait(3)
+fireclickdetector(workspace["plunger glove"].ClickDetector)
+]])
+end
+game:GetService("TeleportService"):Teleport(89837553336708)
+    end
 })
 
 Tabs.AutoFish:AddButton({
@@ -201,7 +181,7 @@ HRP = localplayer.Character.HumanoidRootPart
 
 Tabs.Badges:AddButton({
     Title = "Get Frostbite",
-    Description = "",
+    Description = "Gets Frostbite automatically",
     Callback = function()
 local teleportFunc = queueonteleport or queue_on_teleport
     if teleportFunc then
@@ -215,6 +195,8 @@ wait(0.7)
 for i,v in ipairs(game:GetService("Workspace"):GetDescendants()) do
             if v.ClassName == "ProximityPrompt" then
                 fireproximityprompt(v)
+		task.wait(0.5)
+		game.Players.LocalPlayer:Kick("Kicked to prevent other people seeing you")
             end
         end
 ]])
