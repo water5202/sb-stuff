@@ -61,12 +61,12 @@ end)
 
 local CODETEXT = Tabs.Info:AddParagraph({
         Title = "",
-        Content = "Keypad"
+        Content = "Elude keypad code"
 })
 
 task.spawn(function()
 while true do
-CODETEXT:SetTitle("Keypad Code [ "..tostring((#game.Players:GetPlayers()) * 25 + 1100 - 7).." ]")
+CODETEXT:SetTitle("Keypad Code // "..tostring((#game.Players:GetPlayers()) * 25 + 1100 - 7))
 task.wait(0.001)
     end
 end)
