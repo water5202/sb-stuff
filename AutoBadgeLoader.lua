@@ -185,6 +185,14 @@ Tabs.Badges:AddButton({
     end
 })
 
+Tabs.Badges:AddButton({
+    Title = "Elude Maze Teleport",
+    Description = "Goto Elude Maze",
+    Callback = function()
+game:GetService("TeleportService"):Teleport(11828384869)
+    end
+})
+
 Tabs.AutoBrickMaster:AddButton({
     Title = "Equip Brick",
     Description = "",
