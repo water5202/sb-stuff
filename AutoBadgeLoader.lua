@@ -4,6 +4,7 @@ local localplayer = Players.LocalPlayer
 local UIS = game:GetService("UserInputService")
 local VirtualInput = game:GetService("VirtualUser")
 local HRP
+local idledConnection
 local Brickconnection = nil
 local RunService = game:GetService("RunService")
 local ArenaPart = workspace.Lobby.Teleport1
@@ -311,21 +312,27 @@ Tabs.Settings:AddButton({
         end
 })
 
-local Toggle = Tab:AddToggle("MyToggle", 
-{
-    Title = "Toggle", 
-    Description = "Toggle description",
-    Default = false
+local AntiAfk = Tabs.Settings:AddToggle("SexyAntiAfkToggle", {
+    Title = "Anti Afk", 
+    Description = "Disables being kicked",
+    Default = false,
     Callback = function(state)
-	if state then
-Players.LocalPlayer.Idled:Connect(function()
-    VirtualInput:Button2Down(Vector2.new(0,0), workspace.CurrentCamera.CFrame)
-    task.wait(0.1)
-    VirtualInput:Button2Up(Vector2.new(0,0), workspace.CurrentCamera.CFrame)
-end)
-else
+        if state then
+            if not idledConnection then
+                idledConnection = Players.LocalPlayer.Idled:Connect(function()
+                    VirtualInput:Button2Down(Vector2.new(0,0), workspace.CurrentCamera.CFrame)
+                    task.wait(0.1)
+                    VirtualInput:Button2Up(Vector2.new(0,0), workspace.CurrentCamera.CFrame)
+                end)
+            end
+        else
+            if idledConnection then
+                idledConnection:Disconnect()
+                idledConnection = nil
+            end
         end
-    end 
+    end
 })
+
 
 Window:SelectTab(1)
