@@ -125,10 +125,10 @@ if not game:IsLoaded() then
     game.Loaded:Wait()
 end
 					
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = workspace["Boxing Area"]["Boxing Area"].Rig.HumanoidRootPart.CFrame
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(4183.43701, 3518.25, 194.199707, -1, 0, 0, 0, 1, 0, 0, 0, -1)
 task.wait(3)
 fireclickdetector(workspace.BoxingGloves.ClickDetector)
-task.wait(0.5)
+task.wait(1)
 game:GetService("TeleportService"):Teleport(6403373529)
 ]])
 end
