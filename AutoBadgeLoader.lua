@@ -82,7 +82,31 @@ task.spawn(function()
     end
 end)
 
-
+Tabs.Badges:AddButton({
+        Title = "Goto Plunger Obby",
+        Description = "",
+        Callback = function()
+            Window:Dialog({
+                Title = "Confirm?",
+                Content = "",
+                Buttons = {
+                    {
+                        Title = "Confirm",
+                        Callback = function()
+                            fireclickdetector(workspace.BountyHunterRoom.PlungerMain.ClickDetector)
+				task.wait(0.5)
+			    fireclickdetector(workspace.plungers.ToiletPlunger.ClickDetector)
+                        end
+                    },
+                    {
+                        Title = "Cancel",
+                        Callback = function()
+                        end
+                    }
+                }
+            })
+        end
+})
 
 Tabs.AutoFish:AddButton({
         Title = "Equip ZZZ Glove",
