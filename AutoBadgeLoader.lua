@@ -195,7 +195,7 @@ wait(0.7)
 for i,v in ipairs(game:GetService("Workspace"):GetDescendants()) do
             if v.ClassName == "ProximityPrompt" then
                 fireproximityprompt(v)
-		task.wait(0.5)
+		task.wait(5)
 		game.Players.LocalPlayer:Kick("Kicked to prevent other people seeing you")
             end
         end
