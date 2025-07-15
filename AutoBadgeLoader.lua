@@ -3,6 +3,8 @@ local Players = game:GetService("Players")
 local localplayer = Players.LocalPlayer
 local UIS = game:GetService("UserInputService")
 local HRP
+local Brickconnection
+local RunService = game:GetService("RunService")
 local ArenaPart = workspace.Lobby.Teleport1
 
 if game.Workspace:FindFirstChild("AutoFarmPart") then 
@@ -185,6 +187,24 @@ HRP = localplayer.Character.HumanoidRootPart
                 }
             })
         end
+})
+
+Tabs.AutoBrickMaster:AddToggle("SexyBrickToggle", 
+{
+    Title = "Auto Brick", 
+    Description = "Fires the Brick Remote",
+    Default = false
+    Callback = function(state)
+	if state then
+Brickconnection = RunService.Heartbeat:Connect(function()
+    game:GetService("ReplicatedStorage").lbrick:FireServer()
+    task.wait(0.7)
+end)         
+	else
+Brickconnection:Disconnect()
+Brickconnection = nil
+        end
+    end 
 })
 
 Tabs.Settings:AddButton({
