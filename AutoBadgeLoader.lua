@@ -53,7 +53,7 @@ local Window = Fluent:CreateWindow({
 local Tabs = {
     AutoFish = Window:AddTab({ Title = "AutoFish", Icon = "hammer" }),
     AutoBrickMaster = Window:AddTab({ Title = "AutoBrickMaster", Icon = "hammer" }),
-    Badges = Window:AddTab({ Title = "Badges", Icon = "hammer" }),
+    Badges = Window:AddTab({ Title = "Badges", Icon = "box" }),
     Info = Window:AddTab({ Title = "Info", Icon = "info" }),
     Settings = Window:AddTab({ Title = "Settings", Icon = "settings" })
 }
@@ -124,7 +124,17 @@ Tabs.AutoFish:AddButton({
     Title = "Equip ZZZZZZZ",
     Description = "",
     Callback = function()
-         fireclickdetector(workspace.Lobby.ZZZZZZZ.ClickDetector)
+         fireclickdetector(workspace.Lobby.ZZZZZZZ.ClickDetector) 
+    end
+})
+
+Tabs.Badges:AddButton({
+    Title = "All 3 Misc Badges",
+    Description = "Duck, Orange and Knife",
+    Callback = function()
+         fireclickdetector(workspace.Lobby.Scene.knofe.ClickDetector)
+	 fireclickdetector(workspace.Arena.island5.Orange.ClickDetector)
+	 fireclickdector(workspace.Arena["default island"]["Rubber Ducky"].ClickDetector)
     end
 })
 
