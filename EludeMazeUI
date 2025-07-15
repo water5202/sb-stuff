@@ -1,4 +1,6 @@
 local Fluent = loadstring(game:HttpGet("https://github.com/dawid-scripts/Fluent/releases/latest/download/main.lua"))()
+loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()
+
 local Window = Fluent:CreateWindow({
     Title = "The Elude Maze // " .. identifyexecutor(),
     SubTitle = "",
@@ -30,3 +32,5 @@ Tabs.Main:AddButton({
 fireclickdetector(workspace.CounterLever.ClickDetector)
     end
 })
+
+Window:SelectTab(1)
