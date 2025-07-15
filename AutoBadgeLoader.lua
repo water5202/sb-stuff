@@ -129,6 +129,24 @@ Tabs.AutoBrickMaster:AddButton({
         end
 })
 
+local BrickAutoToggle = Tabs.AutoBrickMaster:AddToggle("SexyBrickToggle", 
+{
+    Title = "Auto Brick", 
+    Description = "Fires the Brick Remote",
+    Default = false,
+    Callback = function(state)
+	if state then
+Brickconnection = RunService.Heartbeat:Connect(function()
+    game:GetService("ReplicatedStorage").lbrick:FireServer()
+    task.wait(0.7)
+end)         
+	else
+Brickconnection:Disconnect()
+Brickconnection = nil
+        end
+    end 
+})
+
 Tabs.AutoFish:AddButton({
         Title = "Goto SafeSpot",
         Description = "",
