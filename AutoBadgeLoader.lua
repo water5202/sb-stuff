@@ -92,7 +92,7 @@ local teleportFunc = queueonteleport or queue_on_teleport
 if not game:IsLoaded() then
     game.Loaded:Wait()
 end
-loadstring(game:HttpGet("https://raw.githubusercontent.com/water5202/Slap-Battles-Auto-Badges/refs/heads/main/SuctionTrialsUI.lua"))()
+fireclickdetector(workspace["plunger glove"].ClickDetector)
 ]])
 end
 fireclickdetector(workspace.BountyHunterRoom.PlungerMain.ClickDetector)
