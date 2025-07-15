@@ -11,7 +11,7 @@ end
 local Platform = Instance.new("Part")
 Platform.Name = "AutoFarmPart"
 Platform.Parent = workspace
-Platform.CFrame = CFrame.new(18000.6895, -122.158432, -2900.86475, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+Platform.CFrame = CFrame.new(-108000.6895, -122.158432, -2900.86475, 1, 0, 0, 0, 1, 0, 0, 0, 1)
 Platform.Size = Vector3.new(84, 1, 82)
 Platform.Transparency = 0.5
 Platform.Anchored = true
@@ -141,11 +141,39 @@ local ArenaPart = workspace.Lobby.Teleport1
                             firetouchinterest(HRP,  ArenaPart, 0)
                             task.wait(0.1)
                             firetouchinterest(HRP, ArenaPart, 1)
-                            localplayer.Character:WaitForChild("HumanoidRootPart").CFrame = CFrame.new(18000.6895, -119.158432, -2900.86475, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+                            localplayer.Character:WaitForChild("HumanoidRootPart").CFrame = CFrame.new(-108000.6895, -119.158432, -2900.86475, 1, 0, 0, 0, 1, 0, 0, 0, 1)
                                 task.wait(0.2)
                             if game.Players.LocalPlayer.leaderstats.Glove.Value == "ZZZZZZZ" then
                                 game:GetService("ReplicatedStorage"):WaitForChild("ZZZZZZZSleep"):FireServer()
                             end
+                        end
+                    },
+                    {
+                        Title = "Cancel",
+                        Callback = function()
+                        end
+                    }
+                }
+            })
+        end
+})
+
+Tabs.AutoBrickMaster:AddButton({
+        Title = "Goto SafeSpot",
+        Description = "",
+        Callback = function()
+            Window:Dialog({
+                Title = "Confirm Teleport?",
+                Content = "",
+                Buttons = {
+                    {
+                        Title = "Confirm",
+                        Callback = function()
+local ArenaPart = workspace.Lobby.Teleport1
+                            firetouchinterest(HRP,  ArenaPart, 0)
+                            task.wait(0.1)
+                            firetouchinterest(HRP, ArenaPart, 1)
+                            localplayer.Character:WaitForChild("HumanoidRootPart").CFrame = CFrame.new(-108000.6895, -119.158432, -2900.86475, 1, 0, 0, 0, 1, 0, 0, 0, 1)
                         end
                     },
                     {
