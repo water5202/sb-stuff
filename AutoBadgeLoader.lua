@@ -10,7 +10,7 @@ end
 local Platform = Instance.new("Part")
 Platform.Name = "AutoFarmPart"
 Platform.Parent = workspace
-Platform.CFrame = CFrame.new(17893.6895, -122.158432, -2288.86475, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+Platform.CFrame = CFrame.new(18000.6895, -122.158432, -2900.86475, 1, 0, 0, 0, 1, 0, 0, 0, 1)
 Platform.Size = Vector3.new(84, 1, 82)
 Platform.Transparency = 0.5
 Platform.Anchored = true
@@ -111,7 +111,17 @@ Tabs.AutoFish:AddButton({
                     {
                         Title = "Confirm",
                         Callback = function()
-                            localplayer.Character:WaitForChild("HumanoidRootPart").CFrame = CFrame.new(17893.6895, -115.158432, -2288.86475, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+                            localplayer.Character:WaitForChild("HumanoidRootPart").CFrame = CFrame.new(18000.6895, -119.158432, -2900.86475, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+                                task.wait(0.5)
+                            if game.Players.LocalPlayer.leaderstats.Glove.Value == ZZZZZZZ then
+                                game:GetService("ReplicatedStorage"):WaitForChild("ZZZZZZZSleep"):FireServer()
+                                else
+                                 Fluent:Notify({
+        Title = "Interface",
+        Content = "ZZZ is not Equipped!",
+        SubContent = "",
+        Duration = 3
+                                              })   
                         end
                     },
                     {
