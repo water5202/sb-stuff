@@ -1,6 +1,6 @@
 local Fluent = loadstring(game:HttpGet("https://github.com/dawid-scripts/Fluent/releases/latest/download/main.lua"))()
 loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()
-
+local firepart
 local Window = Fluent:CreateWindow({
     Title = "The Elude Maze // " .. identifyexecutor(),
     SubTitle = "",
@@ -38,13 +38,27 @@ Tabs.Main:AddButton({
     Title = "Counter Badge",
     Description = "Automatically gets the Counter Badge",
     Callback = function()
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-25.0125427, 50.6694031, -39.9636345, 0.000869032519, 8.72046524e-09, -0.999999642, -1.06635773e-14, 1, 8.72046879e-09, 0.999999642, -7.56770688e-12, 0.000869032519)
-game.Players.LocalPlayer.Character.HumanoidRootPart.Anchored = true
-while true do
-fireclickdetector(workspace.Maze:GetChildren()[673].ClickDetector)
+        local player = game.Players.LocalPlayer
+        local rootPart = player.Character.HumanoidRootPart
+        rootPart.CFrame = CFrame.new(
+            -25.0125427, 50.6694031, -39.9636345,
+            0.000869032519, 8.72046524e-09, -0.999999642,
+            -1.06635773e-14, 1, 8.72046879e-09,
+            0.999999642, -7.56770688e-12, 0.000869032519
+        )
+        rootPart.Anchored = true
+        while true do
+            for _, part in pairs(game.Workspace.Maze:GetChildren()) do
+                if part:IsA("MeshPart") and part:FindFirstChild("ClickDetector") then
+                    firepart = part
 task.wait(0.5)
-end
+                    fireclickdetector(part)
+                end
+            end
+            task.wait(0.5)
+        end
     end
 })
+
 
 Window:SelectTab(1)
