@@ -189,7 +189,7 @@ HRP = localplayer.Character.HumanoidRootPart
         end
 })
 
-Tabs.AutoBrickMaster:AddToggle("SexyBrickToggle", 
+local BrickAutoToggle = Tabs.AutoBrickMaster:AddToggle("SexyBrickToggle", 
 {
     Title = "Auto Brick", 
     Description = "Fires the Brick Remote",
@@ -218,6 +218,7 @@ Tabs.Settings:AddButton({
                     {
                         Title = "Confirm",
                         Callback = function()
+			BrickAutoToggle:SetValue(false)
                             game.Players.LocalPlayer.Character.Humanoid.Health = 0
                         end
                     },
@@ -266,6 +267,7 @@ Tabs.Settings:AddButton({
                     {
                         Title = "Confirm",
                         Callback = function()
+			BrickAutoToggle:SetValue(false)
                             game.Workspace:WaitForChild("AutoFarmPart"):Destroy()
                             Fluent:Destroy()
                         end
