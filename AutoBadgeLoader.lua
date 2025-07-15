@@ -89,7 +89,7 @@ Tabs.Badges:AddButton({
 local teleportFunc = queueonteleport or queue_on_teleport
     if teleportFunc then
         teleportFunc([[
-fireclickdetector(workspace["plunger glove"].ClickDetector)
+loadstring(game:HttpGet("https://raw.githubusercontent.com/water5202/Slap-Battles-Auto-Badges/refs/heads/main/SuctionTrialsUI.lua"))()
 ]])
 end
 fireclickdetector(workspace.BountyHunterRoom.PlungerMain.ClickDetector)
