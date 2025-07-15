@@ -125,39 +125,6 @@ Tabs.AutoBrickMaster:AddButton({
         end
 })
 
-Tabs.AutoBrickMaster:AddButton({
-        Title = "Goto SafeSpot",
-        Description = "",
-        Callback = function()
-            Window:Dialog({
-                Title = "Confirm Teleport?",
-                Content = "",
-                Buttons = {
-                    {
-                        Title = "Confirm",
-                        Callback = function()
-                            localplayer.Character:WaitForChild("HumanoidRootPart").CFrame = CFrame.new(18000.6895, -119.158432, -2900.86475, 1, 0, 0, 0, 1, 0, 0, 0, 1)
-                                task.wait(0.5)
-                            if game.Players.LocalPlayer.leaderstats.Glove.Value == "Brick" then
-                                else
-                                 Fluent:Notify({
-        Title = "Interface",
-        Content = "ZZZ is not Equipped!",
-        SubContent = "",
-        Duration = 3
-                                              })   
-                        end
-                    },
-                    {
-                        Title = "Cancel",
-                        Callback = function()
-                        end
-                    }
-                }
-            })
-        end
-})
-
 Tabs.AutoFish:AddButton({
         Title = "Goto SafeSpot",
         Description = "",
@@ -174,12 +141,12 @@ Tabs.AutoFish:AddButton({
                             if game.Players.LocalPlayer.leaderstats.Glove.Value == ZZZZZZZ then
                                 game:GetService("ReplicatedStorage"):WaitForChild("ZZZZZZZSleep"):FireServer()
                                 else
-                                 Fluent:Notify({
+Fluent:Notify({
         Title = "Interface",
         Content = "ZZZ is not Equipped!",
         SubContent = "",
         Duration = 3
-                                              })   
+})   
                         end
                     },
                     {
