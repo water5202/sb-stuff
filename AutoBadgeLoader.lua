@@ -121,51 +121,19 @@ Tabs.Badges:AddButton({
 })
 
 Tabs.AutoFish:AddButton({
-        Title = "Equip ZZZ Glove",
-        Description = "",
-        Callback = function()
-            Window:Dialog({
-                Title = "Confirm Equip?",
-                Content = "",
-                Buttons = {
-                    {
-                        Title = "Confirm",
-                        Callback = function()
-                            fireclickdetector(workspace.Lobby.ZZZZZZZ.ClickDetector)
-                        end
-                    },
-                    {
-                        Title = "Cancel",
-                        Callback = function()
-                        end
-                    }
-                }
-            })
-        end
+    Title = "Equip ZZZZZZZ",
+    Description = "",
+    Callback = function()
+         fireclickdetector(workspace.Lobby.ZZZZZZZ.ClickDetector)
+    end
 })
 
 Tabs.AutoBrickMaster:AddButton({
-        Title = "Equip Brick Glove",
-        Description = "",
-        Callback = function()
-            Window:Dialog({
-                Title = "Confirm Equip?",
-                Content = "",
-                Buttons = {
-                    {
-                        Title = "Confirm",
-                        Callback = function()
-                            fireclickdetector(workspace.Lobby.Brick.ClickDetector)
-                        end
-                    },
-                    {
-                        Title = "Cancel",
-                        Callback = function()
-                        end
-                    }
-                }
-            })
-        end
+    Title = "Equip Brick",
+    Description = "",
+    Callback = function()
+         fireclickdetector(workspace.Lobby.Brick.ClickDetector)
+    end
 })
 
 local BrickAutoToggle = Tabs.AutoBrickMaster:AddToggle("SexyBrickToggle", 
