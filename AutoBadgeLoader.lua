@@ -23,7 +23,7 @@ Fluent:Notify({
 })
 
 local Window = Fluent:CreateWindow({
-    Title = "Auto Fish // " .. identifyexecutor(),
+    Title = "Auto Badges // " .. identifyexecutor(),
     SubTitle = "",
     TabWidth = 120,
     Size = UDim2.fromOffset(400, 300),
@@ -34,10 +34,11 @@ local Window = Fluent:CreateWindow({
 
 local Tabs = {
     AutoFish = Window:AddTab({ Title = "AutoFish", Icon = "hammer" }),
+    Info = Window:AddTab({ Title = "Info", Icon = "info" }),
     Settings = Window:AddTab({ Title = "Settings", Icon = "settings" })
 }
 
-local PlayerText = Tabs.AutoFish:AddParagraph({
+local PlayerText = Tabs.Info:AddParagraph({
         Title = "0/16",
         Content = "Players"
 })
@@ -50,7 +51,7 @@ task.spawn(function()
     end
 end)
 
-local TimeBar = Tabs.Settings:AddParagraph({
+local TimeBar = Tabs.Info:AddParagraph({
     Title = "",
     Content = "Time taken"
 })
