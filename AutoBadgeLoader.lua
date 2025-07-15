@@ -88,12 +88,13 @@ Tabs.Badges:AddButton({
     Callback = function()
 local teleportFunc = queueonteleport or queue_on_teleport
     if teleportFunc then
-teleportFunc([[
-task.wait(3)
+        teleportFunc([[
 fireclickdetector(workspace["plunger glove"].ClickDetector)
 ]])
 end
-game:GetService("TeleportService"):Teleport(89837553336708)
+fireclickdetector(workspace.BountyHunterRoom.PlungerMain.ClickDetector)
+task.wait(0.5)
+fireclickdetector(workspace.plungers.ToiletPlunger.ClickDetector)
     end
 })
 
