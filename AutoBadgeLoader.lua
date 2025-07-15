@@ -2,7 +2,7 @@ local Fluent = loadstring(game:HttpGet("https://github.com/dawid-scripts/Fluent/
 local Players = game:GetService("Players")
 local localplayer = Players.LocalPlayer
 local UIS = game:GetService("UserInputService")
-local HRP = localplayer.Character.HumanoidRootPart
+local HRP
 local ArenaPart = workspace.Lobby.Teleport1
 
 if game.Workspace:FindFirstChild("AutoFarmPart") then 
@@ -138,6 +138,7 @@ Tabs.AutoFish:AddButton({
                     {
                         Title = "Confirm",
                         Callback = function()
+HRP = localplayer.Character.HumanoidRootPart
                             firetouchinterest(HRP,  ArenaPart, 0)
                             task.wait(0.1)
                             firetouchinterest(HRP, ArenaPart, 1)
@@ -169,6 +170,7 @@ Tabs.AutoBrickMaster:AddButton({
                     {
                         Title = "Confirm",
                         Callback = function()
+HRP = localplayer.Character.HumanoidRootPart            
                             firetouchinterest(HRP,  ArenaPart, 0)
                             task.wait(0.1)
                             firetouchinterest(HRP, ArenaPart, 1)
