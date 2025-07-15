@@ -111,8 +111,10 @@ local teleportFunc = queueonteleport or queue_on_teleport
 if not game:IsLoaded() then
     game.Loaded:Wait()
 end
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Workspace.BoxingGloves.CFrame
+task.wait(0.5)
 fireclickdetector(workspace.BoxingGloves.ClickDetector)
-task.wait(5)
+task.wait(0.5)
 game:GetService("TeleportService"):Teleport(6403373529)
 ]])
 end
