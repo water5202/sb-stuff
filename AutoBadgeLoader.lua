@@ -59,6 +59,19 @@ task.spawn(function()
     end
 end)
 
+local CODETEXT = Tabs.Info:AddParagraph({
+        Title = "",
+        Content = "Keypad"
+})
+
+task.spawn(function()
+while true do
+CODETEXT:SetTitle("Keypad Code [ "..tostring((#game.Players:GetPlayers()) * 25 + 1100 - 7).." ]")
+task.wait(0.001)
+    end
+end)
+
+
 local TimeBar = Tabs.Info:AddParagraph({
     Title = "",
     Content = "Time taken"
