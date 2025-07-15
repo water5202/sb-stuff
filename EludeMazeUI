@@ -40,14 +40,8 @@ Tabs.Main:AddButton({
     Callback = function()
 fireclickdetector(workspace.CounterLever.ClickDetector)
         local player = game.Players.LocalPlayer
-        local rootPart = player.Character.HumanoidRootPart
-        rootPart.CFrame = CFrame.new(
-            -25.0125427, 50.6694031, -39.9636345,
-            0.000869032519, 8.72046524e-09, -0.999999642,
-            -1.06635773e-14, 1, 8.72046879e-09,
-            0.999999642, -7.56770688e-12, 0.000869032519
-        )
-        rootPart.Anchored = true
+player.Character.HumanoidRootPart.CFrame = CFrame.new(-118.254112, 33.9999962, -15.9436445, 0.999970675, 9.07502198e-08, -0.00766188465, -9.13593965e-08, 1, -7.91567913e-08, 0.00766188465, 7.9854459e-08, 0.999970675)
+player.Character.HumanoidRootPart.Anchored = true
         while true do
             for _, part in pairs(game.Workspace.Maze:GetChildren()) do
                 if part:IsA("MeshPart") and part:FindFirstChild("ClickDetector") then
