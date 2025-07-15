@@ -199,6 +199,30 @@ HRP = localplayer.Character.HumanoidRootPart
         end
 })
 
+Tabs.Badges:AddButton({
+    Title = "Get Frostbite",
+    Description = "",
+    Callback = function()
+local teleportFunc = queueonteleport or queue_on_teleport
+    if teleportFunc then
+        teleportFunc([[
+            if not game:IsLoaded() then
+                game.Loaded:Wait()
+            end
+            repeat wait() until game.Players.LocalPlayer
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-554, 177, 56)
+wait(0.7)
+for i,v in ipairs(game:GetService("Workspace"):GetDescendants()) do
+            if v.ClassName == "ProximityPrompt" then
+                fireproximityprompt(v)
+            end
+        end
+]])
+end
+game:GetService("TeleportService"):Teleport(17290438723)
+    end
+})
+
 Tabs.AutoBrickMaster:AddButton({
         Title = "Goto SafeSpot",
         Description = "",
