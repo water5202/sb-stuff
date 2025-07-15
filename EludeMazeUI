@@ -41,6 +41,7 @@ Tabs.Main:AddButton({
 fireclickdetector(workspace.CounterLever.ClickDetector)
         local player = game.Players.LocalPlayer
 player.Character.HumanoidRootPart.CFrame = CFrame.new(-118.254112, 33.9999962, -15.9436445, 0.999970675, 9.07502198e-08, -0.00766188465, -9.13593965e-08, 1, -7.91567913e-08, 0.00766188465, 7.9854459e-08, 0.999970675)
+task.wait(1)
 player.Character.HumanoidRootPart.Anchored = true
         while true do
             for _, part in pairs(game.Workspace.Maze:GetChildren()) do
