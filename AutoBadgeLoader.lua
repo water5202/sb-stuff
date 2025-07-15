@@ -34,6 +34,7 @@ local Window = Fluent:CreateWindow({
 
 local Tabs = {
     AutoFish = Window:AddTab({ Title = "AutoFish", Icon = "hammer" }),
+    AutoBrickMaster = Window:AddTab({ Title = "AutoBrickMaster", Icon = "hammer" }),
     Info = Window:AddTab({ Title = "Info", Icon = "info" }),
     Settings = Window:AddTab({ Title = "Settings", Icon = "settings" })
 }
@@ -88,6 +89,30 @@ Tabs.AutoFish:AddButton({
                         Title = "Confirm",
                         Callback = function()
                             fireclickdetector(workspace.Lobby.ZZZZZZZ.ClickDetector)
+                        end
+                    },
+                    {
+                        Title = "Cancel",
+                        Callback = function()
+                        end
+                    }
+                }
+            })
+        end
+})
+
+Tabs.AutoFish:AddButton({
+        Title = "Equip Brick Glove",
+        Description = "",
+        Callback = function()
+            Window:Dialog({
+                Title = "Confirm Equip?",
+                Content = "",
+                Buttons = {
+                    {
+                        Title = "Confirm",
+                        Callback = function()
+                            fireclickdetector(workspace.Lobby.Brick.ClickDetector)
                         end
                     },
                     {
