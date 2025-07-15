@@ -3,7 +3,7 @@ local Players = game:GetService("Players")
 local localplayer = Players.LocalPlayer
 local UIS = game:GetService("UserInputService")
 local HRP
-local Brickconnection
+local Brickconnection = nil
 local RunService = game:GetService("RunService")
 local ArenaPart = workspace.Lobby.Teleport1
 
@@ -141,8 +141,10 @@ Brickconnection = RunService.Heartbeat:Connect(function()
     task.wait(0.7)
 end)         
 	else
+if Brickconnection then
 Brickconnection:Disconnect()
 Brickconnection = nil
+end
         end
     end 
 })
