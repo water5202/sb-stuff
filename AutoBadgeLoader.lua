@@ -300,17 +300,6 @@ Tabs.Settings:AddButton({
 })
 
 Tabs.Settings:AddButton({
-    Title = "Unload UI",
-    Description = "Unloads UI",
-    Callback = function()
-       			BrickAutoToggle:SetValue(false)
-			AntiAfk:SetValue(false)
-                        game.Workspace:WaitForChild("AutoFarmPart"):Destroy()
-                        Fluent:Destroy()
-    end
-})
-
-Tabs.Settings:AddButton({
     Title = "Anchor yourself",
     Description = "Anchors your HumanoidRootPart",
     Callback = function()
@@ -340,5 +329,15 @@ local AntiAfk = Tabs.Settings:AddToggle("SexyAntiAfkToggle", {
     end
 })
 
+Tabs.Settings:AddButton({
+    Title = "Unload UI",
+    Description = "Unloads UI",
+    Callback = function()
+       		BrickAutoToggle:SetValue(false)
+		AntiAfk:SetValue(false)
+                game.Workspace:WaitForChild("AutoFarmPart"):Destroy()
+                Fluent:Destroy()
+    end
+})
 
 Window:SelectTab(1)
