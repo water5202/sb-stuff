@@ -229,31 +229,40 @@ localplayer.Character.HumanoidRootPart.Anchored = true
     end
 })
 
+local teleporting = false
+
 local ChangeGOTOPLAYER = Tabs.SlapFarm:AddInput("SexyInputBox", {
     Title = "",
     Description = "Changes the Player to teleport // For Alt Account",
-    Default = "",
+    Default = nil,
     Placeholder = "//",
     Numeric = false, 
     Finished = false,
-    Callback = function(Value)
-        GOTOPLAYER = game.Players.Value
-	print(GOTOPLAYER)
+    Callback = function(input)
+        GOTOPLAYER = game.Players:FindFirstChild(input)
     end
 })
 
-local GOTOPLAYERTELEPORTER = Tabs.SlapFarm:AddToggle("SexyCoolSlapTeleportToggle", 
-{
+local GOTOPLAYERTELEPORTER = Tabs.SlapFarm:AddToggle("SexyCoolSlapTeleportToggle", {
     Title = "Teleport to Player", 
     Description = "For Alt Account",
-    Default = false
+    Default = false,
     Callback = function(state)
-	if state then
-	   
-	else
-	   
+        teleporting = state
+        if state then
+            task.spawn(function()
+                while teleporting do
+                    if GOTOPLAYER and GOTOPLAYER.Character and GOTOPLAYER.Character:FindFirstChild("HumanoidRootPart") then
+                        local localPlayer = game.Players.LocalPlayer
+                        if localPlayer.Character and localPlayer.Character:FindFirstChild("HumanoidRootPart") then
+                            localPlayer.Character.HumanoidRootPart.CFrame = GOTOPLAYER.Character.HumanoidRootPart.CFrame
+                        end
+                    end
+                    task.wait(0.001)
+                end
+            end)
         end
-    end 
+    end
 })
 
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
