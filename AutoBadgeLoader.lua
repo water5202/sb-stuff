@@ -186,6 +186,42 @@ Tabs.Badges:AddButton({
     end
 })
 
+Tabs.SlapFarm:AddButton({
+    Title = "Equip Dual",
+    Description = "",
+    Callback = function()
+fireclickdetector(workspace.Lobby.Dual.Clickdetector)
+    end
+})
+
+Tabs.SlapFarm:AddButton({
+    Title = "Teleport to SafeSpot",
+    Description = "This as your Main alt account",
+    Callback = function()
+HRP = localplayer.Character.HumanoidRootPart
+firetouchinterest(HRP,  ArenaPart, 0)
+task.wait(0.1)
+firetouchinterest(HRP, ArenaPart, 1)
+task.wait(0.5)
+localplayer.Character.HumanoidRootPart.CFrame = CFrame.new(-108000.6895, -122.158432, -2900.86475, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+    end
+})
+
+Tabs.SlapFarm:AddButton({
+    Title = "Anchor yourself",
+    Description = "This as your alt account",
+    Callback = function()
+HRP = localplayer.Character.HumanoidRootPart
+firetouchinterest(HRP,  ArenaPart, 0)
+task.wait(0.1)
+firetouchinterest(HRP, ArenaPart, 1)
+task.wait(0.5)
+localplayer.Character.HumanoidRootPart.CFrame = CFrame.new(-108000.6895, -119.158432, -2900.86475, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+task.wait(1)
+localplayer.Character.HumanoidRootPart.Anchored = true
+    end
+})
+
 Tabs.Badges:AddButton({
     Title = "Elude Maze Teleport",
     Description = "Goto Elude Maze",
