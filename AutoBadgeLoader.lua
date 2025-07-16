@@ -290,7 +290,7 @@ Tabs.SlapFarm:AddToggle("SexySlapAura", {
                             GeneralHit:FireServer(targetLimb)
                         end
                     end
-                    task.wait(1.7)
+                    task.wait(0.91)
                 end
             end)
         end
