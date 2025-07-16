@@ -237,8 +237,23 @@ local ChangeGOTOPLAYER = Tabs.SlapFarm:AddInput("SexyInputBox", {
     Numeric = false, 
     Finished = false,
     Callback = function(Value)
-        GOTOPLAYER = Value
+        GOTOPLAYER = game.Players.Value
+	print(GOTOPLAYER)
     end
+})
+
+local GOTOPLAYERTELEPORTER = Tabs.SlapFarm:AddToggle("SexyCoolSlapTeleportToggle", 
+{
+    Title = "Teleport to Player", 
+    Description = "For Alt Account",
+    Default = false
+    Callback = function(state)
+	if state then
+	   
+	else
+	   
+        end
+    end 
 })
 
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
