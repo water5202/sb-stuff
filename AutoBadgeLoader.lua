@@ -229,15 +229,15 @@ localplayer.Character.HumanoidRootPart.Anchored = true
     end
 })
 
-local ChangeGOTOPLAYER = Tabs.SlapFarm:AddKeybind("SexyCoolKeybind", {
-    Title = "Loopgoto FarmPlayer",
-    Description = "For alt account",
-    Mode = "Toggle",
-    Default = "",
+local ChangeGOTOPLAYER = Tabs.SlapFarm:AddInput("SexyInputBox", {
+    Title = "Change LoopTeleport Player",
+    Description = "For Alt Account",
+    Default = "Default",
+    Placeholder = "//",
+    Numeric = false, 
+    Finished = false,
     Callback = function(Value)
-    end,
-    ChangedCallback = function(New)
-       GOTOPLAYER = New
+        GOTOPLAYER = Value
     end
 })
 
