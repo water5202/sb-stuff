@@ -8,6 +8,7 @@ local idledConnection
 local Brickconnection = nil
 local RunService = game:GetService("RunService")
 local ArenaPart = workspace.Lobby.Teleport1
+local GOTOPLAYER
 
 local bypass;
     bypass = hookmetamethod(game, "__namecall", function(method, ...) 
@@ -228,22 +229,17 @@ localplayer.Character.HumanoidRootPart.Anchored = true
     end
 })
 
-Tabs.SlapFarm:AddButton({
-    Title = "Anchor yourself",
-    Description = "This as your alt account",
-    Callback = function()
-HRP = localplayer.Character.HumanoidRootPart
-firetouchinterest(HRP,  ArenaPart, 0)
-task.wait(0.1)
-firetouchinterest(HRP, ArenaPart, 1)
-task.wait(0.5)
-localplayer.Character.HumanoidRootPart.CFrame = CFrame.new(-108000.6895, -119.158432, -2900.86475, 1, 0, 0, 0, 1, 0, 0, 0, 1)
-task.wait(1)
-localplayer.Character.HumanoidRootPart.Anchored = true
+local Keybind = Tab:AddKeybind("Keybind", {
+    Title = "Loopgoto FarmPlayer",
+    Description = "For alt account",
+    Mode = "Toggle",
+    Default = "",
+    Callback = function(Value)
+    end,
+    ChangedCallback = function(New)
+       GOTOPLAYER = New
     end
 })
-
-
 
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 local Players = game:GetService("Players")
