@@ -229,7 +229,7 @@ localplayer.Character.HumanoidRootPart.Anchored = true
     end
 })
 
-local Keybind = Tab:AddKeybind("Keybind", {
+local ChangeGOTOPLAYER = Tabs.SlapFarm:AddKeybind("SexyCoolKeybind", {
     Title = "Loopgoto FarmPlayer",
     Description = "For alt account",
     Mode = "Toggle",
