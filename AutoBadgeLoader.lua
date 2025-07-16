@@ -231,7 +231,7 @@ local teleporting = false
 
 local ChangeGOTOPLAYER = Tabs.SlapFarm:AddInput("SexyInputBox", {
     Title = "",
-    Description = "Changes the Player to teleport // For Alt Account",
+    Description = "//",
     Default = nil,
     Placeholder = "//",
     Numeric = false, 
