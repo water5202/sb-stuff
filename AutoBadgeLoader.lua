@@ -230,9 +230,9 @@ localplayer.Character.HumanoidRootPart.Anchored = true
 })
 
 local ChangeGOTOPLAYER = Tabs.SlapFarm:AddInput("SexyInputBox", {
-    Title = "Change LoopTeleport Player",
-    Description = "For Alt Account",
-    Default = "Default",
+    Title = "",
+    Description = "Changes the Player to teleport // For Alt Account",
+    Default = "//",
     Placeholder = "//",
     Numeric = false, 
     Finished = false,
