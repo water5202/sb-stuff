@@ -24,7 +24,7 @@ local bypass;
 Fluent:Notify({
         Title = "Interface",
         Content = "Bypassed AntiCheat!",
-        SubContent = "(GiangMc's Method)",
+        SubContent = "GiangMc's Method",
         Duration = 3
 })
 
@@ -242,6 +242,38 @@ task.wait(1)
 localplayer.Character.HumanoidRootPart.Anchored = true
     end
 })
+
+
+
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+local Players = game:GetService("Players")
+local LocalPlayer = Players.LocalPlayer
+local GeneralHit = ReplicatedStorage:WaitForChild("GeneralHit")
+
+local SlapAuraRunning = false
+
+Tabs.SlapFarm:AddToggle("SexySlapAura", {
+    Title = "Slap Aura",
+    Description = "Slaps the player to farm on",
+    Default = false,
+    Callback = function(state)
+        SlapAuraRunning = state
+        if SlapAuraRunning then
+            task.spawn(function()
+                while SlapAuraRunning do
+                    for _, player in pairs(Players:GetPlayers()) do
+                        if player ~= LocalPlayer and player.Character and player.Character:FindFirstChild("HumanoidRootPart") then
+                            local targetLimb = player.Character.HumanoidRootPart
+                            GeneralHit:FireServer(targetLimb)
+                        end
+                    end
+                    task.wait(1.7)
+                end
+            end)
+        end
+    end
+})
+
 
 Tabs.Badges:AddButton({
     Title = "Elude Maze Teleport",
