@@ -9,6 +9,25 @@ local Brickconnection = nil
 local RunService = game:GetService("RunService")
 local ArenaPart = workspace.Lobby.Teleport1
 
+local bypass;
+    bypass = hookmetamethod(game, "__namecall", function(method, ...) 
+        if getnamecallmethod() == "FireServer" and method == game.ReplicatedStorage.Ban then
+            return
+        elseif getnamecallmethod() == "FireServer" and method == game.ReplicatedStorage.AdminGUI then
+            return
+        elseif getnamecallmethod() == "FireServer" and method == game.ReplicatedStorage.WalkSpeedChanged then
+            return
+        end
+        return bypass(method, ...)
+    end)
+
+Fluent:Notify({
+        Title = "Interface",
+        Content = "Bypassed AntiCheat!",
+        SubContent = "(GiangMc's Method)",
+        Duration = 3
+})
+
 if game.Workspace:FindFirstChild("AutoFarmPart") then 
     game.Workspace.AutoFarmPart:Destroy() 
 end
