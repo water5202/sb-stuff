@@ -206,6 +206,11 @@ Tabs.Badges:AddButton({
     end
 })
 
+local InfoForTP = Tabs.SlapFarm:AddParagraph({
+        Title = "README",
+        Content = "The Input field is for the Teleport"
+})
+
 Tabs.SlapFarm:AddButton({
     Title = "Equip Dual",
     Description = "",
