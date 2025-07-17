@@ -506,6 +506,14 @@ local AntiAfk = Tabs.Settings:AddToggle("SexyAntiAfkToggle", {
 })
 
 Tabs.Settings:AddButton({
+    Title = "Infinite Yield",
+    Description = "Loads Infinite Yield",
+    Callback = function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/edgeiy/infiniteyield/master/source"))()
+    end
+})
+
+Tabs.Settings:AddButton({
     Title = "Unload UI",
     Description = "Unloads UI",
     Callback = function()
