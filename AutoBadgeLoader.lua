@@ -152,9 +152,9 @@ local ToolBoxText = Tabs.Info:AddParagraph({
 task.spawn(function()
 while true do
 if game.Workspace:FindFirstChild("Toolbox") then
-SiphonText:SetTitle("ToolBox // Yes")
+ToolBoxText:SetTitle("Toolbox // Yes")
 			else
-SiphonText:SetTitle("ToolBox // No")
+ToolBoxText:SetTitle("Toolbox // No")
 end
 task.wait(0.001)
     end
