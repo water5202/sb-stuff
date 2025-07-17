@@ -82,7 +82,7 @@ local SlapsText = Tabs.Info:AddParagraph({
 task.spawn(function()
 while true do
 SlapsText:SetTitle("Slaps // " .. game.Players.LocalPlayer.leaderstats.Slaps)
-task.wait(0.001
+task.wait(0.001)
     end
 end)
 
