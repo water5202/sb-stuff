@@ -323,7 +323,7 @@ local GeneralHit = ReplicatedStorage:WaitForChild("GeneralHit")
 
 local SlapAuraRunning = false
 
-Tabs.SlapFarm:AddToggle("SexySlapAura", {
+local AutoSlapToggle = Tabs.SlapFarm:AddToggle("SexySlapAura", {
     Title = "Slap Aura",
     Description = "Slaps the player to farm on",
     Default = false,
@@ -477,7 +477,7 @@ HRP = localplayer.Character.HumanoidRootPart
 
 local bobfarming = false
 
-Tabs.BobFarm:AddToggle("SexySpawnReplica", {
+local bobfarmtoggle = Tabs.BobFarm:AddToggle("SexySpawnReplica", {
     Title = "Auto Replica",
     Description = "Don't press E",
     Default = false,
@@ -618,6 +618,9 @@ Tabs.Settings:AddButton({
     Callback = function()
        		BrickAutoToggle:SetValue(false)
 		AntiAfk:SetValue(false)
+		GOTOPLAYERTELEPORTER:SetValue(false)
+		bobfarmtoggle:SetValue(false)
+		AutoSlapToggle:SetValue(false)
                 game.Workspace:WaitForChild("AutoFarmPart"):Destroy()
                 Fluent:Destroy()
     end
