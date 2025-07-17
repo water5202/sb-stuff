@@ -471,7 +471,8 @@ Tabs.BobFarm:AddToggle("SexySpawnReplica", {
     Default = false,
     Callback = function(state)
         bobfarming = state
-        if bobfarming then
+        if bobfarming and localplayer.Character:FindFirstChild("entered") then
+	task.wait(0.5)
             task.spawn(function()
                 while bobfarming do
 		SpawnReplica()
