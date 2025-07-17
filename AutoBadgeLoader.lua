@@ -254,6 +254,26 @@ Tabs.Badges:AddButton({
     end
 })
 
+Tabs.Badges:AddButton({
+    Title = "Get Glovel",
+    Description = "Make sure you have Hitman Quest",
+    Callback = function()
+localplayer.Character.Humanoid.Health = 0
+task.wait(5)
+fireclickdetector(workspace.Lobby.Extended.ClickDetector)
+task.wait(1)
+HRP = localplayer.Character.HumanoidRootPart
+firetouchinterest(HRP, ArenaPart, 0)
+task.wait(0.5)
+firetouchinterest(HRP, ArenaPart, 1)
+task.wait(0.5)
+HRP.CFrame = CFrame.new(220.62793, 26.9119072, 189.395142, 0.760179281, 2.943524e-08, -0.649713337, 2.955138e-08, 1, 7.98807491e-08, 0.649713337, -7.99236162e-08, 0.760179281)
+task.wait(0.5)
+fireproximityprompt(workspace.Arena.CannonIsland.GlovelHoleInTheWall.ProximityPrompt)
+task.wait(0.5)
+    end
+})
+
 local InfoForTP = Tabs.SlapFarm:AddParagraph({
         Title = "README",
         Content = "The Input field is for the Teleport"
