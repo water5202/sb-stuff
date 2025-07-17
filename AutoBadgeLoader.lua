@@ -215,6 +215,14 @@ fireclickdetector(workspace.plungers.ToiletPlunger.ClickDetector)
 })
 
 Tabs.Badges:AddButton({
+    Title = "Get Iceskate",
+    Description = "so free lmao",
+    Callback = function()
+         game:GetService("ReplicatedStorage").IceSkate:FireServer("Freeze")
+    end
+})
+
+Tabs.Badges:AddButton({
     Title = "Get Boxing Glove",
     Description = "Gets Boxing Glove automatically",
     Callback = function()
