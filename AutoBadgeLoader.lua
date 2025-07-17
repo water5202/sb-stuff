@@ -89,14 +89,14 @@ end)
 
 local PingText = Tabs.Info:AddParagraph({
         Title = "Ping // ?",
-        Content = "Players"
+        Content = "Shows your current Ping"
 })
 
 task.spawn(function()
     while true do
 Ping = game:GetService("Stats").Network.ServerStatsItem["Data Ping"]:GetValueString()
 PingText:SetTitle("Ping // " .. Ping)
-	task.wait(0.5)
+	task.wait(1)
     end
 end)
 
