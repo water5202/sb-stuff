@@ -74,6 +74,18 @@ local Tabs = {
     Settings = Window:AddTab({ Title = "Settings", Icon = "settings" })
 }
 
+local SlapsText = Tabs.Info:AddParagraph({
+        Title = "Slaps // ?",
+        Content = "Shows Slaps"
+})
+
+task.spawn(function()
+while true do
+SlapsText:SetTitle("Slaps // " .. game.Players.LocalPlayer.leaderstats.Slaps)
+task.wait(0.001
+    end
+end)
+
 local PlayerText = Tabs.Info:AddParagraph({
         Title = "0/16",
         Content = "Players"
