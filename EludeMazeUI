@@ -38,16 +38,28 @@ Tabs.Main:AddButton({
     Title = "Counter Badge",
     Description = "Automatically gets the Counter Badge",
     Callback = function()
-fireclickdetector(workspace.CounterLever.ClickDetector)
+        fireclickdetector(workspace.CounterLever.ClickDetector)
+
         local player = game.Players.LocalPlayer
-player.Character.HumanoidRootPart.CFrame = CFrame.new(-118.254112, 33.9999962, -15.9436445, 0.999970675, 9.07502198e-08, -0.00766188465, -9.13593965e-08, 1, -7.91567913e-08, 0.00766188465, 7.9854459e-08, 0.999970675)
-task.wait(1)
-player.Character.HumanoidRootPart.Anchored = true
-while true do
-fireclickdetector(workspace.Maze:GetChildren()[673].ClickDetector)
-task.wait(0.005)
-end
-end
+        player.Character.HumanoidRootPart.CFrame = CFrame.new(-118.254112, 33.9999962, -15.9436445, 0.999970675, 9.07502198e-08, -0.00766188465, -9.13593965e-08, 1, -7.91567913e-08, 0.00766188465, 7.9854459e-08, 0.999970675)
+
+        task.wait(1)
+        player.Character.HumanoidRootPart.Anchored = true
+
+        local part
+        while not part do
+            local target = workspace.Maze:GetChildren()[673]
+            if target then
+                part = target:FindFirstChildOfClass("ClickDetector")
+            end
+            task.wait(0.1)
+        end
+
+        while true do
+            fireclickdetector(part)
+            task.wait(0.005)
+        end
+    end
 })
 
 Tabs.Main:AddButton({
