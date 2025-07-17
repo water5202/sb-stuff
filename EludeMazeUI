@@ -43,7 +43,12 @@ fireclickdetector(workspace.CounterLever.ClickDetector)
 player.Character.HumanoidRootPart.CFrame = CFrame.new(-118.254112, 33.9999962, -15.9436445, 0.999970675, 9.07502198e-08, -0.00766188465, -9.13593965e-08, 1, -7.91567913e-08, 0.00766188465, 7.9854459e-08, 0.999970675)
 task.wait(1)
 player.Character.HumanoidRootPart.Anchored = true
-print("not finished")
+task.spawn(function()
+while true do
+fireclickdetector(workspace.Maze:GetChildren()[673].ClickDetector)
+task.wait(0.005)
+end
+end)
     end
 })
 
