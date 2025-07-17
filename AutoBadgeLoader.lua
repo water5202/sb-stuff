@@ -10,7 +10,12 @@ local Brickconnection = nil
 local RunService = game:GetService("RunService")
 local ArenaPart = workspace.Lobby.Teleport1
 local GOTOPLAYER
-
+local Duplicate = game:GetService("ReplicatedStorage"):WaitForChild("Duplicate")
+--
+function SpawnReplica()
+Duplicate:FireServer()
+end
+--
 local bypass;
     bypass = hookmetamethod(game, "__namecall", function(method, ...) 
         if getnamecallmethod() == "FireServer" and method == game.ReplicatedStorage.Ban then
@@ -63,6 +68,7 @@ local Tabs = {
     AutoFish = Window:AddTab({ Title = "AutoFish", Icon = "hammer" }),
     AutoBrickMaster = Window:AddTab({ Title = "AutoBrickMaster", Icon = "hammer" }),
     SlapFarm = Window:AddTab({ Title = "Slap Farm", Icon = "hammer" }),
+    BobFarm = Window:AddTab({ Title = "Bob Farm", Icon = "hammer" }),
     Badges = Window:AddTab({ Title = "Badges", Icon = "box" }),
     Info = Window:AddTab({ Title = "Info", Icon = "info" }),
     Settings = Window:AddTab({ Title = "Settings", Icon = "settings" })
@@ -352,7 +358,7 @@ Tabs.AutoBrickMaster:AddButton({
 
 local BrickAutoToggle = Tabs.AutoBrickMaster:AddToggle("SexyBrickToggle", 
 {
-    Title = "Auto Brick", 
+Title = "Auto Brick", 
     Description = "Fires the Brick Remote",
     Default = false,
     Callback = function(state)
@@ -361,7 +367,7 @@ Brickconnection = RunService.Heartbeat:Connect(function()
     game:GetService("ReplicatedStorage").lbrick:FireServer()
     task.wait(0.7)
 end)         
-	else
+else
 if Brickconnection then
 Brickconnection:Disconnect()
 Brickconnection = nil
@@ -369,6 +375,7 @@ end
         end
     end 
 })
+-- dunno why i decided to use RunService for a loop but whatever
 
 Tabs.AutoFish:AddButton({
         Title = "Goto SafeSpot",
@@ -429,6 +436,55 @@ game:GetService("TeleportService"):Teleport(17290438723)
 
 Tabs.AutoBrickMaster:AddButton({
         Title = "Goto SafeSpot",
+        Description = "",
+        Callback = function()
+            Window:Dialog({
+                Title = "Confirm Teleport?",
+                Content = "",
+                Buttons = {
+                    {
+                        Title = "Confirm",
+                        Callback = function()
+HRP = localplayer.Character.HumanoidRootPart            
+                            firetouchinterest(HRP,  ArenaPart, 0)
+                            task.wait(0.1)
+                            firetouchinterest(HRP, ArenaPart, 1)
+			    task.wait(0.3)
+                            localplayer.Character:WaitForChild("HumanoidRootPart").CFrame = CFrame.new(-108000.6895, -119.158432, -2900.86475, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+                        end
+                    },
+                    {
+                        Title = "Cancel",
+                        Callback = function()
+                        end
+                    }
+                }
+            })
+        end
+})
+
+local bobfarming = false
+
+Tabs.BobFarm:AddToggle("SexySpawnReplica", {
+    Title = "Auto Replica",
+    Description = "Don't press E",
+    Default = false,
+    Callback = function(state)
+        bobfarming = state
+        if bobfarming then
+            task.spawn(function()
+                while bobfarming do
+		SpawnReplica()
+		task.wait(5.5)
+                end
+            end)
+        end
+    end
+})
+
+
+Tabs.BobFarm:AddButton({
+        Title = "Goto Safespot",
         Description = "",
         Callback = function()
             Window:Dialog({
