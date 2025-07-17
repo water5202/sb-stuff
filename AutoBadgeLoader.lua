@@ -4,6 +4,7 @@ local localplayer = Players.LocalPlayer
 local UIS = game:GetService("UserInputService")
 local VirtualInput = game:GetService("VirtualUser")
 local HRP
+local Ping
 local idledConnection
 local Brickconnection = nil
 local RunService = game:GetService("RunService")
@@ -80,6 +81,19 @@ task.spawn(function()
     end
 end)
 
+local PingText = Tabs.Info:AddParagraph({
+        Title = "Ping // ?",
+        Content = "Players"
+})
+
+task.spawn(function()
+    while true do
+Ping = game:GetService("Stats").Network.ServerStatsItem["Data Ping"]:GetValueString()
+PingText:SetTitle("Ping // " .. Ping)
+	task.wait(0.5)
+    end
+end)
+
 local CODETEXT = Tabs.Info:AddParagraph({
         Title = "",
         Content = "Elude keypad code"
@@ -119,6 +133,22 @@ if game.Workspace:FindFirstChild("SiphonOrb") then
 SiphonText:SetTitle("Siphon Orb // Yes")
 			else
 SiphonText:SetTitle("Siphon Orb // No")
+end
+task.wait(0.001)
+    end
+end)
+
+local ToolBoxText = Tabs.Info:AddParagraph({
+        Title = "Toolbox // No",
+        Content = "Checks for Toolbox"
+})
+
+task.spawn(function()
+while true do
+if game.Workspace:FindFirstChild("Toolbox") then
+SiphonText:SetTitle("ToolBox // Yes")
+			else
+SiphonText:SetTitle("ToolBox // No")
 end
 task.wait(0.001)
     end
