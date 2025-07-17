@@ -271,6 +271,7 @@ HRP.CFrame = CFrame.new(220.62793, 26.9119072, 189.395142, 0.760179281, 2.943524
 task.wait(0.5)
 fireproximityprompt(workspace.Arena.CannonIsland.GlovelHoleInTheWall.ProximityPrompt)
 task.wait(0.5)
+HRP.CFrame = CFrame.new(-210.165329, 7.0089736, 0.595660448, 0.106427543, -7.25070226e-09, -0.994320452, 8.1350473e-09, 1, -6.42137987e-09, 0.994320452, -7.40543271e-09, 0.106427543)
     end
 })
 
