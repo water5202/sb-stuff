@@ -65,8 +65,8 @@ local Window = Fluent:CreateWindow({
 })
 
 local Tabs = {
-    AutoFish = Window:AddTab({ Title = "AutoFish", Icon = "hammer" }),
-    AutoBrickMaster = Window:AddTab({ Title = "AutoBrickMaster", Icon = "hammer" }),
+    AutoFish = Window:AddTab({ Title = "Auto Fish", Icon = "hammer" }),
+    AutoBrickMaster = Window:AddTab({ Title = "Auto BrickMaster", Icon = "hammer" }),
     SlapFarm = Window:AddTab({ Title = "Slap Farm", Icon = "hammer" }),
     BobFarm = Window:AddTab({ Title = "Bob Farm", Icon = "hammer" }),
     Badges = Window:AddTab({ Title = "Badges", Icon = "box" }),
