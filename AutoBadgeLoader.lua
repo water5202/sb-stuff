@@ -409,7 +409,7 @@ local brickfarming = false
 
 local brickfarmer = Tabs.Badges:AddToggle("TheCoolestBrickToggle", {
     Title = "Auto BrickMaster",
-    Description = "Tycoon Glove",
+    Description = "",
     Default = false,
     Callback = function(state)
         brickfarming = state
