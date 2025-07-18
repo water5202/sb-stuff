@@ -571,7 +571,7 @@ Tabs.SlapFarm:AddButton({
 
 local slapplefarming = false
 
-local slapplefarmtoggle = Tabs.BobFarm:AddToggle("SexySlappleTouch", {
+local slapplefarmtoggle = Tabs.SlapFarm:AddToggle("SexySlappleTouch", {
     Title = "Auto Slapples",
     Description = "Lags a little?",
     Default = false,
