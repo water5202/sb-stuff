@@ -1,5 +1,6 @@
 local Fluent = loadstring(game:HttpGet("https://github.com/dawid-scripts/Fluent/releases/latest/download/main.lua"))()
 local Players = game:GetService("Players")
+local BRICKLABEL = game:GetService("Players").LocalPlayer.PlayerGui.BRICKCOUNT.ImageLabel.TextLabel
 local localplayer = Players.LocalPlayer
 local UIS = game:GetService("UserInputService")
 local VirtualInput = game:GetService("VirtualUser")
@@ -395,6 +396,7 @@ Tabs.AutoBrickMaster:AddButton({
     end
 })
 
+local brickvar = 0
 local BrickAutoToggle = Tabs.AutoBrickMaster:AddToggle("SexyBrickToggle", 
 {
 Title = "Auto Brick", 
@@ -404,6 +406,9 @@ Title = "Auto Brick",
 	if state then
 Brickconnection = RunService.Heartbeat:Connect(function()
     game:GetService("ReplicatedStorage").lbrick:FireServer()
+brickvar = tonumber(BRICKLABEL.Text) or 0
+brickvar = brickvar + 1
+BRICKLABEL.Text = tostring(brickvar)
     task.wait(0.7)
 end)         
 else
