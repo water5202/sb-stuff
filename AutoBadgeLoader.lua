@@ -569,6 +569,31 @@ Tabs.SlapFarm:AddButton({
     end
 })
 
+local slapplefarming = false
+
+local slapplefarmtoggle = Tabs.BobFarm:AddToggle("SexySlappleTouch", {
+    Title = "Auto Slapples",
+    Description = "Lags a little?",
+    Default = false,
+    Callback = function(state)
+        slapplefarming = state
+        if slapplefarming and localplayer.Character:FindFirstChild("entered") then
+	task.wait(0.5)
+            task.spawn(function()
+                while slapplefarming do
+HRP = game.Players.LocalPlayer.Character.HumanoidRootPart
+for _,Slapples in pairs(workspace.Arena.island5.Slapples:GetChildren()) do
+firetouchinterest(HRP, Slapples.Glove, 0)
+task.wait(0.5)
+firetouchinterest(HRP, Slapples.Glove, 1)
+end
+		task.wait(1)
+                end
+            end)
+        end
+    end
+})
+
 local AntiAfk = Tabs.Settings:AddToggle("SexyAntiAfkToggle", {
     Title = "Anti Afk", 
     Description = "Disables being kicked",
