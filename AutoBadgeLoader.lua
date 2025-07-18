@@ -6,14 +6,14 @@ local VirtualInput = game:GetService("VirtualUser")
 local HRP
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 local LocalPlayer = Players.LocalPlayer
-local GeneralHit = ReplicatedStorage:WaitForChild("GeneralHit") -- Dual's Double hit event
+local GeneralHit = ReplicatedStorage:WaitForChild("GeneralHit") -- Dual's Double hit Event
 local Ping
 local idledConnection
 local Brickconnection = nil
 local RunService = game:GetService("RunService")
 local ArenaPart = workspace.Lobby.Teleport1
 local GOTOPLAYER
-local Duplicate = ReplicatedStorage:WaitForChild("Duplicate")
+local Duplicate = ReplicatedStorage:WaitForChild("Duplicate") -- Replica's Duplicate Event
 --
 function SpawnReplica()
 Duplicate:FireServer()
