@@ -397,27 +397,27 @@ Tabs.AutoBrickMaster:AddButton({
 })
 
 local brickvar
-local BrickAutoToggle = Tabs.AutoBrickMaster:AddToggle("SexyBrickToggle", 
-{
-Title = "Auto Brick", 
+local BrickAutoToggle = Tabs.AutoBrickMaster:AddToggle("SexyBrickToggle", {
+    Title = "Auto Brick", 
     Description = "Fires the Brick Remote",
     Default = false,
     Callback = function(state)
-	if state then
-Brickconnection = RunService.Heartbeat:Connect(function()
-if game.Players.LocalPlayer.Character:FindFirstChild("entered") then
-BRICKLABEL = game:GetService("Players").LocalPlayer.PlayerGui.BRICKCOUNT.ImageLabel.TextLabel
-    game:GetService("ReplicatedStorage").lbrick:FireServer()
-brickvar = tonumber(BRICKLABEL.Text) or 0
-brickvar = brickvar + 1
-BRICKLABEL.Text = tostring(brickvar)
-    task.wait(0.7)
-end)         
-else
-if Brickconnection then
-Brickconnection:Disconnect()
-Brickconnection = nil
-end
+        if state then
+            Brickconnection = RunService.Heartbeat:Connect(function()
+                if game.Players.LocalPlayer.Character:FindFirstChild("entered") then
+                    BRICKLABEL = game.Players.LocalPlayer.PlayerGui.BRICKCOUNT.ImageLabel.TextLabel
+                    game.ReplicatedStorage.lbrick:FireServer()
+                    brickvar = tonumber(BRICKLABEL.Text) or 0
+                    brickvar = brickvar + 1
+                    BRICKLABEL.Text = tostring(brickvar)
+                    task.wait(0.7)
+                end
+            end)
+        else
+            if Brickconnection then
+                Brickconnection:Disconnect()
+                Brickconnection = nil
+            end
         end
     end 
 })
