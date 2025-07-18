@@ -596,7 +596,7 @@ end
 
 local platefarming = false
 
-local platefarmer = Tabs.SlapFarm:AddToggle("TheCoolestPlateToggle", {
+local platefarmer = Tabs.Badges:AddToggle("TheCoolestPlateToggle", {
     Title = "Auto Plate",
     Description = "Tycoon Glove",
     Default = false,
