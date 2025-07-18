@@ -365,7 +365,7 @@ local AutoSlapToggle = Tabs.SlapFarm:AddToggle("SexySlapAura", {
                             GeneralHit:FireServer(targetLimb)
                         end
                     end
-                    task.wait(0.91)
+                    task.wait(0.85)
                 end
             end)
         end
