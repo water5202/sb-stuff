@@ -417,7 +417,7 @@ local brickfarmer = Tabs.Badges:AddToggle("TheCoolestBrickToggle", {
             task.spawn(function()
                 while brickfarming do
 AutoBrick()
-task.wait(1)
+task.wait(1.3)
                 end
             end)
         end
