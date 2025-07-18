@@ -556,7 +556,7 @@ Tabs.Settings:AddButton({
                     {
                         Title = "Confirm",
                         Callback = function()
-                            localplayer:Kick("Kicked // " .. localplayer)
+                            game.Players.LocalPlayer:Kick("Kicked // " .. localplayer)
                         end
                     },
                     {
