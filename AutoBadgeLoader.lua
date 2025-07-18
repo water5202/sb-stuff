@@ -407,7 +407,7 @@ end
 
 local brickfarming = false
 
-local brickfarmer = Tabs.Badges:AddToggle("TheCoolestBrickToggle", {
+local brickfarmer = Tabs.AutoBrickMaster:AddToggle("TheCoolestBrickToggle", {
     Title = "Auto BrickMaster",
     Description = "",
     Default = false,
