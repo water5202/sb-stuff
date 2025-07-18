@@ -397,30 +397,31 @@ Tabs.AutoBrickMaster:AddButton({
 })
 
 local brickvar
-local BrickAutoToggle = Tabs.AutoBrickMaster:AddToggle("SexyBrickToggle", 
-{
-Title = "Auto Brick", 
-    Description = "Fires the Brick Remote",
-    Default = false,
-    Callback = function(state)
-	if state then
-Brickconnection = RunService.Heartbeat:Connect(function()
-if game.Players.LocalPlayer.Character:FindFirstChild("entered") then
+function AutoBrick()
 BRICKLABEL = game:GetService("Players").LocalPlayer.PlayerGui.BRICKCOUNT.ImageLabel.TextLabel
     game:GetService("ReplicatedStorage").lbrick:FireServer()
 brickvar = tonumber(BRICKLABEL.Text) or 0
 brickvar = brickvar + 1
 BRICKLABEL.Text = tostring(brickvar)
-    task.wait(0.7)
 end
-end)         
-else
-if Brickconnection then
-Brickconnection:Disconnect()
-Brickconnection = nil
-end
+
+local brickfarming = false
+
+local brickfarmer = Tabs.Badges:AddToggle("TheCoolestBrickToggle", {
+    Title = "Auto BrickMaster",
+    Description = "Tycoon Glove",
+    Default = false,
+    Callback = function(state)
+        brickfarming = state
+        if brickfarming and localplayer.Character:FindFirstChild("entered") then
+            task.spawn(function()
+                while brickfarming do
+AutoBrick()
+task.wait(1)
+                end
+            end)
         end
-    end 
+    end
 })
 -- dunno why i decided to use RunService for a loop but whatever
 
@@ -657,11 +658,6 @@ Tabs.Settings:AddButton({
     Title = "Unload UI",
     Description = "Unloads UI",
     Callback = function()
-       		BrickAutoToggle:SetValue(false)
-		AntiAfk:SetValue(false)
-		GOTOPLAYERTELEPORTER:SetValue(false)
-		bobfarmtoggle:SetValue(false)
-		AutoSlapToggle:SetValue(false)
                 game.Workspace:WaitForChild("AutoFarmPart"):Destroy()
                 Fluent:Destroy()
     end
