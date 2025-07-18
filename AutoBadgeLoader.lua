@@ -608,6 +608,7 @@ local platefarmer = Tabs.SlapFarm:AddToggle("TheCoolestPlateToggle", {
                 while platefarming do
 HRP = game.Players.LocalPlayer.Character.HumanoidRootPart
 HRP.CFrame = workspace.Arena.Plate.CFrame
+task.wait(0.001)
                 end
             end)
         end
