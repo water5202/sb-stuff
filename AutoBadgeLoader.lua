@@ -308,7 +308,7 @@ firetouchinterest(HRP,  ArenaPart, 0)
 task.wait(0.1)
 firetouchinterest(HRP, ArenaPart, 1)
 task.wait(0.5)
-localplayer.Character.HumanoidRootPart.CFrame = CFrame.new(-108000.688, -116.882454, -2901.13306, 1, 0.000118658187, -2.09227746e-05, -1.09000396e-12, 0.173649266, 0.984807551, 0.000120488701, -0.984807551, 0.173649266)
+localplayer.Character.HumanoidRootPart.CFrame = CFrame.new(-108000.6895, -119.158432, -2900.86475, 1, 0, 0, 0, 1, 0, 0, 0, 1)
     end
 })
 
