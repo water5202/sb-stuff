@@ -4,13 +4,16 @@ local localplayer = Players.LocalPlayer
 local UIS = game:GetService("UserInputService")
 local VirtualInput = game:GetService("VirtualUser")
 local HRP
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+local LocalPlayer = Players.LocalPlayer
+local GeneralHit = ReplicatedStorage:WaitForChild("GeneralHit") -- Dual's Double hit event
 local Ping
 local idledConnection
 local Brickconnection = nil
 local RunService = game:GetService("RunService")
 local ArenaPart = workspace.Lobby.Teleport1
 local GOTOPLAYER
-local Duplicate = game:GetService("ReplicatedStorage"):WaitForChild("Duplicate")
+local Duplicate = ReplicatedStorage:WaitForChild("Duplicate")
 --
 function SpawnReplica()
 Duplicate:FireServer()
@@ -345,11 +348,6 @@ local GOTOPLAYERTELEPORTER = Tabs.SlapFarm:AddToggle("SexyCoolSlapTeleportToggle
     end
 })
 
-local ReplicatedStorage = game:GetService("ReplicatedStorage")
-local Players = game:GetService("Players")
-local LocalPlayer = Players.LocalPlayer
-local GeneralHit = ReplicatedStorage:WaitForChild("GeneralHit")
-
 local SlapAuraRunning = false
 
 local AutoSlapToggle = Tabs.SlapFarm:AddToggle("SexySlapAura", {
@@ -419,36 +417,20 @@ end
 -- dunno why i decided to use RunService for a loop but whatever
 
 Tabs.AutoFish:AddButton({
-        Title = "Goto SafeSpot",
-        Description = "",
-        Callback = function()
-            Window:Dialog({
-                Title = "Confirm Teleport?",
-                Content = "",
-                Buttons = {
-                    {
-                        Title = "Confirm",
-                        Callback = function()
-HRP = localplayer.Character.HumanoidRootPart
+    Title = "Goto Safespot",
+    Description = "",
+    Callback = function()
+       HRP = localplayer.Character.HumanoidRootPart
                             firetouchinterest(HRP,  ArenaPart, 0)
                             task.wait(0.1)
                             firetouchinterest(HRP, ArenaPart, 1)
 			    task.wait(0.3)
                             localplayer.Character:WaitForChild("HumanoidRootPart").CFrame = CFrame.new(-108000.6895, -119.158432, -2900.86475, 1, 0, 0, 0, 1, 0, 0, 0, 1)
                                 task.wait(0.2)
-                            if game.Players.LocalPlayer.leaderstats.Glove.Value == "ZZZZZZZ" then
-                                game:GetService("ReplicatedStorage"):WaitForChild("ZZZZZZZSleep"):FireServer()
-                            end
-                        end
-                    },
-                    {
-                        Title = "Cancel",
-                        Callback = function()
-                        end
-                    }
-                }
-            })
+        if game.Players.LocalPlayer.leaderstats.Glove.Value == "ZZZZZZZ" then
+          game:GetService("ReplicatedStorage"):WaitForChild("ZZZZZZZSleep"):FireServer()
         end
+    end
 })
 
 Tabs.Badges:AddButton({
@@ -476,32 +458,16 @@ game:GetService("TeleportService"):Teleport(17290438723)
 })
 
 Tabs.AutoBrickMaster:AddButton({
-        Title = "Goto SafeSpot",
-        Description = "",
-        Callback = function()
-            Window:Dialog({
-                Title = "Confirm Teleport?",
-                Content = "",
-                Buttons = {
-                    {
-                        Title = "Confirm",
-                        Callback = function()
-HRP = localplayer.Character.HumanoidRootPart            
+    Title = "Goto Safespot",
+    Description = "",
+    Callback = function()
+       HRP = localplayer.Character.HumanoidRootPart
                             firetouchinterest(HRP,  ArenaPart, 0)
                             task.wait(0.1)
                             firetouchinterest(HRP, ArenaPart, 1)
 			    task.wait(0.3)
-                            localplayer.Character:WaitForChild("HumanoidRootPart").CFrame = CFrame.new(-108000.6895, -119.158432, -2900.86475, 1, 0, 0, 0, 1, 0, 0, 0, 1)
-                        end
-                    },
-                    {
-                        Title = "Cancel",
-                        Callback = function()
-                        end
-                    }
-                }
-            })
-        end
+                 localplayer.Character:WaitForChild("HumanoidRootPart").CFrame = CFrame.new(-108000.6895, -119.158432, -2900.86475, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+    end
 })
 
 Tabs.BobFarm:AddButton({
@@ -534,32 +500,16 @@ local bobfarmtoggle = Tabs.BobFarm:AddToggle("SexySpawnReplica", {
 
 
 Tabs.BobFarm:AddButton({
-        Title = "Goto Safespot",
-        Description = "",
-        Callback = function()
-            Window:Dialog({
-                Title = "Confirm Teleport?",
-                Content = "",
-                Buttons = {
-                    {
-                        Title = "Confirm",
-                        Callback = function()
-HRP = localplayer.Character.HumanoidRootPart            
+    Title = "Goto Safespot",
+    Description = "",
+    Callback = function()
+       HRP = localplayer.Character.HumanoidRootPart
                             firetouchinterest(HRP,  ArenaPart, 0)
                             task.wait(0.1)
                             firetouchinterest(HRP, ArenaPart, 1)
 			    task.wait(0.3)
-                            localplayer.Character:WaitForChild("HumanoidRootPart").CFrame = CFrame.new(-108000.6895, -119.158432, -2900.86475, 1, 0, 0, 0, 1, 0, 0, 0, 1)
-                        end
-                    },
-                    {
-                        Title = "Cancel",
-                        Callback = function()
-                        end
-                    }
-                }
-            })
-        end
+                 localplayer.Character:WaitForChild("HumanoidRootPart").CFrame = CFrame.new(-108000.6895, -119.158432, -2900.86475, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+    end
 })
 
 Tabs.Settings:AddButton({
