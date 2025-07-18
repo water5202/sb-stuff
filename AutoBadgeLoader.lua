@@ -396,7 +396,7 @@ Tabs.AutoBrickMaster:AddButton({
     end
 })
 
-local brickvar = 0
+local brickvar
 local BrickAutoToggle = Tabs.AutoBrickMaster:AddToggle("SexyBrickToggle", 
 {
 Title = "Auto Brick", 
