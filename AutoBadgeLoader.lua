@@ -1,6 +1,6 @@
 local Fluent = loadstring(game:HttpGet("https://github.com/dawid-scripts/Fluent/releases/latest/download/main.lua"))()
 local Players = game:GetService("Players")
-local BRICKLABEL = game:GetService("Players").LocalPlayer.PlayerGui.BRICKCOUNT.ImageLabel.TextLabel
+local BRICKLABEL
 local localplayer = Players.LocalPlayer
 local UIS = game:GetService("UserInputService")
 local VirtualInput = game:GetService("VirtualUser")
@@ -405,6 +405,8 @@ Title = "Auto Brick",
     Callback = function(state)
 	if state then
 Brickconnection = RunService.Heartbeat:Connect(function()
+if game.Players.LocalPlayer.Character:FindFirstChild("entered") then
+BRICKLABEL = game:GetService("Players").LocalPlayer.PlayerGui.BRICKCOUNT.ImageLabel.TextLabel
     game:GetService("ReplicatedStorage").lbrick:FireServer()
 brickvar = tonumber(BRICKLABEL.Text) or 0
 brickvar = brickvar + 1
