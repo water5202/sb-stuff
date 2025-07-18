@@ -594,6 +594,26 @@ end
     end
 })
 
+local platefarming = false
+
+local platefarmer = Tabs.SlapFarm:AddToggle("TheCoolestPlateToggle", {
+    Title = "Auto Plate",
+    Description = "Tycoon Glove",
+    Default = false,
+    Callback = function(state)
+        platefarming = state
+        if platefarming and localplayer.Character:FindFirstChild("entered") then
+	task.wait(0.5)
+            task.spawn(function()
+                while platefarming do
+HRP = game.Players.LocalPlayer.Character.HumanoidRootPart
+HRP.CFrame = workspace.Arena.Plate.CFrame
+                end
+            end)
+        end
+    end
+})
+
 local AntiAfk = Tabs.Settings:AddToggle("SexyAntiAfkToggle", {
     Title = "Anti Afk", 
     Description = "Disables being kicked",
