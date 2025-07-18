@@ -317,7 +317,7 @@ local teleporting = false
 
 local ChangeGOTOPLAYER = Tabs.SlapFarm:AddInput("SexyInputBox", {
     Title = "",
-    Description = "//",
+    Description = "",
     Default = nil,
     Placeholder = "//",
     Numeric = false, 
@@ -532,7 +532,6 @@ Tabs.Settings:AddButton({
                     {
                         Title = "Confirm",
                         Callback = function()
-			BrickAutoToggle:SetValue(false)
                             game.Players.LocalPlayer.Character.Humanoid.Health = 0
                         end
                     },
