@@ -227,6 +227,14 @@ Tabs.Badges:AddButton({
 })
 
 Tabs.Badges:AddButton({
+    Title = "Get Lamp",
+    Description = "so free lmao",
+    Callback = function()
+         game:GetService("ReplicatedStorage").nightmare:FireServer("LightBroken")
+    end
+})
+
+Tabs.Badges:AddButton({
     Title = "Get Boxing Glove",
     Description = "Gets Boxing Glove automatically",
     Callback = function()
