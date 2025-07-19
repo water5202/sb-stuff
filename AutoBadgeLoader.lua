@@ -50,7 +50,7 @@ local bypass;
 Fluent:Notify({Title = "Interface", Content = "Bypassed AntiCheat!", SubContent = "HookMeta Method", Duration = 5})
 
 if game.Workspace:FindFirstChild("SafeSpotPart") then 
-    game.Workspace.AutoFarmPart:Destroy() 
+    game.Workspace.SafeSpotPart:Destroy() 
 end
 
 local MusicPlayer = Instance.new("Sound")
@@ -86,6 +86,56 @@ local Tabs = {
     MusicPlayer = Window:AddTab({ Title = "Music Player", Icon = "music" }),
     Settings = Window:AddTab({ Title = "Settings", Icon = "settings" })
 }
+
+local MusicInput = Tabs.MusicPlayer:AddInput("SexyMusicPlayerInput", {
+    Title = "SoundID",
+    Description = "",
+    Default = "",
+    Placeholder = "//",
+    Numeric = false,
+    Finished = false,
+    Callback = function(Value)
+        MusicPlayer.SoundId = "rblxassetid://" .. Value
+    end
+})
+
+local MusicVolume = Tabs.MusicPlayer:AddInput("SexyMusicVolumeInput", {
+    Title = "Music Volume",
+    Description = "",
+    Default = "",
+    Placeholder = "//",
+    Numeric = true,
+    Finished = false,
+    Callback = function(Value)
+        MusicPlayer.Volume = Value
+    end
+})
+
+local CanTheMusicLoop = Tabs.MusicPlayer:AddToggle("MusicLooperToggle", 
+{
+    Title = "Music Loop?", 
+    Description = "Loops Music or not",
+    Default = false
+    Callback = function(state)
+	if state then
+	    MusicPlayer.Looped = true
+	else
+	    MusicPlayer.Looped = false
+        end
+    end 
+})
+
+local MusicStart = Tabs.MusicPlayer:AddInput("SexyMusicStartInput", {
+    Title = "Music TimePosition",
+    Description = "",
+    Default = "",
+    Placeholder = "//",
+    Numeric = true,
+    Finished = false,
+    Callback = function(Value)
+        MusicPlayer.TimePosition = Value
+    end
+})
 
 local SlapsText = Tabs.Info:AddParagraph({
         Title = "Slaps // ?",
