@@ -83,11 +83,11 @@ local Tabs = {
     BobFarm = Window:AddTab({ Title = "Bob Farm", Icon = "hammer" }),
     Badges = Window:AddTab({ Title = "Badges", Icon = "box" }),
     Info = Window:AddTab({ Title = "Info", Icon = "info" }),
-    MusicPlayer = Window:AddTab({ Title = "Music Player", Icon = "music" }),
+    MusicPlayerTab = Window:AddTab({ Title = "Music Player", Icon = "music" }),
     Settings = Window:AddTab({ Title = "Settings", Icon = "settings" })
 }
 
-local MusicInput = Tabs.MusicPlayer:AddInput("SexyMusicPlayerInput", {
+local MusicInput = Tabs.MusicPlayerTab:AddInput("SexyMusicPlayerInput", {
     Title = "SoundID",
     Description = "",
     Default = "",
@@ -99,7 +99,7 @@ local MusicInput = Tabs.MusicPlayer:AddInput("SexyMusicPlayerInput", {
     end
 })
 
-local MusicVolume = Tabs.MusicPlayer:AddInput("SexyMusicVolumeInput", {
+local MusicVolume = Tabs.MusicPlayerTab:AddInput("SexyMusicVolumeInput", {
     Title = "Music Volume",
     Description = "rbxassetid://",
     Default = "",
@@ -111,7 +111,7 @@ local MusicVolume = Tabs.MusicPlayer:AddInput("SexyMusicVolumeInput", {
     end
 })
 
-local CanTheMusicLoop = Tabs.MusicPlayer:AddToggle("MusicLooperToggle", 
+local CanTheMusicLoop = Tabs.MusicPlayerTab:AddToggle("MusicLooperToggle", 
 {
     Title = "Music Loop?", 
     Description = "Loops Music or not",
@@ -125,6 +125,15 @@ local CanTheMusicLoop = Tabs.MusicPlayer:AddToggle("MusicLooperToggle",
     end 
 })
 
+Tabs.MusicPlayerTab:AddButton({
+    Title = "Play Music",
+    Description = "",
+    Callback = function()
+        MusicPlayer.Playing = not MusicPlayer.Playing
+    end
+})
+
+rbxassetid://104444754535943
 local MusicStart = Tabs.MusicPlayer:AddInput("SexyMusicStartInput", {
     Title = "Music TimePosition",
     Description = "",
