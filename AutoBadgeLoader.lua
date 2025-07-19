@@ -133,7 +133,6 @@ Tabs.MusicPlayerTab:AddButton({
     end
 })
 
-rbxassetid://104444754535943
 local MusicStart = Tabs.MusicPlayer:AddInput("SexyMusicStartInput", {
     Title = "Music TimePosition",
     Description = "",
