@@ -1,0 +1,31 @@
+if not game:IsLoaded() then
+game.Loaded:Wait()
+end
+
+local Fluent = loadstring(game:HttpGet("https://github.com/dawid-scripts/Fluent/releases/latest/download/main.lua"))()
+
+local Window = Fluent:CreateWindow({
+    Title = "Wheres Guide Resides // " .. identifyexecutor(),
+    SubTitle = "",
+    TabWidth = 160,
+    Size = UDim2.fromOffset(400, 300),
+    Acrylic = false, -- breaks far out
+    Theme = "Dark",
+    MinimizeKey = Enum.KeyCode.H
+})
+
+Main = Window:AddTab({ Title = "Guide", Icon = "hammer" })
+
+Main:AddButton({
+    Title = "Get Heart and Healing",
+    Description = "Very important button",
+    Callback = function()
+        firetouchinterest(game.Players.LocalPlayer.Character.HumanoidRootPart, workspace["Big Heart"], 0)
+        task.wait(0.5)
+        firetouchinterest(game.Players.LocalPlayer.Character.HumanoidRootPart, workspace["Big Heart"], 1)
+        task.wait(0.5)
+        firetouchinterest(game.Players.LocalPlayer.Character.HumanoidRootPart, workspace["the cube of life"], 0)
+        task.wait(0.5)
+        firetouchinterest(game.Players.LocalPlayer.Character.HumanoidRootPart, workspace["the cube of life"], 1)
+    end
+})
