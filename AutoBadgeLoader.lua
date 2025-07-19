@@ -115,7 +115,7 @@ local CanTheMusicLoop = Tabs.MusicPlayerTab:AddToggle("MusicLooperToggle",
 {
     Title = "Music Loop?", 
     Description = "Loops Music or not",
-    Default = false
+    Default = false,
     Callback = function(state)
 	if state then
 	    MusicPlayer.Looped = true
