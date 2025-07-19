@@ -282,12 +282,12 @@ Tabs.Badges:AddButton({
     Title = "Get [REDACTED]",
     Description = "Must Have 5000 Slaps",
     Callback = function()
-if localplayer.Character:FindFirstChild("entered") and localplayer.leaderstats.Slaps.Value >= 5000 then
+if localplayer.Character:FindFirstChild("entered") and game:GetService("Players").LocalPlayer.leaderstats.Slaps.Value >= 5000 then
 	firetouchinterest(game.Players.LocalPlayer.Character.HumanoidRootPart, workspace.PocketDimension.Doors["9"], 0)
 	task.wait(0.1)
 	firetouchinterest(game.Players.LocalPlayer.Character.HumanoidRootPart, workspace.PocketDimension.Doors["9"], 1)
 			else
-	Fluent:Notify({Title = "Interface",Content = "Not Enough Slaps",SubContent = "",Duration = 5})
+	Fluent:Notify({Title = "Interface", Content = "Not Enough Slaps", SubContent = "", Duration = 5})
     end
 })
 
