@@ -61,22 +61,23 @@ Platform.Size = Vector3.new(84, 5, 82)
 Platform.Transparency = 0.5
 Platform.Anchored = true
 
-task.spawn(function()
-while true do
-time = os.date("%H:%M:%S")
-task.wait(0.1)
-end			
-end)
-
 local Window = Fluent:CreateWindow({
     Title = "Auto Badges // " .. identifyexecutor(),
-    SubTitle = time,
+    SubTitle = "//",
     TabWidth = 120,
     Size = UDim2.fromOffset(400, 300),
     Acrylic = false,
     Theme = "Dark",
     MinimizeKey = Enum.KeyCode.H
 })
+
+task.spawn(function()
+while true do
+time = os.date("%H:%M:%S")
+Window:SetSubTitle(time)
+task.wait(0.1)
+end			
+end)
 
 local Tabs = {
     AutoFish = Window:AddTab({ Title = "Auto Fish", Icon = "hammer" }),
