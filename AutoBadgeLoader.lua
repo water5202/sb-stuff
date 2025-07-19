@@ -35,6 +35,7 @@ local bypass;
             return
         end
         return bypass(method, ...)
+	Fluent:Notify({Title = "Interface", Content = "Bypassed AntiCheat!", SubContent = "GiangMc's Method", Duration = 5})
     end)
 
 if game.Workspace:FindFirstChild("SafeSpotPart") then 
