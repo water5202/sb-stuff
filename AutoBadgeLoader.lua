@@ -12,6 +12,7 @@ local ReplicatedStorage = game:GetService("ReplicatedStorage")
 local localplayer = Players.LocalPlayer
 local GeneralHit = ReplicatedStorage:WaitForChild("GeneralHit") -- Dual's Double hit Event
 local Ping
+local TARGETSLAPPLAYER
 local idledConnection
 local Brickconnection = nil
 local RunService = game:GetService("RunService")
@@ -326,18 +327,6 @@ localplayer.Character.HumanoidRootPart.CFrame = CFrame.new(-108000.6895, -119.15
 
 local teleporting = false
 
-local ChangeGOTOPLAYER = Tabs.SlapFarm:AddInput("SexyInputBox", {
-    Title = "",
-    Description = "",
-    Default = nil,
-    Placeholder = "//",
-    Numeric = false, 
-    Finished = false,
-    Callback = function(input)
-        GOTOPLAYER = game.Players:FindFirstChild(input)
-    end
-})
-
 local GOTOPLAYERTELEPORTER = Tabs.SlapFarm:AddToggle("SexyCoolSlapTeleportToggle", {
     Title = "Teleport to Player", 
     Description = "For Alt Account",
@@ -359,6 +348,18 @@ local GOTOPLAYERTELEPORTER = Tabs.SlapFarm:AddToggle("SexyCoolSlapTeleportToggle
     end
 })
 
+local ChangeGOTOPLAYER = Tabs.SlapFarm:AddInput("SexyInputBox", {
+    Title = "",
+    Description = "TP",
+    Default = nil,
+    Placeholder = "//",
+    Numeric = false, 
+    Finished = false,
+    Callback = function(input)
+        GOTOPLAYER = game.Players:FindFirstChild(input)
+    end
+})
+
 local SlapAuraRunning = false
 
 local AutoSlapToggle = Tabs.SlapFarm:AddToggle("SexySlapAura", {
@@ -370,19 +371,28 @@ local AutoSlapToggle = Tabs.SlapFarm:AddToggle("SexySlapAura", {
         if SlapAuraRunning then
             task.spawn(function()
                 while SlapAuraRunning do
-                    for _, player in pairs(Players:GetPlayers()) do
-                        if player ~= localplayer and player.Character and player.Character:FindFirstChild("HumanoidRootPart") then
-                            local targetLimb = player.Character.HumanoidRootPart
-                            GeneralHit:FireServer(targetLimb)
-                        end
-                    end
-                    task.wait(0.85)
+local args = {
+	game:GetService("Players"):WaitForChild(TARGETSLAPPLAYER).Character:WaitForChild("HumanoidRootPart")
+}
+game:GetService("ReplicatedStorage"):WaitForChild("GeneralHit"):FireServer(unpack(args))
+		task.wait(0.5)
                 end
             end)
         end
     end
 })
 
+local ChangeTARGETSLAPPLAYER = Tabs.SlapFarm:AddInput("SexyInputBox2", {
+    Title = "",
+    Description = "Slap Aura",
+    Default = nil,
+    Placeholder = "//",
+    Numeric = false, 
+    Finished = false,
+    Callback = function(input)
+        TARGETSLAPPLAYER = game.Players:FindFirstChild(input)
+    end
+})
 
 Tabs.Badges:AddButton({
     Title = "Elude Maze Teleport",
