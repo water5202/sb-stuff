@@ -37,31 +37,17 @@ local bypass;
         return bypass(method, ...)
     end)
 
-Fluent:Notify({
-        Title = "Interface",
-        Content = "Bypassed AntiCheat!",
-        SubContent = "GiangMc's Method",
-        Duration = 3
-})
-
-if game.Workspace:FindFirstChild("AutoFarmPart") then 
+if game.Workspace:FindFirstChild("SafeSpotPart") then 
     game.Workspace.AutoFarmPart:Destroy() 
 end
 
 local Platform = Instance.new("Part")
-Platform.Name = "AutoFarmPart"
+Platform.Name = "SafeSpotPart"
 Platform.Parent = workspace
 Platform.CFrame = CFrame.new(-108000.6895, -122.158432, -2900.86475, 1, 0, 0, 0, 1, 0, 0, 0, 1)
 Platform.Size = Vector3.new(84, 5, 82)
 Platform.Transparency = 0.5
 Platform.Anchored = true
-
-Fluent:Notify({
-        Title = "Interface",
-        Content = "Platform Loaded!",
-        SubContent = "",
-        Duration = 3
-})
 
 local Window = Fluent:CreateWindow({
     Title = "Auto Badges // " .. identifyexecutor(),
