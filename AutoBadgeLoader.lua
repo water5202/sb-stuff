@@ -18,6 +18,7 @@ local Brickconnection = nil
 local RunService = game:GetService("RunService")
 local ArenaPart = workspace.Lobby.Teleport1
 local GOTOPLAYER = nil
+local GS
 local Duplicate = ReplicatedStorage:WaitForChild("Duplicate") -- Replica's Duplicate Event
 --
 function SpawnReplica()
@@ -128,6 +129,19 @@ local CODETEXT = Tabs.Info:AddParagraph({
 task.spawn(function()
 while true do
 CODETEXT:SetTitle("Keypad Code // "..tostring((#game.Players:GetPlayers()) * 25 + 1100 - 7))
+task.wait(0.001)
+    end
+end)
+
+local GloveStandText = Tabs.Info:AddParagraph({
+        Title = "Glove Stands // Numb",
+        Content = "Increased alot"
+})
+
+task.spawn(function()
+while true do
+GS = #workspace.Lobby.GloveStands:GetChildren()
+GloveStandText:SetTitle("Glove Stands // " .. GS)
 task.wait(0.001)
     end
 end)
