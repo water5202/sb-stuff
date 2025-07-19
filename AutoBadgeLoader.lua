@@ -95,13 +95,13 @@ local MusicInput = Tabs.MusicPlayer:AddInput("SexyMusicPlayerInput", {
     Numeric = false,
     Finished = false,
     Callback = function(Value)
-        MusicPlayer.SoundId = "rblxassetid://" .. Value
+        MusicPlayer.SoundId = Value
     end
 })
 
 local MusicVolume = Tabs.MusicPlayer:AddInput("SexyMusicVolumeInput", {
     Title = "Music Volume",
-    Description = "",
+    Description = "rbxassetid://",
     Default = "",
     Placeholder = "//",
     Numeric = true,
