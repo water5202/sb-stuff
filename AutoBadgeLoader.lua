@@ -288,6 +288,7 @@ if localplayer.Character:FindFirstChild("entered") and game:GetService("Players"
 	firetouchinterest(game.Players.LocalPlayer.Character.HumanoidRootPart, workspace.PocketDimension.Doors["9"], 1)
 			else
 	Fluent:Notify({Title = "Interface", Content = "Not Enough Slaps", SubContent = "", Duration = 5})
+			end
     end
 })
 
