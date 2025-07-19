@@ -19,11 +19,20 @@ local Brickconnection = nil
 local RunService = game:GetService("RunService")
 local ArenaPart = workspace.Lobby.Teleport1
 local GOTOPLAYER = nil
+local brickvar
 local GS
 local Duplicate = ReplicatedStorage:WaitForChild("Duplicate") -- Replica's Duplicate Event
---
+-- 1
 function SpawnReplica()
 Duplicate:FireServer()
+end
+-- 2
+function AutoBrick()
+BRICKLABEL = game:GetService("Players").LocalPlayer.PlayerGui.BRICKCOUNT.ImageLabel.TextLabel
+game:GetService("ReplicatedStorage").lbrick:FireServer()
+brickvar = tonumber(BRICKLABEL.Text) or 0
+brickvar = brickvar + 1
+BRICKLABEL.Text = tostring(brickvar)
 end
 --
 local bypass;
@@ -433,15 +442,6 @@ Tabs.AutoBrickMaster:AddButton({
          fireclickdetector(workspace.Lobby.Brick.ClickDetector)
     end
 })
-
-local brickvar
-function AutoBrick()
-BRICKLABEL = game:GetService("Players").LocalPlayer.PlayerGui.BRICKCOUNT.ImageLabel.TextLabel
-    game:GetService("ReplicatedStorage").lbrick:FireServer()
-brickvar = tonumber(BRICKLABEL.Text) or 0
-brickvar = brickvar + 1
-BRICKLABEL.Text = tostring(brickvar)
-end
 
 local brickfarming = false
 
