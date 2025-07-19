@@ -619,11 +619,6 @@ Tabs.SlapFarm:AddButton({
     end
 })
 
-local OtherSec = Tabs.SlapFarm:AddSection("OtherSlap")
-Section:AddParagraph({
-    Title = "Other"
-})
-
 local slapplefarming = false
 
 local slapplefarmtoggle = Tabs.SlapFarm:AddToggle("SexySlappleTouch", {
