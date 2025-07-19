@@ -348,9 +348,8 @@ local GOTOPLAYERTELEPORTER = Tabs.SlapFarm:AddToggle("SexyCoolSlapTeleportToggle
             task.spawn(function()
                 while teleporting do
                     if GOTOPLAYER and GOTOPLAYER.Character and GOTOPLAYER.Character:FindFirstChild("HumanoidRootPart") then
-                        local localplayer = game.Players.LocalPlayer
-                        if localPlayer.Character and localPlayer.Character:FindFirstChild("HumanoidRootPart") then
-                            localPlayer.Character.HumanoidRootPart.CFrame = GOTOPLAYER.Character.HumanoidRootPart.CFrame
+                        if localplayer.Character and localplayer.Character:FindFirstChild("HumanoidRootPart") then
+                            localplayer.Character.HumanoidRootPart.CFrame = GOTOPLAYER.Character.HumanoidRootPart.CFrame
                         end
                     end
                     task.wait(0.001)
