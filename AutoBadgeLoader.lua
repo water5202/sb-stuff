@@ -53,6 +53,11 @@ if game.Workspace:FindFirstChild("SafeSpotPart") then
     game.Workspace.AutoFarmPart:Destroy() 
 end
 
+local MusicPlayer = Instance.new("Sound")
+MusicPlayer.Name = "fuck me bro"
+MusicPlayer.Parent = workspace
+MusicPlayer.Volume = 1
+
 local Platform = Instance.new("Part")
 Platform.Name = "SafeSpotPart"
 Platform.Parent = workspace
@@ -63,7 +68,7 @@ Platform.Anchored = true
 
 local Window = Fluent:CreateWindow({
     Title = "Auto Badges // " .. identifyexecutor(),
-    SubTitle = "//",
+    SubTitle = "",
     TabWidth = 120,
     Size = UDim2.fromOffset(400, 300),
     Acrylic = false,
@@ -78,6 +83,7 @@ local Tabs = {
     BobFarm = Window:AddTab({ Title = "Bob Farm", Icon = "hammer" }),
     Badges = Window:AddTab({ Title = "Badges", Icon = "box" }),
     Info = Window:AddTab({ Title = "Info", Icon = "info" }),
+    MusicPlayer = Window:AddTab({ Title = "Music Player", Icon = "music" }),
     Settings = Window:AddTab({ Title = "Settings", Icon = "settings" })
 }
 
@@ -194,7 +200,7 @@ end)
 
 local TimeBar = Tabs.Info:AddParagraph({
     Title = "",
-    Content = "Time taken"
+    Content = "Local Time"
 })
 
 task.spawn(function()
