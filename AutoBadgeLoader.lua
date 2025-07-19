@@ -101,7 +101,7 @@ local MusicInput = Tabs.MusicPlayerTab:AddInput("SexyMusicPlayerInput", {
 
 local MusicVolume = Tabs.MusicPlayerTab:AddInput("SexyMusicVolumeInput", {
     Title = "Music Volume",
-    Description = "rbxassetid://",
+    Description = "",
     Default = "",
     Placeholder = "//",
     Numeric = true,
@@ -134,7 +134,7 @@ Tabs.MusicPlayerTab:AddButton({
 })
 
 local MusicStart = Tabs.MusicPlayerTab:AddInput("SexyMusicStartInput", {
-    Title = "Music TimePosition",
+    Title = "TimePosition",
     Description = "",
     Default = "",
     Placeholder = "//",
