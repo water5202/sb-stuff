@@ -5,12 +5,11 @@ end
 local Fluent = loadstring(game:HttpGet("https://github.com/dawid-scripts/Fluent/releases/latest/download/main.lua"))()
 local Players = game:GetService("Players")
 local BRICKLABEL
-local localplayer = Players.LocalPlayer
 local UIS = game:GetService("UserInputService")
 local VirtualInput = game:GetService("VirtualUser")
 local HRP
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
-local LocalPlayer = Players.LocalPlayer
+local localplayer = Players.LocalPlayer
 local GeneralHit = ReplicatedStorage:WaitForChild("GeneralHit") -- Dual's Double hit Event
 local Ping
 local idledConnection
@@ -349,7 +348,7 @@ local GOTOPLAYERTELEPORTER = Tabs.SlapFarm:AddToggle("SexyCoolSlapTeleportToggle
             task.spawn(function()
                 while teleporting do
                     if GOTOPLAYER and GOTOPLAYER.Character and GOTOPLAYER.Character:FindFirstChild("HumanoidRootPart") then
-                        local localPlayer = game.Players.LocalPlayer
+                        local localplayer = game.Players.LocalPlayer
                         if localPlayer.Character and localPlayer.Character:FindFirstChild("HumanoidRootPart") then
                             localPlayer.Character.HumanoidRootPart.CFrame = GOTOPLAYER.Character.HumanoidRootPart.CFrame
                         end
@@ -373,7 +372,7 @@ local AutoSlapToggle = Tabs.SlapFarm:AddToggle("SexySlapAura", {
             task.spawn(function()
                 while SlapAuraRunning do
                     for _, player in pairs(Players:GetPlayers()) do
-                        if player ~= LocalPlayer and player.Character and player.Character:FindFirstChild("HumanoidRootPart") then
+                        if player ~= localplayer and player.Character and player.Character:FindFirstChild("HumanoidRootPart") then
                             local targetLimb = player.Character.HumanoidRootPart
                             GeneralHit:FireServer(targetLimb)
                         end
