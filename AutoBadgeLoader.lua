@@ -12,6 +12,7 @@ local ReplicatedStorage = game:GetService("ReplicatedStorage")
 local localplayer = Players.LocalPlayer
 local GeneralHit = ReplicatedStorage:WaitForChild("GeneralHit") -- Dual's Double hit Event
 local Ping
+local time
 local TARGETSLAPPLAYER = nil
 local idledConnection
 local Brickconnection = nil
@@ -50,9 +51,16 @@ Platform.Size = Vector3.new(84, 5, 82)
 Platform.Transparency = 0.5
 Platform.Anchored = true
 
+task.spawn(function()
+while true do
+time = os.date("%H:%M:%S")
+task.wait(0.1)
+end			
+end)
+
 local Window = Fluent:CreateWindow({
     Title = "Auto Badges // " .. identifyexecutor(),
-    SubTitle = "",
+    SubTitle = time,
     TabWidth = 120,
     Size = UDim2.fromOffset(400, 300),
     Acrylic = false,
