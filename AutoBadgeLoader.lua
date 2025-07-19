@@ -400,6 +400,20 @@ game:GetService("TeleportService"):Teleport(11828384869)
     end
 })
 
+Tabs.Badges:AddButton({
+    Title = "Where Guide Resides Teleport",
+    Description = "Goto Guide",
+    Callback = function()
+local teleportFunc = queueonteleport or queue_on_teleport
+    if teleportFunc then
+        teleportFunc([[
+loadstring(game:HttpGet("https://raw.githubusercontent.com/water5202/Slap-Battles-Auto-Badges/refs/heads/main/WheresGuideResidesUI"))()
+]])
+end
+game:GetService("TeleportService"):Teleport(18550498098)
+    end
+})
+
 Tabs.AutoBrickMaster:AddButton({
     Title = "Equip Brick",
     Description = "",
