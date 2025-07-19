@@ -71,14 +71,6 @@ local Window = Fluent:CreateWindow({
     MinimizeKey = Enum.KeyCode.H
 })
 
-task.spawn(function()
-while true do
-time = os.date("%H:%M:%S")
-Window:SetSubTitle(time)
-task.wait(0.1)
-end			
-end)
-
 local Tabs = {
     AutoFish = Window:AddTab({ Title = "Auto Fish", Icon = "hammer" }),
     AutoBrickMaster = Window:AddTab({ Title = "Auto BrickMaster", Icon = "hammer" }),
@@ -205,22 +197,12 @@ local TimeBar = Tabs.Info:AddParagraph({
     Content = "Time taken"
 })
 
-local startTime = tick()
-
 task.spawn(function()
-    while true do
-        local elapsedTime = math.floor(tick() - startTime)
-
-        local hours = math.floor(elapsedTime / 3600)
-        local minutes = math.floor((elapsedTime % 3600) / 60)
-        local seconds = elapsedTime % 60
-
-        local timeString = string.format("%02d:%02d:%02d", hours, minutes, seconds)
-
-        TimeBar:SetTitle(timeString)
-
-        task.wait(1)
-    end
+while true do
+time = os.date("%H:%M:%S")
+TimeBar:SetTitle(time)
+task.wait(0.1)
+end			
 end)
 
 Tabs.Badges:AddButton({
