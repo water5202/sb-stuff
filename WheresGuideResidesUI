@@ -32,4 +32,13 @@ task.wait(1)
     end
 })
 
+Main:AddButton({
+    Title = "Pull Lever",
+    Description = "Teleports Automatically",
+    Callback = function()
+fireclickdetector(workspace.ShackLever.ClickDetector)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(3254.85913, -74.5, 822.122803, 0.0124426084, 4.95064008e-08, -0.999922574, -6.75759726e-11, 1, 4.95093921e-08, 0.999922574, -5.48455281e-10, 0.0124426084)
+    end
+})
+
 Window:SelectTab(1)
