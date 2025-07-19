@@ -299,11 +299,6 @@ HRP.CFrame = CFrame.new(-210.165329, 7.0089736, 0.595660448, 0.106427543, -7.250
     end
 })
 
-local InfoForTP = Tabs.SlapFarm:AddParagraph({
-        Title = "README",
-        Content = "The Input field is for the Teleport"
-})
-
 Tabs.SlapFarm:AddButton({
     Title = "Equip Dual",
     Description = "",
@@ -594,6 +589,11 @@ Tabs.SlapFarm:AddButton({
     Callback = function()
         game.Players.LocalPlayer.Character.HumanoidRootPart.Anchored = not game.Players.LocalPlayer.Character.HumanoidRootPart.Anchored
     end
+})
+
+local OtherSec = Tabs.SlapFarm:AddSection("OtherSlap")
+Section:AddParagraph({
+    Title = "Other"
 })
 
 local slapplefarming = false
