@@ -133,7 +133,7 @@ Tabs.MusicPlayerTab:AddButton({
     end
 })
 
-local MusicStart = Tabs.MusicPlayer:AddInput("SexyMusicStartInput", {
+local MusicStart = Tabs.MusicPlayerTab:AddInput("SexyMusicStartInput", {
     Title = "Music TimePosition",
     Description = "",
     Default = "",
