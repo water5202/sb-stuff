@@ -677,7 +677,7 @@ Tabs.Settings:AddButton({
     Title = "FLY GUI V3",
     Description = "Loads the Classic Mobile fly",
     Callback = function()
-loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-Fly-gui-v3-43427"))()
+loadstring(game:HttpGet("https://github.com/XNEOFF/FlyGuiV3/blob/main/FlyGuiV3.txt"))()
     end
 })
 
