@@ -36,8 +36,9 @@ local bypass;
             return
         end
         return bypass(method, ...)
-	Fluent:Notify({Title = "Interface", Content = "Bypassed AntiCheat!", SubContent = "GiangMc's Method", Duration = 5})
     end)
+
+Fluent:Notify({Title = "Interface", Content = "Bypassed AntiCheat!", SubContent = "HookMeta Method", Duration = 5})
 
 if game.Workspace:FindFirstChild("SafeSpotPart") then 
     game.Workspace.AutoFarmPart:Destroy() 
