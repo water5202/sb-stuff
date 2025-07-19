@@ -666,6 +666,22 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/edgeiy/infiniteyield/
 })
 
 Tabs.Settings:AddButton({
+    Title = "Console Logger",
+    Description = "Loads My Console Logger",
+    Callback = function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/water5202/Water-s-Custom-Console/refs/heads/main/Loader.lua"))()
+    end
+})
+
+Tabs.Settings:AddButton({
+    Title = "FLY GUI V3",
+    Description = "Loads the Classic Mobile fly",
+    Callback = function()
+loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-Fly-gui-v3-43427"))()
+    end
+})
+
+Tabs.Settings:AddButton({
     Title = "Unload UI",
     Description = "Unloads UI",
     Callback = function()
