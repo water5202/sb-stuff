@@ -12,12 +12,12 @@ local ReplicatedStorage = game:GetService("ReplicatedStorage")
 local localplayer = Players.LocalPlayer
 local GeneralHit = ReplicatedStorage:WaitForChild("GeneralHit") -- Dual's Double hit Event
 local Ping
-local TARGETSLAPPLAYER
+local TARGETSLAPPLAYER = nil
 local idledConnection
 local Brickconnection = nil
 local RunService = game:GetService("RunService")
 local ArenaPart = workspace.Lobby.Teleport1
-local GOTOPLAYER
+local GOTOPLAYER = nil
 local Duplicate = ReplicatedStorage:WaitForChild("Duplicate") -- Replica's Duplicate Event
 --
 function SpawnReplica()
@@ -371,11 +371,10 @@ local AutoSlapToggle = Tabs.SlapFarm:AddToggle("SexySlapAura", {
         if SlapAuraRunning then
             task.spawn(function()
                 while SlapAuraRunning do
-local args = {
-	game:GetService("Players"):WaitForChild(TARGETSLAPPLAYER).Character:WaitForChild("HumanoidRootPart")
-}
-game:GetService("ReplicatedStorage"):WaitForChild("GeneralHit"):FireServer(unpack(args))
-		task.wait(0.5)
+                    if TARGETSLAPPLAYER and TARGETSLAPPLAYER.Character and TARGETSLAPPLAYER.Character:FindFirstChild("HumanoidRootPart") then
+                        game:GetService("ReplicatedStorage"):WaitForChild("GeneralHit"):FireServer(TARGETSLAPPLAYER.Character.HumanoidRootPart)
+                    end
+                    task.wait(0.5)
                 end
             end)
         end
