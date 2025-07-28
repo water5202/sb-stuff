@@ -4,7 +4,7 @@ end
 
 local Fluent = loadstring(game:HttpGet("https://github.com/dawid-scripts/Fluent/releases/latest/download/main.lua"))()
 
-if workspace:FindFirstChild("AntiVoid")
+if workspace:FindFirstChild("AntiVoid") then
 workspace.AntiVoid:Destroy()
 end
 
