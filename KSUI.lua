@@ -17,6 +17,7 @@ end)
 local AntiVoid = Instance.new("Part")
 AntiVoid.Name = "AntiVoid"
 AntiVoid.Parent = workspace
+AntiVoid.Anchored = true
 AntiVoid.Size = Vector3.new(1997, 2, 1995)
 AntiVoid.CFrame = CFrame.new(331.141785, -14.7781677, -77.4250183, 1, 0, 0, 0, 1, 0, 0, 0, 1)
 AntiVoid.Transparency = 1
