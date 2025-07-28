@@ -2,6 +2,10 @@ if not game:IsLoaded() then
 	game.Loaded:Wait()
 end
 
+queue_on_teleport([[
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/water5202/Slap-Battles-Auto-Badges/refs/heads/main/AutoBadgeLoader.lua"))()
+]])
+
 local Fluent = loadstring(game:HttpGet("https://github.com/dawid-scripts/Fluent/releases/latest/download/main.lua"))()
 game.Players.LocalPlayer.CameraMaxZoomDistance = 100
 game.Players.LocalPlayer.CameraMode = Enum.CameraMode.Classic
