@@ -29,12 +29,26 @@ Tabs.Main:AddButton({
 })
 
 Tabs.Main:AddButton({
-    Title = "Get Pan Glove",
+    Title = "Get Relic",
     Description = "For Pan Glove",
     Callback = function()
 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = workspace._ugcQuestObjectBobPlushie.Position -- Models cant have CFrames
 task.wait(0.5)
 fireclickdetector(workspace._ugcQuestObjectBobPlushie.ClickDetector)
+    end
+})
+
+Tabs.Main:AddButton({
+    Title = "Get Tinkerer Glove",
+    Description = "",
+    Callback = function()
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = workspace.TheCrypt.SnowPeep.Position
+Fluent:Notify({
+        Title = "Water //",
+        Content = "icba to fire cd",
+        SubContent = "",
+        Duration = 5 
+})
     end
 })
 
