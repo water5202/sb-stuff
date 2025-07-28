@@ -29,8 +29,8 @@ Tabs.Main:AddButton({
 })
 
 Tabs.Main:AddButton({
-    Title = "Get Tinkerer Glove",
-    Description = "",
+    Title = "Get Pan Glove",
+    Description = "For Pan Glove",
     Callback = function()
 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = workspace._ugcQuestObjectBobPlushie.Position -- Models cant have CFrames
 task.wait(0.5)
