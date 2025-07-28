@@ -61,7 +61,7 @@ local AntiVoidToggle = Tabs.Main:AddToggle("AntiVoidToggle",
 {
     Title = "Toggle AntiVoid", 
     Description = "",
-    Default = false
+    Default = false,
     Callback = function(state)
 	if state then
         AntiVoid.Transparency = 0.5
