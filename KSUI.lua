@@ -8,11 +8,13 @@ local bypass;
     bypass = hookmetamethod(game, "__namecall", function(method, ...) 
         if getnamecallmethod() == "FireServer" and method == game.ReplicatedStorage.Ban then
             return
+        elseif getnamecallmethod() == "FireServer" and method == game.ReplicatedStorage.AdminGUI then
+            return
         elseif getnamecallmethod() == "FireServer" and method == game.ReplicatedStorage.WalkSpeedChanged then
             return
         end
         return bypass(method, ...)
-end)
+    end)
 
 local AntiVoid = Instance.new("Part")
 AntiVoid.Name = "AntiVoid"
@@ -45,32 +47,24 @@ Tabs.Main:AddParagraph({
 
 local IsRagdollTurnedOff = false
 
-local AntiRagdoll = Tabs.Main:AddToggle("RagdollToggle", {
-    Title = "Anti Ragdoll",
+local AntiRagdollToggle = Tabs.Main:AddToggle("AntiRagdollToggle", {
+    Title = "Toggle AntiRagdoll",
     Description = "",
     Default = false,
     Callback = function(state)
-        IsRagdollTurnedOff = state
-        if IsRagdollTurnedOff then
+	IsRagdollTurnedOff = state
+        if IsRagdollTurnedOff and localplayer.Character:FindFirstChild("entered") then
+	task.wait(0.5)
             task.spawn(function()
                 while IsRagdollTurnedOff do
-                    local char = game.Players.LocalPlayer.Character
-                    if char then
-                        local RagdollVar = char:FindFirstChild("Ragdolled")
-                        if RagdollVar and RagdollVar.Value == true then
-                            char.HumanoidRootPart.Anchored = true
-                        else
-                            char.HumanoidRootPart.Anchored = false
-                        end
-                    end
-                    task.wait(0.01)
+		  if game.Players.LocalPlayer.Character.Ragdoll.Value == true then
+			game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart").Anchored = true
+			else
+			game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart").Anchored = false
+		    end
+		  task.wait(0.5)
                 end
             end)
-        else
-            local char = game.Players.LocalPlayer.Character
-            if char and char:FindFirstChild("HumanoidRootPart") then
-                char.HumanoidRootPart.Anchored = false
-            end
         end
     end
 })
