@@ -41,7 +41,7 @@ local AntiRagdollToggle = Tabs.Main:AddToggle("AntiRagdollToggle", {
     Default = false,
     Callback = function(state)
 	IsRagdollTurnedOff = state
-        if IsRagdollTurnedOff and localplayer.Character:FindFirstChild("entered") then
+        if IsRagdollTurnedOff and game.Players.LocalPlayer.Character:FindFirstChild("entered") then
 	task.wait(0.5)
             task.spawn(function()
                 while IsRagdollTurnedOff do
