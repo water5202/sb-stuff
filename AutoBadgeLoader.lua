@@ -47,7 +47,7 @@ local bypass;
         return bypass(method, ...)
     end)
 
-Fluent:Notify({Title = "Interface", Content = "Bypassed AntiCheat!", SubContent = "HookMeta Method", Duration = 5})
+Fluent:Notify({Title = "Interface", Content = "Bypassed AntiCheat!", SubContent = "via hookmetamethod", Duration = 5})
 
 if game.Workspace:FindFirstChild("SafeSpotPart") then 
     game.Workspace.SafeSpotPart:Destroy() 
