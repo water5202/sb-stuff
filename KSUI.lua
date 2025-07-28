@@ -75,7 +75,7 @@ local AntiRagdoll = Tabs.Main:AddToggle("RagdollToggle", {
     end
 })
 
-local AntiVoid = Tabs.Main:AddToggle("AntiVoidToggle", 
+local AntiVoidToggle = Tabs.Main:AddToggle("AntiVoidToggle", 
 {
     Title = "Toggle AntiVoid", 
     Description = "",
