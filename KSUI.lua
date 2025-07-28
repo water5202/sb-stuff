@@ -8,7 +8,7 @@ local AntiVoid = Instance.new("Part")
 AntiVoid.Name = "AntiVoid"
 AntiVoid.Parent = workspace
 AntiVoid.Anchored = true
-AntiVoid.Size = Vector3.new(1997, 2, 1995)
+AntiVoid.Size = Vector3.new(100000, 2, 100000)
 AntiVoid.CFrame = CFrame.new(331.141785, -14.7781677, -77.4250183, 1, 0, 0, 0, 1, 0, 0, 0, 1)
 AntiVoid.Transparency = 1
 AntiVoid.CanCollide = false
@@ -107,6 +107,32 @@ local args = {}
                 end
             end)
         end
+    end
+})
+
+local WalkSpeedSlider = Tabs.Main:AddSlider("WalkSpeedSlider", 
+{
+    Title = "WalkSpeed",
+    Description = "",
+    Default = 20,
+    Min = 1,
+    Max = 100,
+    Rounding = 1,
+    Callback = function(Value)
+        game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = Value
+    end
+})
+
+local JumpHeightSlider = Tabs.Main:AddSlider("JumpHeightSlider", 
+{
+    Title = "Jump Power",
+    Description = "",
+    Default = 50,
+    Min = 1,
+    Max = 500,
+    Rounding = 1,
+    Callback = function(Value)
+        game.Players.LocalPlayer.Character.Humanoid.JumpPower = Value
     end
 })
 
