@@ -84,4 +84,30 @@ local AntiVoidToggle = Tabs.Main:AddToggle("AntiVoidToggle",
     end 
 })
 
+local SlapAura = false
+
+local SlapAuraToggle = Tabs.Main:AddToggle("SlapAuraToggle", {
+    Title = "Toggle SlapAura",
+    Description = "",
+    Default = false,
+    Callback = function(state)
+	SlapAura = state
+        if SlapAura and game.Players.LocalPlayer.Character:FindFirstChild("entered") then
+	task.wait(0.5)
+            task.spawn(function()
+                while SlapAura do
+local Players = game:GetService("Players")
+local args = {}
+    for _,Player in pairs(Players:GetPlayers()) do
+		local PART = Player:WaitForChild("HumanoidRootpart")
+        table.insert(args, PART)
+    end
+                game:GetService("ReplicatedStorage"):WaitForChild("KSHit"):FireServer(unpack(args))
+		  task.wait(0.5)
+                end
+            end)
+        end
+    end
+})
+
 Window:SelectTab(1)
