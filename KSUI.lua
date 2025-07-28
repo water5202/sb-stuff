@@ -4,6 +4,10 @@ end
 
 local Fluent = loadstring(game:HttpGet("https://github.com/dawid-scripts/Fluent/releases/latest/download/main.lua"))()
 
+if workspace:FindFirstChild("AntiVoid")
+workspace.AntiVoid:Destroy()
+end
+
 local AntiVoid = Instance.new("Part")
 AntiVoid.Name = "AntiVoid"
 AntiVoid.Parent = workspace
