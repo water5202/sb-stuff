@@ -72,3 +72,5 @@ local AntiVoidToggle = Tabs.Main:AddToggle("AntiVoidToggle",
         end
     end 
 })
+
+Window:SelectTab(1)
