@@ -2,7 +2,6 @@ if not game:IsLoaded() then
 	game.Loaded:Wait()
 end
 
-local teleportFunc = queueonteleport or queue_on_teleport -- dunno which it is
 local Fluent = loadstring(game:HttpGet("https://github.com/dawid-scripts/Fluent/releases/latest/download/main.lua"))()
 game.Players.LocalPlayer.CameraMaxZoomDistance = 100
 game.Players.LocalPlayer.CameraMode = Enum.CameraMode.Classic
@@ -77,9 +76,4 @@ fireclickdetector(workspace._ugcQuestObjectEludeHat.ClickDetector)
 })
 
 Window:SelectTab(1)
-
-if teleportFunc then
-        teleportFunc([[
-	loadstring(game:HttpGet("https://raw.githubusercontent.com/water5202/Slap-Battles-Auto-Badges/refs/heads/main/AutoBadgeLoader.lua"))()
-]])
 end
