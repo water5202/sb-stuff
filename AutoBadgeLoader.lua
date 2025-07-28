@@ -2,6 +2,10 @@ if not game:IsLoaded() then
 	game.Loaded:Wait()
 end
 
+if game.PlaceId == 14422118326 then
+	return loadstring(game:HttpGet("https://raw.githubusercontent.com/water5202/Slap-Battles-Auto-Badges/refs/heads/main/NullZoneUI.lua"))()
+end
+
 local Fluent = loadstring(game:HttpGet("https://github.com/dawid-scripts/Fluent/releases/latest/download/main.lua"))()
 local Players = game:GetService("Players")
 local BRICKLABEL
