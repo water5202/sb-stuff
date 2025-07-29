@@ -80,6 +80,7 @@ local Window = Fluent:CreateWindow({
 })
 
 local Tabs = {
+    Combat = Window:AddTab({ Title = "Combat", Icon = "swords" }),
     AutoFarming = Window:AddTab({ Title = "Auto Farming", Icon = "hammer" }),
     SlapFarm = Window:AddTab({ Title = "Slap Farming", Icon = "hammer" }),
     Badges = Window:AddTab({ Title = "Badges", Icon = "box" }),
@@ -515,6 +516,27 @@ local bobfarmtoggle = Tabs.AutoFarming:AddToggle("SexySpawnReplica", {
     end
 })
 
+local toolboxfarming = false
+
+local toolboxtoggle = Tabs.AutoFarming:AddToggle("SexyGetToolBox", {
+    Title = "Auto Toolbox" ,
+    Description = "",
+    Default = false,
+    Callback = function(state)
+       toolboxfarming = state
+        if toolboxfarming  and localplayer.Character:FindFirstChild("entered") then
+	task.wait(0.5)
+            task.spawn(function()
+                while toolboxfarming do
+		if game.Workspace:FindFirstChild("Toolbox") then
+			fireclickdetector(game.Workspace:FindFirstChild("Toolbox").ClickDetector)
+                end
+		task.wait(5.5)
+                end
+            end)
+        end
+    end
+})
 
 Tabs.AutoFarming:AddButton({
     Title = "Goto Safespot",
