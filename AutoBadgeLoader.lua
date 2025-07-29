@@ -53,18 +53,13 @@ local bypass;
             return
         end
         return bypass(method, ...)
-    end)
+end)
 
 Fluent:Notify({Title = "Interface", Content = "Bypassed AntiCheat!", SubContent = "via hookmetamethod", Duration = 5})
 
 if game.Workspace:FindFirstChild("SafeSpotPart") then 
     game.Workspace.SafeSpotPart:Destroy() 
 end
-
-local MusicPlayer = Instance.new("Sound")
-MusicPlayer.Name = "fuck me bro"
-MusicPlayer.Parent = workspace
-MusicPlayer.Volume = 1
 
 local Platform = Instance.new("Part")
 Platform.Name = "SafeSpotPart"
@@ -75,7 +70,7 @@ Platform.Transparency = 0.5
 Platform.Anchored = true
 
 local Window = Fluent:CreateWindow({
-    Title = "Auto Badges // " .. identifyexecutor(),
+    Title = "Iridium // " .. identifyexecutor(),
     SubTitle = "",
     TabWidth = 120,
     Size = UDim2.fromOffset(400, 300),
