@@ -80,10 +80,7 @@ local Window = Fluent:CreateWindow({
 })
 
 local Tabs = {
-    AutoFish = Window:AddTab({ Title = "Auto Fish", Icon = "hammer" }),
-    AutoBrickMaster = Window:AddTab({ Title = "Auto BrickMaster", Icon = "hammer" }),
-    SlapFarm = Window:AddTab({ Title = "Slap Farm", Icon = "hammer" }),
-    BobFarm = Window:AddTab({ Title = "Bob Farm", Icon = "hammer" }),
+    AutoFarming = Window:AddTab({ Title = "Auto Farming", Icon = "hammer" }),
     Badges = Window:AddTab({ Title = "Badges", Icon = "box" }),
     Info = Window:AddTab({ Title = "Info", Icon = "info" }),
     Settings = Window:AddTab({ Title = "Settings", Icon = "settings" })
@@ -270,7 +267,7 @@ game:GetService("TeleportService"):Teleport(7234087065)
     end
 })
 
-Tabs.AutoFish:AddButton({
+Tabs.AutoFarming:AddButton({
     Title = "Equip ZZZZZZZ",
     Description = "",
     Callback = function()
@@ -436,35 +433,7 @@ game:GetService("TeleportService"):Teleport(11828384869)
     end
 })
 
-Tabs.AutoBrickMaster:AddButton({
-    Title = "Equip Brick",
-    Description = "",
-    Callback = function()
-         fireclickdetector(workspace.Lobby.Brick.ClickDetector)
-    end
-})
-
-local brickfarming = false
-
-local brickfarmer = Tabs.AutoBrickMaster:AddToggle("TheCoolestBrickToggle", {
-    Title = "Auto BrickMaster",
-    Description = "",
-    Default = false,
-    Callback = function(state)
-        brickfarming = state
-        if brickfarming and localplayer.Character:FindFirstChild("entered") then
-            task.spawn(function()
-                while brickfarming do
-AutoBrick()
-task.wait(1.3)
-                end
-            end)
-        end
-    end
-})
--- dunno why i decided to use RunService for a loop but whatever
-
-Tabs.AutoFish:AddButton({
+Tabs.AutoFarming:AddButton({
     Title = "Goto Safespot",
     Description = "",
     Callback = function()
@@ -505,7 +474,35 @@ game:GetService("TeleportService"):Teleport(17290438723)
     end
 })
 
-Tabs.AutoBrickMaster:AddButton({
+Tabs.AutoFarming:AddButton({
+    Title = "Equip Brick",
+    Description = "",
+    Callback = function()
+         fireclickdetector(workspace.Lobby.Brick.ClickDetector)
+    end
+})
+
+local brickfarming = false
+
+local brickfarmer = Tabs.AutoFarming:AddToggle("TheCoolestBrickToggle", {
+    Title = "Auto BrickMaster",
+    Description = "",
+    Default = false,
+    Callback = function(state)
+        brickfarming = state
+        if brickfarming and localplayer.Character:FindFirstChild("entered") then
+            task.spawn(function()
+                while brickfarming do
+AutoBrick()
+task.wait(1.3)
+                end
+            end)
+        end
+    end
+})
+-- dunno why i decided to use RunService for a loop but whatever
+
+Tabs.AutoFarming:AddButton({
     Title = "Goto Safespot",
     Description = "",
     Callback = function()
@@ -518,7 +515,7 @@ Tabs.AutoBrickMaster:AddButton({
     end
 })
 
-Tabs.BobFarm:AddButton({
+Tabs.AutoFarming:AddButton({
     Title = "Equip Replica",
     Description = "",
     Callback = function()
@@ -528,7 +525,7 @@ Tabs.BobFarm:AddButton({
 
 local bobfarming = false
 
-local bobfarmtoggle = Tabs.BobFarm:AddToggle("SexySpawnReplica", {
+local bobfarmtoggle = Tabs.AutoFarming:AddToggle("SexySpawnReplica", {
     Title = "Auto Replica",
     Description = "Don't press E",
     Default = false,
@@ -547,7 +544,7 @@ local bobfarmtoggle = Tabs.BobFarm:AddToggle("SexySpawnReplica", {
 })
 
 
-Tabs.BobFarm:AddButton({
+Tabs.AutoFarming:AddButton({
     Title = "Goto Safespot",
     Description = "",
     Callback = function()
