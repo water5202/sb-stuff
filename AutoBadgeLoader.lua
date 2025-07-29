@@ -81,6 +81,7 @@ local Window = Fluent:CreateWindow({
 
 local Tabs = {
     AutoFarming = Window:AddTab({ Title = "Auto Farming", Icon = "hammer" }),
+    SlapFarm = Window:AddTab({ Title = "Slap Farming", Icon = "hammer" }),
     Badges = Window:AddTab({ Title = "Badges", Icon = "box" }),
     Info = Window:AddTab({ Title = "Info", Icon = "info" }),
     Settings = Window:AddTab({ Title = "Settings", Icon = "settings" })
