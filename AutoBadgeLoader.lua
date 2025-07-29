@@ -367,6 +367,16 @@ if localplayer.Character:FindFirstChild("entered") and game:GetService("Players"
 })
 
 Tabs.Badges:AddButton({
+    Title = "Get Siphon",
+    Description = "Must be spawned in",
+    Callback = function()
+if game.workspace:FindFirstChild("workspace.SiphonOrb") then
+game.Players.LocalPlayer.Character.CFrame = workspace:WaitForChild("SiphonOrb").CFrame
+	end
+    end
+})
+
+Tabs.Badges:AddButton({
     Title = "Get Glovel",
     Description = "Make sure you have Hitman Quest",
     Callback = function()
