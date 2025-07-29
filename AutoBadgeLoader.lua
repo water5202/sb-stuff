@@ -267,14 +267,6 @@ game:GetService("TeleportService"):Teleport(7234087065)
     end
 })
 
-Tabs.AutoFarming:AddButton({
-    Title = "Equip ZZZZZZZ",
-    Description = "",
-    Callback = function()
-         fireclickdetector(workspace.Lobby.ZZZZZZZ.ClickDetector) 
-    end
-})
-
 Tabs.Badges:AddButton({
     Title = "All 3 Misc Badges",
     Description = "Duck Orange and Knife",
@@ -434,6 +426,14 @@ game:GetService("TeleportService"):Teleport(11828384869)
 })
 
 Tabs.AutoFarming:AddButton({
+    Title = "Equip ZZZZZZZ",
+    Description = "",
+    Callback = function()
+         fireclickdetector(workspace.Lobby.ZZZZZZZ.ClickDetector) 
+    end
+})
+
+Tabs.AutoFarming:AddButton({
     Title = "Goto Safespot",
     Description = "",
     Callback = function()
@@ -500,7 +500,6 @@ task.wait(1.3)
         end
     end
 })
--- dunno why i decided to use RunService for a loop but whatever
 
 Tabs.AutoFarming:AddButton({
     Title = "Goto Safespot",
@@ -615,7 +614,7 @@ Tabs.SlapFarm:AddButton({
 
 local slapplefarming = false
 
-local slapplefarmtoggle = Tabs.SlapFarm:AddToggle("SexySlappleTouch", {
+local slapplefarmtoggle = Tabs.AutoFarming:AddToggle("SexySlappleTouch", {
     Title = "Auto Slapples",
     Description = "Lags a little?",
     Default = false,
@@ -640,7 +639,7 @@ end
 
 local platefarming = false
 
-local platefarmer = Tabs.Badges:AddToggle("TheCoolestPlateToggle", {
+local platefarmer = Tabs.AutoFarming:AddToggle("TheCoolestPlateToggle", {
     Title = "Auto Plate",
     Description = "Tycoon Glove",
     Default = false,
