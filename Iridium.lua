@@ -524,7 +524,7 @@ local toolboxtoggle = Tabs.AutoFarming:AddToggle("SexyGetToolBox", {
     Default = false,
     Callback = function(state)
        toolboxfarming = state
-        if toolboxfarming  and localplayer.Character:FindFirstChild("entered") then
+        if toolboxfarming and localplayer.Character:FindFirstChild("entered") then
 	task.wait(0.5)
             task.spawn(function()
                 while toolboxfarming do
