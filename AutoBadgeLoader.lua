@@ -86,7 +86,6 @@ local Tabs = {
     BobFarm = Window:AddTab({ Title = "Bob Farm", Icon = "hammer" }),
     Badges = Window:AddTab({ Title = "Badges", Icon = "box" }),
     Info = Window:AddTab({ Title = "Info", Icon = "info" }),
-    MusicPlayerTab = Window:AddTab({ Title = "Music Player", Icon = "music" }),
     Settings = Window:AddTab({ Title = "Settings", Icon = "settings" })
 }
 
