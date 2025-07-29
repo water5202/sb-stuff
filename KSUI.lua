@@ -95,16 +95,16 @@ local SlapAuraToggle = Tabs.Main:AddToggle("SlapAuraToggle", {
     Description = "",
     Default = false,
     Callback = function(state)
-	SlapAura = state
+        SlapAura = state
         if SlapAura and game.Players.LocalPlayer.Character:FindFirstChild("entered") then
-	task.wait(0.5)
             task.spawn(function()
                 while SlapAura do
-for _,Player in pairs(game.Players:GetChildren()) do
-if Player.Character and Player.Character:FindFirstChild("HumanoidRootPart") 
-game:GetService("ReplicatedStorage"):WaitForChild("KSHit"):FireServer(Player.Character:WaitForChild("HumanoidRootPart"))
-task.wait(0.8)
-		    end
+                    for _, Player in pairs(game.Players:GetPlayers()) do
+                        if Player ~= game.Players.LocalPlayer and Player.Character and Player.Character:FindFirstChild("HumanoidRootPart") then
+                            game:GetService("ReplicatedStorage"):WaitForChild("KSHit"):FireServer(Player.Character:FindFirstChild("HumanoidRootPart"))
+                        end
+                    end
+                    task.wait(0.8)
                 end
             end)
         end
