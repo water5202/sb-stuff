@@ -65,7 +65,7 @@ local AntiRagdollToggle = Tabs.Main:AddToggle("AntiRagdollToggle", {
 			else
 			game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart").Anchored = false
 		    end
-		  task.wait(0.5)
+		  task.wait(1.5)
                 end
             end)
         end
@@ -100,14 +100,11 @@ local SlapAuraToggle = Tabs.Main:AddToggle("SlapAuraToggle", {
 	task.wait(0.5)
             task.spawn(function()
                 while SlapAura do
-local Players = game:GetService("Players")
-local args = {}
-    for _,Player in pairs(Players:GetPlayers()) do
-		local PART = Player:WaitForChild("HumanoidRootPart")
-        table.insert(args, PART)
-    end
-                game:GetService("ReplicatedStorage"):WaitForChild("KSHit"):FireServer(unpack(args))
-		  task.wait(0.5)
+for _,Player in pairs(game.Players:GetChildren()) do
+if Player.Character and Player.Character:FindFirstChild("HumanoidRootPart") 
+game:GetService("ReplicatedStorage"):WaitForChild("KSHit"):FireServer(Player.Character:WaitForChild("HumanoidRootPart"))
+task.wait(0.8)
+		    end
                 end
             end)
         end
