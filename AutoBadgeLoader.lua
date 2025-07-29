@@ -95,64 +95,6 @@ local Tabs = {
     Settings = Window:AddTab({ Title = "Settings", Icon = "settings" })
 }
 
-local MusicInput = Tabs.MusicPlayerTab:AddInput("SexyMusicPlayerInput", {
-    Title = "SoundID",
-    Description = "",
-    Default = "",
-    Placeholder = "rbxassetid://int",
-    Numeric = false,
-    Finished = false,
-    Callback = function(Value)
-        MusicPlayer.SoundId = Value
-    end
-})
-
-local MusicVolume = Tabs.MusicPlayerTab:AddInput("SexyMusicVolumeInput", {
-    Title = "Music Volume",
-    Description = "",
-    Default = "",
-    Placeholder = "//",
-    Numeric = true,
-    Finished = false,
-    Callback = function(Value)
-        MusicPlayer.Volume = Value
-    end
-})
-
-local CanTheMusicLoop = Tabs.MusicPlayerTab:AddToggle("MusicLooperToggle", 
-{
-    Title = "Music Loop?", 
-    Description = "Loops Music or not",
-    Default = false,
-    Callback = function(state)
-	if state then
-	    MusicPlayer.Looped = true
-	else
-	    MusicPlayer.Looped = false
-        end
-    end 
-})
-
-Tabs.MusicPlayerTab:AddButton({
-    Title = "Play Music",
-    Description = "",
-    Callback = function()
-        MusicPlayer.Playing = not MusicPlayer.Playing
-    end
-})
-
-local MusicStart = Tabs.MusicPlayerTab:AddInput("SexyMusicStartInput", {
-    Title = "TimePosition",
-    Description = "",
-    Default = "",
-    Placeholder = "//",
-    Numeric = true,
-    Finished = false,
-    Callback = function(Value)
-        MusicPlayer.TimePosition = Value
-    end
-})
-
 local SlapsText = Tabs.Info:AddParagraph({
         Title = "Slaps // ?",
         Content = "Shows Slaps"
@@ -776,7 +718,7 @@ Tabs.Settings:AddButton({
     Title = "Unload UI",
     Description = "Unloads UI",
     Callback = function()
-                game.Workspace:WaitForChild("AutoFarmPart"):Destroy()
+                game.Workspace:WaitForChild("SafeSpotPart"):Destroy()
                 Fluent:Destroy()
     end
 })
