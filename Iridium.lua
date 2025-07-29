@@ -298,6 +298,8 @@ Tabs.Badges:AddButton({
     Callback = function()
 if game.workspace:FindFirstChild("workspace.SiphonOrb") then
 game.Players.LocalPlayer.Character.CFrame = workspace:WaitForChild("SiphonOrb").CFrame
+			else
+Could not find workspace.SiphonOrb
 	end
     end
 })
@@ -434,23 +436,6 @@ Tabs.AutoFarming:AddButton({
     end
 })
 
-Tabs.AutoFarming:AddButton({
-    Title = "Goto Safespot",
-    Description = "",
-    Callback = function()
-       HRP = localplayer.Character.HumanoidRootPart
-                            firetouchinterest(HRP,  ArenaPart, 0)
-                            task.wait(0.1)
-                            firetouchinterest(HRP, ArenaPart, 1)
-			    task.wait(0.3)
-                            localplayer.Character:WaitForChild("HumanoidRootPart").CFrame = CFrame.new(-108000.6895, -119.158432, -2900.86475, 1, 0, 0, 0, 1, 0, 0, 0, 1)
-                                task.wait(0.2)
-        if game.Players.LocalPlayer.leaderstats.Glove.Value == "ZZZZZZZ" then
-          game:GetService("ReplicatedStorage"):WaitForChild("ZZZZZZZSleep"):FireServer()
-        end
-    end
-})
-
 Tabs.Badges:AddButton({
     Title = "Get Frostbite",
     Description = "Gets Frostbite automatically",
@@ -499,19 +484,6 @@ task.wait(1.3)
                 end
             end)
         end
-    end
-})
-
-Tabs.AutoFarming:AddButton({
-    Title = "Goto Safespot",
-    Description = "",
-    Callback = function()
-       HRP = localplayer.Character.HumanoidRootPart
-                            firetouchinterest(HRP,  ArenaPart, 0)
-                            task.wait(0.1)
-                            firetouchinterest(HRP, ArenaPart, 1)
-			    task.wait(0.3)
-                 localplayer.Character:WaitForChild("HumanoidRootPart").CFrame = CFrame.new(-108000.6895, -119.158432, -2900.86475, 1, 0, 0, 0, 1, 0, 0, 0, 1)
     end
 })
 
@@ -702,6 +674,14 @@ Tabs.Settings:AddButton({
     Description = "Loads the Classic Mobile fly",
     Callback = function()
 loadstring(game:HttpGet("https://raw.githubusercontent.com/XNEOFF/FlyGuiV3/refs/heads/main/FlyGuiV3.txt"))()
+    end
+})
+
+Tabs.AutoFarming:AddButton({
+    Title = "Anchor yourself",
+    Description = "Anchors your HumanoidRootPart",
+    Callback = function()
+        game.Players.LocalPlayer.Character.HumanoidRootPart.Anchored = not game.Players.LocalPlayer.Character.HumanoidRootPart.Anchored
     end
 })
 
