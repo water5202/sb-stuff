@@ -226,6 +226,30 @@ task.wait(0.1)
 end			
 end)
 
+local IsRagdollTurnedOff = false
+
+local AntiRagdollToggle = Tabs.Combat:AddToggle("AntiRagdollToggle", {
+    Title = "Toggle AntiRagdoll",
+    Description = "",
+    Default = false,
+    Callback = function(state)
+	IsRagdollTurnedOff = state
+        if IsRagdollTurnedOff and game.Players.LocalPlayer.Character:FindFirstChild("entered") then
+	task.wait(0.5)
+            task.spawn(function()
+                while IsRagdollTurnedOff do
+		  if game.Players.LocalPlayer.Character.Ragdolled.Value == true then
+			game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart").Anchored = true
+			else
+			game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart").Anchored = false
+		    end
+		  task.wait(1.5)
+                end
+            end)
+        end
+    end
+})
+
 Tabs.Badges:AddButton({
     Title = "Get Plunger",
     Description = "Gets Plunger automatically",
