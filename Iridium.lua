@@ -233,16 +233,16 @@ local AntiRagdollToggle = Tabs.Combat:AddToggle("AntiRagdollToggle", {
     Default = false,
     Callback = function(state)
 	IsRagdollTurnedOff = state
-        if IsRagdollTurnedOff and game.Players.LocalPlayer.Character:FindFirstChild("entered") then
-	task.wait(0.5)
+        if IsRagdollTurnedOff then
             task.spawn(function()
                 while IsRagdollTurnedOff do
 		  if game.Players.LocalPlayer.Character.Ragdolled.Value == true then
+			game.Players.LocalPlayer.Character.HumanoidRootPart.AssemblyLinearVelocity = Vector3.zero
+			game.Players.LocalPlayer.Character.HumanoidRootPart.AssemblyAngularVelocity = Vector3.zero					
 			game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart").Anchored = true
 			else
 			game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart").Anchored = false
 		    end
-		  task.wait(1.5)
                 end
             end)
         end
