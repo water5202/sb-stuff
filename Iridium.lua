@@ -250,6 +250,22 @@ local AntiRagdollToggle = Tabs.Combat:AddToggle("AntiRagdollToggle", {
     end
 })
 
+local AntiVoidToggle = Tabs.Combat:AddToggle("AntiVoidToggle", 
+{
+    Title = "Toggle AntiVoid", 
+    Description = "",
+    Default = false,
+    Callback = function(state)
+	if state then
+        AntiVoid.Transparency = 0.5
+        AntiVoid.CanCollide = true
+	else
+        AntiVoid.Transparency = 1
+        AntiVoid.CanCollide = false
+        end
+    end 
+})
+
 Tabs.Badges:AddButton({
     Title = "Get Plunger",
     Description = "Gets Plunger automatically",
