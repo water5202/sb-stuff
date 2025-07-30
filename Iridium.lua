@@ -1,4 +1,3 @@
-
 if not game:IsLoaded() then
 	game.Loaded:Wait()
 end
@@ -352,9 +351,9 @@ Tabs.Badges:AddButton({
     Description = "Must be spawned in",
     Callback = function()
 if game.workspace:FindFirstChild("SiphonOrb") then
-game.Players.LocalPlayer.Character.CFrame = workspace:WaitForChild("SiphonOrb").CFrame
+game.Players.LocalPlayer.Character.CFrame = workspace:WaitForChild("SiphonOrb").Position
 			else
-	Fluent:Notify({Title = "Interface", Content = "Could not find workspace.SiphonOrb", SubContent = "", Duration = 5})
+	Fluent:Notify({Title = "Interface", Content = "Could not find workspace.SiphonOrb", SubContent = "", Duration = 3})
 	end
     end
 })
