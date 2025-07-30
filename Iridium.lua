@@ -236,7 +236,7 @@ local AntiRagdollToggle = Tabs.Combat:AddToggle("AntiRagdollToggle", {
         if IsRagdollTurnedOff then
             task.spawn(function()
                 while IsRagdollTurnedOff do
-		  if game.Players.LocalPlayer.Character.Ragdolled.Value == true then
+		  if game.Players.LocalPlayer.Character:FindFirstChild("Ragdolled").Value == true then
 			game.Players.LocalPlayer.Character.HumanoidRootPart.AssemblyLinearVelocity = Vector3.zero
 			game.Players.LocalPlayer.Character.HumanoidRootPart.AssemblyAngularVelocity = Vector3.zero					
 			game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart").Anchored = true
@@ -351,10 +351,12 @@ Tabs.Badges:AddButton({
     Title = "Get Siphon",
     Description = "Must be spawned in",
     Callback = function()
-if game.workspace:FindFirstChild("SiphonOrb") then
-game.Players.LocalPlayer.Character.CFrame = workspace:WaitForChild("SiphonOrb").Position
-			else
-	Fluent:Notify({Title = "Interface", Content = "Could not find workspace.SiphonOrb", SubContent = "", Duration = 3})
+if workspace:FindFirstChild("SiphonOrb") then
+firetouchinterest(game.Players.LocalPlayer.Character:WaitForChild("Head"), workspace:FindFirstChild("SiphonOrb"), 0)
+task.wait(0.1)
+firetouchinterest(game.Players.LocalPlayer.Character:WaitForChild("Head"), workspace:FindFirstChild("SiphonOrb"), 1)
+else
+Fluent:Notify({Title = "Interface", Content = "Could not find workspace.SiphonOrb", SubContent = "", Duration = 3})
 	end
     end
 })
@@ -707,25 +709,13 @@ task.wait(0.001)
     end
 })
 
-local AntiAfk = Tabs.Settings:AddToggle("SexyAntiAfkToggle", {
-    Title = "Anti Afk", 
-    Description = "Disables being kicked",
-    Default = false,
-    Callback = function(state)
-        if state then
-            if not idledConnection then
-                idledConnection = Players.LocalPlayer.Idled:Connect(function()
-                    VirtualInput:Button2Down(Vector2.new(0,0), workspace.CurrentCamera.CFrame)
-                    task.wait(0.1)
-                    VirtualInput:Button2Up(Vector2.new(0,0), workspace.CurrentCamera.CFrame)
-                end)
-            end
-        else
-            if idledConnection then
-                idledConnection:Disconnect()
-                idledConnection = nil
-            end
-        end
+Tabs.AutoFarming:AddButton({
+    Title = "AntiAfk",
+    Description = "Prevents Kick",
+    Callback = function()
+local conn = Players.LocalPlayer.Idled:Connect(function()
+end)
+conn:Disconnect()	
     end
 })
 
