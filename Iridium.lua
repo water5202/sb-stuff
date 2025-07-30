@@ -298,7 +298,7 @@ Tabs.Badges:AddButton({
     Title = "Get Siphon",
     Description = "Must be spawned in",
     Callback = function()
-if game.workspace:FindFirstChild("workspace.SiphonOrb") then
+if game.workspace:FindFirstChild("SiphonOrb") then
 game.Players.LocalPlayer.Character.CFrame = workspace:WaitForChild("SiphonOrb").CFrame
 			else
 	Fluent:Notify({Title = "Interface", Content = "Could not find workspace.SiphonOrb", SubContent = "", Duration = 5})
