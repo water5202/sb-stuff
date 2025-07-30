@@ -243,6 +243,7 @@ local AntiRagdollToggle = Tabs.Combat:AddToggle("AntiRagdollToggle", {
 			else
 			game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart").Anchored = false
 		    end
+		   task.wait(0.0001)
                 end
             end)
         end
