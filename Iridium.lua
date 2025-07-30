@@ -452,7 +452,7 @@ local AutoSlapToggle = Tabs.SlapFarm:AddToggle("SexySlapAura", {
                     if TARGETSLAPPLAYER and TARGETSLAPPLAYER.Character and TARGETSLAPPLAYER.Character:FindFirstChild("HumanoidRootPart") then
                         game:GetService("ReplicatedStorage"):WaitForChild("GeneralHit"):FireServer(TARGETSLAPPLAYER.Character.HumanoidRootPart)
                     end
-                    task.wait(0.7)
+                    task.wait(0.84)
                 end
             end)
         end
