@@ -24,7 +24,7 @@ local Window = Fluent:CreateWindow({
 })
 
 local Tabs = {
-    Main = Window:AddTab({ Title = "Guide Badges", Icon = "hammer" })
+    Main = Window:AddTab({ Title = "Guide", Icon = "swords" })
 }
 
 Tabs.Main:AddButton({
