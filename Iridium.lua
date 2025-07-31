@@ -308,10 +308,8 @@ Fluent:Notify({Title = "Interface", Content = "Could not find workspace.SiphonOr
 
 Tabs.Badges:AddButton({
     Title = "Get Glovel",
-    Description = "",
-    Callback = function()
-local args = {"_questChainHitmansHandkerchief"}
-game:GetService("ReplicatedStorage"):WaitForChild("_NETWORK"):WaitForChild("{7a5e08f4-5953-4fc4-bd7c-4be5f2307897}"):FireServer(unpack(args)) -- 7a5e08f4-5953-4fc4-bd7c-4be5f2307897 is uuid or possible game.Players.LocalPlayer		
+    Description = "Make sure you have Hitman Quest",
+    Callback = function()	
 localplayer.Character.Humanoid.Health = 0
 task.wait(5)
 fireclickdetector(workspace.Lobby.Extended.ClickDetector)
