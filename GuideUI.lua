@@ -128,7 +128,7 @@ local slappinger3 = Tabs.Main:AddToggle("TheSlapping3Toggle", {
             task.spawn(function()
                 while slapping3 do
 game.Players.LocalPlayer.Character:FindFirstChild("Lantern"):Activate()
-local args = {"Hit", workspace:FindFirstChild("GuideNPC")}
+local args = {"Hit", workspace:WaitForChild("GuideNPC"):WaitForChild("Head")}
 game:GetService("Players").LocalPlayer.Character:WaitForChild("Lantern"):WaitForChild("Network"):FireServer(unpack(args))
               task.wait(0.01)
                 end
