@@ -7,7 +7,7 @@ if game.PlaceId == 14422118326 then
 end
 
 if game.PlaceId == 11520107397 then
-	return loadstring(game:HttpGet("https://raw.githubusercontent.com/water5202/Slap-Battles-Auto-Badges/refs/heads/main/KSUI.lua"))()
+	return loadstring(game:HttpGet("https://raw.githubusercontent.com/water5202/Iridium/refs/heads/main/KSUI.lua"))()
 end
 
 local Fluent = loadstring(game:HttpGet("https://github.com/dawid-scripts/Fluent/releases/latest/download/main.lua"))()
