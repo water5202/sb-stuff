@@ -47,7 +47,7 @@ Tabs.Main:AddButton({
     Title = "Get Heart + Healing",
     Description = "",
     Callback = function()
-if game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame ~= CFrame(3259.35181, -74.5, 821.916199, 0.00376401632, -5.12010487e-08, 0.999992907, 2.30775996e-10, 1, 5.12005442e-08, -0.999992907, 3.80546705e-11, 0.00376401632) then
+if workspace:FindFirstChild("Big Heart") and ("the cube of life") then
 firetouchinterest(game.Players.LocalPlayer.Character.HumanoidRootPart, workspace:FindFirstChild("Big Heart"), 0)
 firetouchinterest(game.Players.LocalPlayer.Character.HumanoidRootPart, workspace:FindFirstChild("the cube of life"), 0)
 task.wait(0.005)
@@ -63,7 +63,7 @@ local AntiVoidToggle = Tabs.Main:AddToggle("AntiVoidToggle", {
     Default = false,
     Callback = function(state)
 	if state then
-        game.Players.LocalPlayer.Character.CFrame = game.Players.LocalPlayer.Character.CFrame * CFrame.new(0, 90, 0)
+        game.Players.LocalPlayer.Character.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0, 90, 0)
 	    AntiVoid.CanCollide = true
         AntiVoid.Transparency = 0.5
 	else
@@ -106,8 +106,9 @@ local slappinger1 = Tabs.Main:AddToggle("TheSlapping2Toggle", {
             task.spawn(function()
                 while slapping1 do
 game.Players.LocalPlayer.Character:FindFirstChild("Lantern"):Activate()
-local args = {"Hit", workspace:FindFirstChild("golem")}
+local args = {"Hit", workspace:WaitForChild("golem"):WaitForChild("Hitbox")}
 game:GetService("Players").LocalPlayer.Character:WaitForChild("Lantern"):WaitForChild("Network"):FireServer(unpack(args))
+
               task.wait(0.01)
                 end
             end)
