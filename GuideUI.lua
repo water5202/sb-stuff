@@ -61,7 +61,7 @@ local AntiVoidToggle = Tab:AddToggle("AntiVoidToggle",
 {
     Title = "AntiVoid", 
     Description = "Toggles A Platform Above Guide",
-    Default = false
+    Default = false,
     Callback = function(state)
 	if state then
         game.Players.LocalPlayer.Character.CFrame = game.Players.LocalPlayer.Character.CFrame * CFrame.new(0, 90, 0)
