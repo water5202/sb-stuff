@@ -136,3 +136,5 @@ game:GetService("Players").LocalPlayer.Character:WaitForChild("Lantern"):WaitFor
         end
     end
 })
+
+Window:SelectTab(1)
