@@ -446,7 +446,7 @@ Tabs.Badges:AddButton({
 local teleportFunc = queueonteleport or queue_on_teleport
     if teleportFunc then
         teleportFunc([[
-loadstring(game:HttpGet("https://raw.githubusercontent.com/water5202/Slap-Battles-Auto-Badges/refs/heads/main/EludeMazeUI"))()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/water5202/Iridium/refs/heads/main/KSUI.lua"))()
 ]])
 end
 game:GetService("TeleportService"):Teleport(11828384869)
