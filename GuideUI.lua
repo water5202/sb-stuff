@@ -57,7 +57,7 @@ firetouchinterest(game.Players.LocalPlayer.Character.HumanoidRootPart, workspace
     end
 })
 
-local AntiVoidToggle = Tab:AddToggle("AntiVoidToggle", {
+local AntiVoidToggle = Tabs.Main:AddToggle("AntiVoidToggle", {
     Title = "AntiVoid", 
     Description = "Toggles A Platform Above Guide",
     Default = false,
