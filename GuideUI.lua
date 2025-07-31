@@ -104,29 +104,30 @@ local slappinger1 = Tabs.Main:AddToggle("TheSlapping2Toggle", {
     Description = "",
     Default = false,
     Callback = function(state)
-        slapping = state
+        slapping1 = state
         if slapping1 then
             task.spawn(function()
-while slapping1 do
-if game.Workspace:FindFirstChild("golem") and game.Workspace.golem:FindFirstChild("Hitbox") then
-for i,v in pairs(game.Workspace:GetChildren()) do
-if v.Name == "golem" and v:FindFirstChild("Hitbox") then
-if game.Players.LocalPlayer.Backpack:FindFirstChild("Lantern") then
-game.Players.LocalPlayer.Backpack:FindFirstChild("Lantern").Parent = game.Players.LocalPlayer.Character
-elseif game.Players.LocalPlayer.Character:FindFirstChild("Lantern") then
-if game.Workspace:FindFirstChild("golem") and game.Players.LocalPlayer.Character:FindFirstChild("Lantern") then
-game.Players.LocalPlayer.Character:FindFirstChild("Lantern"):Activate()
-if game.Players.LocalPlayer.Character:FindFirstChild("Lantern") and game.Players.LocalPlayer.Character.Lantern:FindFirstChild("Network") then
-game:GetService("Players").LocalPlayer.Character.Lantern.Network:FireServer("Hit", v.Hitbox)
-           end
-         end
-      end
-   end
-end
+                while slapping1 do
+                    for _, v in pairs(game.Workspace:GetChildren()) do
+                        if v.Name == "golem" and v:FindFirstChild("Hitbox") then
+                            local lantern = game.Players.LocalPlayer.Backpack:FindFirstChild("Lantern") or
+                                            game.Players.LocalPlayer.Character:FindFirstChild("Lantern")
+                            if lantern then
+                                lantern.Parent = game.Players.LocalPlayer.Character
+                                lantern:Activate()
+                                if lantern:FindFirstChild("Network") then
+                                    lantern.Network:FireServer("Hit", v.Hitbox)
+                                end
+                            end
+                        end
+                    end
+                    task.wait(0.01)
+                end
             end)
         end
     end
 })
+
 
 local slapping3 = false
 
