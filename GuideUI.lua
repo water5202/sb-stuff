@@ -2,6 +2,15 @@ if not game:IsLoaded() then
 game.Loaded:Wait()
 end
 
+local AntiVoid = Instance.new("Part")
+AntiVoid.Name = ""
+AntiVoid.Parent = workspace
+AntiVoid.Size = Vector3.new(665, 2, 478)
+AntiVoid.CFrame = Vector3.new(590.613281, 97.6590576, -275.837341, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+AntiVoid.Transparency = 1
+AntiVoid.CanCollide = false
+AntiVoid.Anchored = true
+
 local Fluent = loadstring(game:HttpGet("https://github.com/dawid-scripts/Fluent/releases/latest/download/main.lua"))()
 
 local Window = Fluent:CreateWindow({
@@ -46,6 +55,23 @@ firetouchinterest(game.Players.LocalPlayer.Character.HumanoidRootPart, workspace
 firetouchinterest(game.Players.LocalPlayer.Character.HumanoidRootPart, workspace:FindFirstChild("the cube of life"), 1)
        end
     end
+})
+
+local AntiVoidToggle = Tab:AddToggle("AntiVoidToggle", 
+{
+    Title = "AntiVoid", 
+    Description = "Toggles A Platform Above Guide",
+    Default = false
+    Callback = function(state)
+	if state then
+        game.Players.LocalPlayer.Character.CFrame = game.Players.LocalPlayer.Character.CFrame * CFrame.new(0, 90, 0)
+	    AntiVoid.CanCollide = true
+        AntiVoid.Transparency = 0.5
+	else
+	    AntiVoid.CanCollide = false
+        AntiVoid.Transparency = 1
+        end
+    end 
 })
 
 local slapping = false
