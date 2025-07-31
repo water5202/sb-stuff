@@ -45,8 +45,6 @@ Tabs.Main:AddButton({
     Description = "",
     Callback = function()
 if game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame ~= CFrame(3259.35181, -74.5, 821.916199, 0.00376401632, -5.12010487e-08, 0.999992907, 2.30775996e-10, 1, 5.12005442e-08, -0.999992907, 3.80546705e-11, 0.00376401632) then
-  return Fluent:Notify({Title = "Interface",Content = "Incorrect CFrame",SubContent = "",Duration = 3})
-    else
 firetouchinterest(game.Players.LocalPlayer.Character.HumanoidRootPart, workspace:FindFirstChild("Big Heart"), 0)
 firetouchinterest(game.Players.LocalPlayer.Character.HumanoidRootPart, workspace:FindFirstChild("the cube of life"), 0)
 task.wait(0.005)
