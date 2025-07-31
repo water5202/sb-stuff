@@ -3,7 +3,7 @@ if not game:IsLoaded() then
 end
 
 if game.PlaceId == 14422118326 then
-	return loadstring(game:HttpGet("https://raw.githubusercontent.com/water5202/Slap-Battles-Auto-Badges/refs/heads/main/NullZoneUI.lua"))()
+	return loadstring(game:HttpGet("https://raw.githubusercontent.com/water5202/Iridium/refs/heads/main/NullZoneUI.lua"))()
 end
 
 if game.PlaceId == 11520107397 then
