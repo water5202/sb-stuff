@@ -69,19 +69,6 @@ Platform.Size = Vector3.new(84, 5, 82)
 Platform.Transparency = 0.5
 Platform.Anchored = true
 
-if workspace:FindFirstChild("AntiVoid") then
-workspace.AntiVoid:Destroy()
-end
-
-local AntiVoid = Instance.new("Part")
-AntiVoid.Name = "AntiVoid"
-AntiVoid.Parent = workspace
-AntiVoid.Anchored = true
-AntiVoid.Size = Vector3.new(100000, 2, 100000)
-AntiVoid.CFrame = CFrame.new(331.141785, -14.7781677, -77.4250183, 1, 0, 0, 0, 1, 0, 0, 0, 1)
-AntiVoid.Transparency = 1
-AntiVoid.CanCollide = false
-
 local Window = Fluent:CreateWindow({
     Title = "Iridium // " .. identifyexecutor(),
     SubTitle = "",
