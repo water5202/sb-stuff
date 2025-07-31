@@ -14,12 +14,6 @@ local Window = Fluent:CreateWindow({
     MinimizeKey = Enum.KeyCode.H
 })
 
-local function MouseButtonClick(button)
-    VIM:SendMouseButtonEvent(mouse.X, mouse.Y, button, true, game, 1)
-    task.wait()
-    VIM:SendMouseButtonEvent(mouse.X, mouse.Y, button, false, game, 1)
-end
-
 local Tabs = {
     Main = Window:AddTab({ Title = "Guide Badges", Icon = "hammer" })
 }
@@ -65,7 +59,7 @@ local slappinger = Tabs.Main:AddToggle("TheSlappingToggle", {
         if slapping then
             task.spawn(function()
                 while slapping do
-MouseButtonClick(1)
+game.Players.LocalPlayer.Character:FindFirstChild("Lantern"):Activate()
 local args = {"Hit", workspace:FindFirstChild("TrackGloveMissile")}
 game:GetService("Players").LocalPlayer.Character:WaitForChild("Lantern"):WaitForChild("Network"):FireServer(unpack(args))
               task.wait(0.01)
@@ -86,8 +80,29 @@ local slappinger1 = Tabs.Main:AddToggle("TheSlapping2Toggle", {
         if slapping1 then
             task.spawn(function()
                 while slapping1 do
-MouseButtonClick(1)
+game.Players.LocalPlayer.Character:FindFirstChild("Lantern"):Activate()
 local args = {"Hit", workspace:FindFirstChild("golem")}
+game:GetService("Players").LocalPlayer.Character:WaitForChild("Lantern"):WaitForChild("Network"):FireServer(unpack(args))
+              task.wait(0.01)
+                end
+            end)
+        end
+    end
+})
+
+local slapping3 = false
+
+local slappinger3 = Tabs.Main:AddToggle("TheSlapping3Toggle", {
+    Title = "Auto Slap Guide",
+    Description = "",
+    Default = false,
+    Callback = function(state)
+        slapping3 = state
+        if slapping3 then
+            task.spawn(function()
+                while slapping3 do
+game.Players.LocalPlayer.Character:FindFirstChild("Lantern"):Activate()
+local args = {"Hit", workspace:FindFirstChild("GuideNPC")}
 game:GetService("Players").LocalPlayer.Character:WaitForChild("Lantern"):WaitForChild("Network"):FireServer(unpack(args))
               task.wait(0.01)
                 end
