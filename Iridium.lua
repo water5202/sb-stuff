@@ -88,12 +88,11 @@ local Window = Fluent:CreateWindow({
     TabWidth = 120,
     Size = UDim2.fromOffset(400, 300),
     Acrylic = false,
-    Theme = "Dark",
+    Theme = "Darker",
     MinimizeKey = Enum.KeyCode.H
 })
 
 local Tabs = {
-    Combat = Window:AddTab({ Title = "Combat", Icon = "swords" }),
     AutoFarming = Window:AddTab({ Title = "Auto Farming", Icon = "hammer" }),
     SlapFarm = Window:AddTab({ Title = "Slap Farming", Icon = "hammer" }),
     Badges = Window:AddTab({ Title = "Badges", Icon = "box" }),
@@ -152,7 +151,7 @@ task.wait(0.001)
 end)
 
 local GloveStandText = Tabs.Info:AddParagraph({
-        Title = "Glove Stands // Numb",
+        Title = "",
         Content = "Increased alot"
 })
 
@@ -224,47 +223,6 @@ TimeBar:SetTitle(time)
 task.wait(0.1)
 end			
 end)
-
-local IsRagdollTurnedOff = false
-
-local AntiRagdollToggle = Tabs.Combat:AddToggle("AntiRagdollToggle", {
-    Title = "Toggle AntiRagdoll",
-    Description = "",
-    Default = false,
-    Callback = function(state)
-	IsRagdollTurnedOff = state
-        if IsRagdollTurnedOff then
-            task.spawn(function()
-                while IsRagdollTurnedOff do
-		  if game.Players.LocalPlayer.Character:FindFirstChild("Ragdolled").Value == true then
-			game.Players.LocalPlayer.Character.HumanoidRootPart.AssemblyLinearVelocity = Vector3.zero
-			game.Players.LocalPlayer.Character.HumanoidRootPart.AssemblyAngularVelocity = Vector3.zero					
-			game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart").Anchored = true
-			else
-			game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart").Anchored = false
-		    end
-		   task.wait(0.0001)
-                end
-            end)
-        end
-    end
-})
-
-local AntiVoidToggle = Tabs.Combat:AddToggle("AntiVoidToggle", 
-{
-    Title = "Toggle AntiVoid", 
-    Description = "",
-    Default = false,
-    Callback = function(state)
-	if state then
-        AntiVoid.Transparency = 0.5
-        AntiVoid.CanCollide = true
-	else
-        AntiVoid.Transparency = 1
-        AntiVoid.CanCollide = false
-        end
-    end 
-})
 
 Tabs.Badges:AddButton({
     Title = "Get Plunger",
