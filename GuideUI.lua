@@ -63,7 +63,7 @@ local AntiVoidToggle = Tabs.Main:AddToggle("AntiVoidToggle", {
     Default = false,
     Callback = function(state)
 	if state then
-        game.Players.LocalPlayer.Character.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0, 90, 0)
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0, 90, 0)
 	    AntiVoid.CanCollide = true
         AntiVoid.Transparency = 0.5
 	else
