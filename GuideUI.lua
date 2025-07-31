@@ -14,6 +14,12 @@ local Window = Fluent:CreateWindow({
     MinimizeKey = Enum.KeyCode.H
 })
 
+local function MouseButtonClick(button)
+    VIM:SendMouseButtonEvent(mouse.X, mouse.Y, button, true, game, 1)
+    task.wait()
+    VIM:SendMouseButtonEvent(mouse.X, mouse.Y, button, false, game, 1)
+end
+
 local Tabs = {
     Main = Window:AddTab({ Title = "Guide Badges", Icon = "hammer" })
 }
@@ -61,10 +67,29 @@ local slappinger = Tabs.Main:AddToggle("TheSlappingToggle", {
         if slapping then
             task.spawn(function()
                 while slapping do
-game:GetService("VirtualInputManager"):SendMouseButtonEvent(1000, 1000, 1, true, game, 1)
-task.wait(0.005)
-game:GetService("VirtualInputManager"):SendMouseButtonEvent(1000, 1000, 1, false, game, 1)
+MouseButtonClick(1)
 local args = {"Hit", workspace:FindFirstChild("TrackGloveMissile")}
+game:GetService("Players").LocalPlayer.Character:WaitForChild("Lantern"):WaitForChild("Network"):FireServer(unpack(args))
+              task.wait(0.01)
+                end
+            end)
+        end
+    end
+})
+
+local slapping1 = false
+
+local slappinger1 = Tabs.Main:AddToggle("TheSlapping2Toggle", {
+    Title = "Auto Slap Golems",
+    Description = "",
+    Default = false,
+    Callback = function(state)
+        slapping = state
+        if slapping1 then
+            task.spawn(function()
+                while slapping1 do
+MouseButtonClick(1)
+local args = {"Hit", workspace:FindFirstChild("golem")}
 game:GetService("Players").LocalPlayer.Character:WaitForChild("Lantern"):WaitForChild("Network"):FireServer(unpack(args))
               task.wait(0.01)
                 end
