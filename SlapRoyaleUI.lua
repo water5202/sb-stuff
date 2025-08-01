@@ -1,13 +1,4 @@
 local Fluent = loadstring(game:HttpGet("https://github.com/dawid-scripts/Fluent/releases/latest/download/main.lua"))()
-
-local bypass;
-    bypass = hookmetamethod(game, "__namecall", function(method, ...) 
-        if getnamecallmethod() == "FireServer" and method == game:GetService("ReplicatedStorage").Ban then -- kicks for WS sadly
-            return
-        end
-        return bypass(method, ...)
-end) 
-
 Fluent:Notify({Title = "Interface", Content = "Bypassed AntiCheat!", SubContent = "via hookmetamethod", Duration = 5})
 Fluent:Notify({Title = "Interface", Content = "Script is beta!", SubContent = "", Duration = 5})
 
@@ -81,8 +72,8 @@ local Slappering = Tabs.main:AddToggle("SlapAura", {
             task.spawn(function()
                 while Slapping do
                     for _,PLAYER in pairs(game.Players:GetChildren()) do
-                        local args = {game:GetService("Players"):WaitForChild(PLAYER).Character:WaitForChild("Head")} -- basic understanding is game looks for part to hit within hitbox ( we can expand this probably but idk where )
-
+		      if PLAYER ~= game.Players.LocalPlayer and PLAYER.Character and PLAYER.Character:FindFirstChild("Head") then -- crucial checks			
+                        local args = {PLAYER.Character:WaitForChild("Head")} -- basic understanding is game looks for part to hit within hitbox ( we can expand this probably but idk where )				
                         game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("Slap"):FireServer(unpack(args))    
                     end
                     task.wait(0.001)
@@ -107,7 +98,7 @@ for _, item in pairs(workspace.Items:GetChildren()) do
     if not item:FindFirstChild("ItemBillboard") then
         local billboard = Instance.new("BillboardGui")
         billboard.Name = "ItemBillboard"
-        billboard.Size = UDim2.new(0, 20, 0, 20)
+        billboard.Size = UDim2.new(0, 40, 0, 20)
         billboard.StudsOffset = Vector3.new(0, 3, 0)
         billboard.AlwaysOnTop = true
         billboard.Parent = item
@@ -118,7 +109,7 @@ for _, item in pairs(workspace.Items:GetChildren()) do
         label.BackgroundTransparency = 1
         label.Text = item.Name
         label.Font = Enum.Font.RobotoMono
-        label.TextColor3 = Color3.new(0.372549, 0.552941, 0.733333)
+        label.TextColor3 = Color3.new(255, 255, 255)
         label.TextScaled = true
         label.Parent = billboard
     end
@@ -157,8 +148,3 @@ Tabs.settings:AddButton({
 })
 
 Window:SelectTab(1)
-
-
-
-
-
