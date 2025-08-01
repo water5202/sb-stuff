@@ -125,7 +125,7 @@ end
 -- progress
 Tabs.main:AddButton({
     Title = "Jump off bus",
-    Description = "",
+    Description = "Very Blatant",
     Callback = function()
         game:GetService("ReplicatedStorage").Events.BusJumping:FireServer()
     end
@@ -140,5 +140,6 @@ Tabs.main:AddButton({
 })
 
 Window:SelectTab(1)
+
 
 
