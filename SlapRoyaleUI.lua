@@ -2,9 +2,7 @@ local Fluent = loadstring(game:HttpGet("https://github.com/dawid-scripts/Fluent/
 
 local bypass;
     bypass = hookmetamethod(game, "__namecall", function(method, ...) 
-        if getnamecallmethod() == "FireServer" and method == game:GetService("ReplicatedStorage").Events.WS then
-            return 
-        elseif getnamecallmethod() == "FireServer" and method == game:GetService("ReplicatedStorage").Ban then
+        if getnamecallmethod() == "FireServer" and method == game:GetService("ReplicatedStorage").Ban then
             return
         end
         return bypass(method, ...)
@@ -98,9 +96,9 @@ for _, item in pairs(workspace.Items:GetChildren()) do
         local esp = Instance.new("Highlight")
         esp.Name = "ItemESP"
         esp.FillColor = Color3.new(0.407843, 0.596078, 0.894117)
-        esp.FillTransparency = 0.5
+        esp.FillTransparency = 0
         esp.OutlineColor = Color3.new(1, 1, 1)
-        esp.OutlineTransparency = 0.1
+        esp.OutlineTransparency = 0
         esp.Adornee = item
         esp.Parent = item
     end
@@ -108,7 +106,7 @@ for _, item in pairs(workspace.Items:GetChildren()) do
     if not item:FindFirstChild("ItemBillboard") then
         local billboard = Instance.new("BillboardGui")
         billboard.Name = "ItemBillboard"
-        billboard.Size = UDim2.new(0, 100, 0, 50)
+        billboard.Size = UDim2.new(0, 50, 0, 30)
         billboard.StudsOffset = Vector3.new(0, 3, 0)
         billboard.AlwaysOnTop = true
         billboard.Parent = item
@@ -118,10 +116,27 @@ for _, item in pairs(workspace.Items:GetChildren()) do
         label.Size = UDim2.new(1, 0, 1, 0)
         label.BackgroundTransparency = 1
         label.Text = item.Name
-        label.Font = Enum.Font.Ubuntu
+        label.Font = Enum.Font.RobotoMono
         label.TextColor3 = Color3.new(0.372549, 0.552941, 0.733333)
         label.TextScaled = true
         label.Parent = billboard
     end
 end
 -- progress
+Tabs.main:AddButton({
+    Title = "Jump off bus",
+    Description = "",
+    Callback = function()
+        
+    end
+})
+
+Tabs.main:AddButton({
+    Title = "Suicide",
+    Description = "",
+    Callback = function()
+        game.Players.LocalPlayer.Character.Humanoid.Health = 0
+    end
+})
+
+Window:SelectTab:(1)
