@@ -138,4 +138,5 @@ Tabs.main:AddButton({
     end
 })
 
-Window:SelectTab:(1)
+Window:SelectTab(1)
+
