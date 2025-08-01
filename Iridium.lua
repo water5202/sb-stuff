@@ -384,7 +384,7 @@ local GOTOPLAYERTELEPORTER = Tabs.SlapFarm:AddToggle("SexyCoolSlapTeleportToggle
     Default = false,
     Callback = function(state)
         teleporting = state
-        if state then
+        if teleporting then
             task.spawn(function()
                 while teleporting do
                     if GOTOPLAYER and GOTOPLAYER.Character and GOTOPLAYER.Character:FindFirstChild("HumanoidRootPart") then
@@ -734,3 +734,4 @@ Tabs.Settings:AddButton({
 })
 
 Window:SelectTab(1)
+
