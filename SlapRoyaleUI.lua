@@ -2,7 +2,7 @@ local Fluent = loadstring(game:HttpGet("https://github.com/dawid-scripts/Fluent/
 
 local bypass;
     bypass = hookmetamethod(game, "__namecall", function(method, ...) 
-        if getnamecallmethod() == "FireServer" and method == game:GetService("ReplicatedStorage").Ban then
+        if getnamecallmethod() == "FireServer" and method == game:GetService("ReplicatedStorage").Ban then -- kicks for WS sadly
             return
         end
         return bypass(method, ...)
@@ -127,7 +127,7 @@ Tabs.main:AddButton({
     Title = "Jump off bus",
     Description = "",
     Callback = function()
-        
+        game:GetService("ReplicatedStorage").Events.BusJumping:FireServer()
     end
 })
 
@@ -140,3 +140,4 @@ Tabs.main:AddButton({
 })
 
 Window:SelectTab:(1)
+
