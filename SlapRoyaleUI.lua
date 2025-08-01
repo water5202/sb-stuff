@@ -12,7 +12,7 @@ Fluent:Notify({Title = "Interface", Content = "Bypassed AntiCheat!", SubContent 
 Fluent:Notify({Title = "Interface", Content = "Script is beta!", SubContent = "", Duration = 5})
 
 local Window = Fluent:CreateWindow({
-    Title = "Slap Royale // " .. identifyexecutor(),
+    Title = "Sex Royale // " .. identifyexecutor(),
     SubTitle = "",
     TabWidth = 120,
     Size = UDim2.fromOffset(400, 300),
@@ -79,8 +79,9 @@ local Slappering = Tabs.main:AddToggle("SlapAura", {
         if Slapping then
             task.spawn(function()
                 while Slapping do
-                    for _,PLAYER in pairs(game:GetService("Players"):GetChildren()) do
-                        local args = {PLAYER.Character:WaitForChild("Head")} -- basic understanding is game looks for part to hit within hitbox ( we can expand this probably but idk where )
+                    for _,PLAYER in pairs(game.Players:GetChildren()) do
+                        local args = {game:GetService("Players"):WaitForChild(PLAYER).Character:WaitForChild("Head")} -- basic understanding is game looks for part to hit within hitbox ( we can expand this probably but idk where )
+
                         game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("Slap"):FireServer(unpack(args))    
                     end
                     task.wait(0.001)
@@ -94,7 +95,7 @@ for _, item in pairs(workspace.Items:GetChildren()) do
     if not item:FindFirstChild("ItemESP") then
         local esp = Instance.new("Highlight")
         esp.Name = "ItemESP"
-        esp.FillColor = Color3.new(0.407843, 0.596078, 0.894117)
+        esp.FillColor = Color3.new(1, 1, 1)
         esp.FillTransparency = 0
         esp.OutlineColor = Color3.new(1, 1, 1)
         esp.OutlineTransparency = 0
@@ -139,4 +140,3 @@ Tabs.main:AddButton({
 })
 
 Window:SelectTab(1)
-
