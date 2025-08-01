@@ -17,11 +17,6 @@ end
 if game.PlaceId == 18550498098 then
 	return loadstring(game:HttpGet("https://raw.githubusercontent.com/water5202/Iridium/refs/heads/main/GuideUI.lua"))()
 end
--- after 
-
-if game.PlaceId ~= 6403373529 then
-	return end
-end
 
 local Fluent = loadstring(game:HttpGet("https://github.com/dawid-scripts/Fluent/releases/latest/download/main.lua"))()
 local Players = game:GetService("Players")
@@ -742,6 +737,7 @@ Tabs.Settings:AddButton({
 })
 
 Window:SelectTab(1)
+
 
 
 
