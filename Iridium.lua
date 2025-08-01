@@ -10,6 +10,9 @@ if game.PlaceId == 11520107397 then
 	return loadstring(game:HttpGet("https://raw.githubusercontent.com/water5202/Iridium/refs/heads/main/KSUI.lua"))()
 end
 
+if game.PlaceId == 9431156611 then
+	return loadstring(game:HttpGet("https://raw.githubusercontent.com/water5202/Iridium/refs/heads/main/SlapRoyaleUI.lua"))()
+end
 
 if game.PlaceId == 18550498098 then
 	return loadstring(game:HttpGet("https://raw.githubusercontent.com/water5202/Iridium/refs/heads/main/GuideUI.lua"))()
@@ -734,4 +737,5 @@ Tabs.Settings:AddButton({
 })
 
 Window:SelectTab(1)
+
 
