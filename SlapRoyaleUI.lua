@@ -133,11 +133,12 @@ Tabs.main:AddButton({
 
 Tabs.main:AddButton({
     Title = "Suicide",
-    Description = "",
+    Description = "Don't use in lobby else kick",
     Callback = function()
         game.Players.LocalPlayer.Character.Humanoid.Health = 0
     end
 })
 
 Window:SelectTab(1)
+
 
