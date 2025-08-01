@@ -12,7 +12,7 @@ Fluent:Notify({Title = "Interface", Content = "Bypassed AntiCheat!", SubContent 
 Fluent:Notify({Title = "Interface", Content = "Script is beta!", SubContent = "", Duration = 5})
 
 local Window = Fluent:CreateWindow({
-    Title = "Sex Royale // " .. identifyexecutor(),
+    Title = "Slap Royale // " .. identifyexecutor(),
     SubTitle = "",
     TabWidth = 120,
     Size = UDim2.fromOffset(400, 300),
@@ -140,3 +140,4 @@ Tabs.main:AddButton({
 })
 
 Window:SelectTab(1)
+
