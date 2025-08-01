@@ -1,4 +1,3 @@
-
 local Fluent = loadstring(game:HttpGet("https://github.com/dawid-scripts/Fluent/releases/latest/download/main.lua"))()
 Fluent:Notify({Title = "Interface", Content = "Bypassed AntiCheat!", SubContent = "via hookmetamethod", Duration = 5})
 Fluent:Notify({Title = "Interface", Content = "Script is beta!", SubContent = "", Duration = 5})
@@ -75,9 +74,9 @@ local Slappering = Tabs.main:AddToggle("SlapAura", {
                     for _,PLAYER in pairs(game.Players:GetChildren()) do
 		      if PLAYER ~= game.Players.LocalPlayer and PLAYER.Character and PLAYER.Character:FindFirstChild("Head") then -- crucial checks			
                         local args = {PLAYER.Character:WaitForChild("Head")} -- basic understanding is game looks for part to hit within hitbox ( we can expand this probably but idk where )				
-                        game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("Slap"):FireServer(unpack(args))    
-                    end
-                    task.wait(0.001)
+                        game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("Slap"):FireServer(unpack(args))
+			task.wait(0.001)
+                     end
                    end
                 end
             end)
