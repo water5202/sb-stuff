@@ -89,7 +89,7 @@ for _, item in pairs(workspace.Items:GetChildren()) do
         local esp = Instance.new("Highlight")
         esp.Name = "ItemESP"
         esp.FillColor = Color3.new(1, 1, 1)
-        esp.FillTransparency = 0
+        esp.FillTransparency = 1
         esp.OutlineColor = Color3.new(1, 1, 1)
         esp.OutlineTransparency = 0
         esp.Adornee = item
@@ -149,3 +149,4 @@ Tabs.settings:AddButton({
 })
 
 Window:SelectTab(1)
+
