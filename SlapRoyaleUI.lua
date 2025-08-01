@@ -12,7 +12,7 @@ Fluent:Notify({Title = "Interface", Content = "Bypassed AntiCheat!", SubContent 
 Fluent:Notify({Title = "Interface", Content = "Script is beta!", SubContent = "", Duration = 5})
 
 local Window = Fluent:CreateWindow({
-    Title = "Sex Royale // " .. identifyexecutor(),
+    Title = "Slap Royale // " .. identifyexecutor(),
     SubTitle = "",
     TabWidth = 120,
     Size = UDim2.fromOffset(400, 300),
@@ -79,9 +79,8 @@ local Slappering = Tabs.main:AddToggle("SlapAura", {
         if Slapping then
             task.spawn(function()
                 while Slapping do
-                    for _,PLAYER in pairs(game.Players:GetChildren()) do
-                        local args = {game:GetService("Players"):WaitForChild(PLAYER).Character:WaitForChild("Head")} -- basic understanding is game looks for part to hit within hitbox ( we can expand this probably but idk where )
-
+                    for _,PLAYER in pairs(game:GetService("Players"):GetChildren()) do
+                        local args = {PLAYER.Character:WaitForChild("Head")} -- basic understanding is game looks for part to hit within hitbox ( we can expand this probably but idk where )
                         game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("Slap"):FireServer(unpack(args))    
                     end
                     task.wait(0.001)
@@ -140,4 +139,3 @@ Tabs.main:AddButton({
 })
 
 Window:SelectTab:(1)
-
