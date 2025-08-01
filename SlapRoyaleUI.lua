@@ -106,7 +106,7 @@ for _, item in pairs(workspace.Items:GetChildren()) do
     if not item:FindFirstChild("ItemBillboard") then
         local billboard = Instance.new("BillboardGui")
         billboard.Name = "ItemBillboard"
-        billboard.Size = UDim2.new(0, 50, 0, 30)
+        billboard.Size = UDim2.new(0, 20, 0, 20)
         billboard.StudsOffset = Vector3.new(0, 3, 0)
         billboard.AlwaysOnTop = true
         billboard.Parent = item
@@ -140,6 +140,7 @@ Tabs.main:AddButton({
 })
 
 Window:SelectTab(1)
+
 
 
 
