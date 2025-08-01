@@ -22,7 +22,8 @@ local Window = Fluent:CreateWindow({
 })
 
 local Tabs = {
-    main = Window:AddTab({ Title = "Slap Royale", Icon = "swords" })
+    main = Window:AddTab({ Title = "Slap Royale", Icon = "swords" }),
+    settings = Window:AddTab({ Title = "Settings", Icon = "settings" })
 }
 
 local Ping
@@ -139,7 +140,24 @@ Tabs.main:AddButton({
     end
 })
 
+Tabs.settings:AddButton({
+    Title = "Unload UI",
+    Description = "Unloads the UI",
+    Callback = function()
+        Fluent:Destroy()
+    end
+})
+
+Tabs.settings:AddButton({
+    Title = "IY",
+    Description = "Infinie Yield",
+    Callback = function()
+        loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()
+    end
+})
+
 Window:SelectTab(1)
+
 
 
 
