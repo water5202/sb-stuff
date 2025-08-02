@@ -77,4 +77,3 @@ fireclickdetector(workspace._ugcQuestObjectEludeHat.ClickDetector)
 })
 
 Window:SelectTab(1)
-end
