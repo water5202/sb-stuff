@@ -1,6 +1,13 @@
 local Fluent = loadstring(game:HttpGet("https://github.com/dawid-scripts/Fluent/releases/latest/download/main.lua"))()
-Fluent:Notify({Title = "Interface", Content = "Bypassed AntiCheat!", SubContent = "via hookmetamethod", Duration = 5})
 Fluent:Notify({Title = "Interface", Content = "Script is beta!", SubContent = "", Duration = 5})
+
+local NoLava = Instance.new("Part")
+NoLava.Name = ""
+NoLava.Parent = workspace
+NoLava.Size = Vector3.new(84, 1, 117)
+NoLava.CFrame = CFrame.new(-240.64537, -27.9478741, 405.806458, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+NoLava.Anchored = true
+NoLava.Transparency = 0.5
 
 local Window = Fluent:CreateWindow({
     Title = "Slap Royale // " .. identifyexecutor(),
@@ -149,4 +156,5 @@ Tabs.settings:AddButton({
 })
 
 Window:SelectTab(1)
+
 
