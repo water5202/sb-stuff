@@ -6,7 +6,11 @@ if game.PlaceId == 14422118326 then
 	return loadstring(game:HttpGet("https://raw.githubusercontent.com/water5202/Iridium/refs/heads/main/NullZoneUI.lua"))()
 end
 
-if game.PlaceId == 11520107397 then
+if game.PlaceId == 11828384869 then
+	return loadstring(game:HttpGet("https://raw.githubusercontent.com/water5202/Iridium/refs/heads/main/EludeMazeUI.lua"))()
+end
+
+if game.PlaceId == 11520107397 then 
 	return loadstring(game:HttpGet("https://raw.githubusercontent.com/water5202/Iridium/refs/heads/main/KSUI.lua"))()
 end
 
@@ -737,6 +741,7 @@ Tabs.Settings:AddButton({
 })
 
 Window:SelectTab(1)
+
 
 
 
