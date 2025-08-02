@@ -281,6 +281,26 @@ game:GetService("TeleportService"):Teleport(7234087065)
 })
 
 Tabs.Badges:AddButton({
+    Title = "Get Plank",
+    Description = "",
+    Callback = function()
+localplayer.Character.Humanoid.Health = 0
+task.wait(5)
+fireclickdetector(workspace.Lobby.Fort.ClickDetector)
+task.wait(1)
+HRP = localplayer.Character.HumanoidRootPart
+firetouchinterest(HRP, ArenaPart, 0)
+task.wait(0.5)
+firetouchinterest(HRP, ArenaPart, 1)
+HRP.CFrame = CFrame.new("-15.8425188, 71.5247803, -0.351269305, 0.0288186371, -6.64145716e-08, -0.999584675, 3.5975084e-10, 1, -6.64317952e-08, 0.999584675, 1.55487234e-09, 0.0288186371")
+task.wait(0.1)
+HRP.Anchored = true
+task.wait(0.1)
+game:GetService("ReplicatedStorage"):WaitForChild("Fortlol"):FireServer()
+    end
+})
+
+Tabs.Badges:AddButton({
     Title = "All 3 Misc Badges",
     Description = "Duck Orange and Knife",
     Callback = function()
@@ -741,6 +761,7 @@ Tabs.Settings:AddButton({
 })
 
 Window:SelectTab(1)
+
 
 
 
