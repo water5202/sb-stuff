@@ -9,6 +9,14 @@ NoLava.CFrame = CFrame.new(-240.64537, -27.9478741, 405.806458, 1, 0, 0, 0, 1, 0
 NoLava.Anchored = true
 NoLava.Transparency = 0.5
 
+local NoAcid = Instance.new("Part")
+NoAcid.Name = ""
+NoAcid.Parent = workspace
+NoAcid.Size = Vector3.new(154, 1, 135)
+NoAcid.CFrame = CFrame.new(-71.5164566, 10, -735.791626, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+NoAcid.Anchored = true
+NoAcid.Transparency = 0.5
+
 local Window = Fluent:CreateWindow({
     Title = "Slap Royale // " .. identifyexecutor(),
     SubTitle = "",
@@ -91,12 +99,13 @@ local Slappering = Tabs.main:AddToggle("SlapAura", {
     end
 })
 
-for _, item in pairs(workspace.Items:GetChildren()) do
+task.spawn(function()
+   for _, item in pairs(workspace.Items:GetChildren()) do
     if not item:FindFirstChild("ItemESP") then
         local esp = Instance.new("Highlight")
         esp.Name = "ItemESP"
         esp.FillColor = Color3.new(1, 1, 1)
-        esp.FillTransparency = 1
+        esp.FillTransparency = 0
         esp.OutlineColor = Color3.new(1, 1, 1)
         esp.OutlineTransparency = 0
         esp.Adornee = item
@@ -106,7 +115,7 @@ for _, item in pairs(workspace.Items:GetChildren()) do
     if not item:FindFirstChild("ItemBillboard") then
         local billboard = Instance.new("BillboardGui")
         billboard.Name = "ItemBillboard"
-        billboard.Size = UDim2.new(0, 40, 0, 20)
+        billboard.Size = UDim2.new(0, 30, 0, 20)
         billboard.StudsOffset = Vector3.new(0, 3, 0)
         billboard.AlwaysOnTop = true
         billboard.Parent = item
@@ -118,10 +127,13 @@ for _, item in pairs(workspace.Items:GetChildren()) do
         label.Text = item.Name
         label.Font = Enum.Font.RobotoMono
         label.TextColor3 = Color3.new(255, 255, 255)
+	label.TextStrokeColor3 = Color3.new(0, 0, 0)
+	label.TextStrokeTransparency = 0.5
         label.TextScaled = true
         label.Parent = billboard
     end
-end
+     end
+end)
 -- progress
 Tabs.main:AddButton({
     Title = "Jump off bus",
@@ -156,5 +168,6 @@ Tabs.settings:AddButton({
 })
 
 Window:SelectTab(1)
+
 
 
