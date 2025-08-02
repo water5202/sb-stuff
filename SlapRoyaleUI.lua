@@ -1,3 +1,4 @@
+
 local Fluent = loadstring(game:HttpGet("https://github.com/dawid-scripts/Fluent/releases/latest/download/main.lua"))()
 Fluent:Notify({Title = "Interface", Content = "Script is beta!", SubContent = "", Duration = 5})
 
@@ -132,10 +133,10 @@ local SlapAuraKeybind = Tabs.main:AddKeybind("SlapauraKeybind", {
     Callback = function(Value)
         if not HasBeenToggled then
 	 HasBeenToggled = true
-	  Slappering:SetValue(false)
+	  Slappering:SetValue(true)
 	   else
 	   HasBeenToggled = false
-	   Toggle:SetValue(true)
+	   Slappering:SetValue(false)
 	end
     end,
 
@@ -213,5 +214,3 @@ Tabs.settings:AddButton({
 })
 
 Window:SelectTab(1)
-
-
