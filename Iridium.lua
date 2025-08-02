@@ -10,10 +10,6 @@ if game.PlaceId == 11828384869 then
 	return loadstring(game:HttpGet("https://raw.githubusercontent.com/water5202/Iridium/refs/heads/main/EludeMazeUI.lua"))()
 end
 
-if game.PlaceId == 11520107397 then 
-	return loadstring(game:HttpGet("https://raw.githubusercontent.com/water5202/Iridium/refs/heads/main/KSUI.lua"))()
-end
-
 if game.PlaceId == 9431156611 then
 	return loadstring(game:HttpGet("https://raw.githubusercontent.com/water5202/Iridium/refs/heads/main/SlapRoyaleUI.lua"))()
 end
