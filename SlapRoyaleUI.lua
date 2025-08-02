@@ -121,6 +121,29 @@ local Slappering = Tabs.main:AddToggle("SlapAura", {
     end
 })
 
+local HasBeenToggled = false
+
+local SlapAuraKeybind = Tabs.main:AddKeybind("SlapauraKeybind", {
+    Title = "Slap Aura Toggle",
+    Description = "Closet Cheating :D",
+    Mode = "Toggle",
+    Default = "v",
+
+    Callback = function(Value)
+        if not HasBeenToggled then
+	 HasBeenToggled = true
+	  Slappering:SetValue(false)
+	   else
+	   HasBeenToggled = false
+	   Toggle:SetValue(true)
+	end
+    end,
+
+    ChangedCallback = function(New)
+        Fluent:Notify({Title = "Interface", Content = "Changed Keybind", SubContent = "", Duration = 5})
+    end
+})
+
 task.spawn(function()
    for _, item in pairs(workspace.Items:GetChildren()) do
     if not item:FindFirstChild("ItemESP") then
@@ -190,4 +213,5 @@ Tabs.settings:AddButton({
 })
 
 Window:SelectTab(1)
+
 
