@@ -81,7 +81,7 @@ local AntiTerrain = Tab:AddToggle("ATT",
 {
     Title = "Anti Lava + Acid", 
     Description = "Prevents you from dying via Acid or Lava",
-    Default = false
+    Default = false,
     Callback = function(state)
 	if state then
 NoLava.Transparency = 0.5
@@ -190,7 +190,3 @@ Tabs.settings:AddButton({
 })
 
 Window:SelectTab(1)
-
-
-
-
