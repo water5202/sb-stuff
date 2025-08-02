@@ -71,6 +71,7 @@ Tabs.Main:AddButton({
     Title = "Alchemist Relic",
     Description = "Gets the Relic",
     Callback = function()
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = workspace._ugcQuestObjectEludeHat.Position
 fireclickdetector(workspace._ugcQuestObjectEludeHat.ClickDetector)
     end
 })
