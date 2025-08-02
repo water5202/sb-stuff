@@ -297,6 +297,15 @@ task.wait(0.1)
 HRP.Anchored = true
 task.wait(0.1)
 game:GetService("ReplicatedStorage"):WaitForChild("Fortlol"):FireServer()
+task.wait(0.1)
+HRP.Anchored = false
+HRP.CFrame = CFrame.new(-16.0255108, 82.0030289, -10.3625078, 0.999835312)
+task.wait(2)
+game:GetService("ReplicatedStorage"):WaitForChild("Fortlol"):FireServer()
+task.wait(1)
+HRP.CFrame = CFrame.new(-16.3017368, 93.5031891, -20.5325336, 0.999718368)
+task.wait(0.5)
+localplayer.Character.Humanoid.Health = 0
     end
 })
 
@@ -761,6 +770,7 @@ Tabs.Settings:AddButton({
 })
 
 Window:SelectTab(1)
+
 
 
 
