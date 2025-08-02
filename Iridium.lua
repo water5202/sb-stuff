@@ -770,12 +770,3 @@ Tabs.Settings:AddButton({
 })
 
 Window:SelectTab(1)
-
-
-
-
-
-
-
-
-
