@@ -7,7 +7,8 @@ NoLava.Parent = workspace
 NoLava.Size = Vector3.new(84, 1, 117)
 NoLava.CFrame = CFrame.new(-240.64537, -27.9478741, 405.806458, 1, 0, 0, 0, 1, 0, 0, 0, 1)
 NoLava.Anchored = true
-NoLava.Transparency = 0.5
+NoLava.Transparency = 1
+NoLava.CanCollide = false
 
 local NoAcid = Instance.new("Part")
 NoAcid.Name = ""
@@ -15,7 +16,8 @@ NoAcid.Parent = workspace
 NoAcid.Size = Vector3.new(154, 1, 135)
 NoAcid.CFrame = CFrame.new(-71.5164566, 10, -735.791626, 1, 0, 0, 0, 1, 0, 0, 0, 1)
 NoAcid.Anchored = true
-NoAcid.Transparency = 0.5
+NoAcid.Transparency = 1
+NoAcid.CanCollide = false
 
 local Window = Fluent:CreateWindow({
     Title = "Slap Royale // " .. identifyexecutor(),
@@ -74,6 +76,26 @@ task.spawn(function()
         task.wait(0.001)
     end
 end)
+
+local AntiTerrain = Tab:AddToggle("ATT", 
+{
+    Title = "Anti Lava + Acid", 
+    Description = "Prevents you from dying via Acid or Lava",
+    Default = false
+    Callback = function(state)
+	if state then
+NoLava.Transparency = 0.5
+NoLava.CanCollide = true
+NoAcid.Transparency = 0.5
+NoAcid.CanCollide = true
+	else
+NoLava.Transparency = 1
+NoLava.CanCollide = false
+NoAcid.Transparency = 1
+NoAcid.CanCollide = false
+        end
+    end 
+})
 
 local Slapping = false
 
@@ -168,6 +190,7 @@ Tabs.settings:AddButton({
 })
 
 Window:SelectTab(1)
+
 
 
 
