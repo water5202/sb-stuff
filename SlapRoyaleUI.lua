@@ -77,7 +77,7 @@ task.spawn(function()
     end
 end)
 
-local AntiTerrain = Tab:AddToggle("ATT", 
+local AntiTerrain = Tabs.main:AddToggle("ATT", 
 {
     Title = "Anti Lava + Acid", 
     Description = "Prevents you from dying via Acid or Lava",
@@ -190,3 +190,4 @@ Tabs.settings:AddButton({
 })
 
 Window:SelectTab(1)
+
