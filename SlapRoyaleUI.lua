@@ -128,7 +128,7 @@ local SlapAuraKeybind = Tabs.main:AddKeybind("SlapauraKeybind", {
     Title = "Slap Aura Toggle",
     Description = "Closet Cheating :D",
     Mode = "Toggle",
-    Default = "v",
+    Default = "V",
 
     Callback = function(Value)
         if not HasBeenToggled then
@@ -214,3 +214,4 @@ Tabs.settings:AddButton({
 })
 
 Window:SelectTab(1)
+
