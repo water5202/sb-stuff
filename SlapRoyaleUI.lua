@@ -176,7 +176,7 @@ local TPWALKSLIDER = Tabs.main:AddSlider("TPWALKSLIDER", {
 	end
 })
 
-Tab:AddButton({
+Tabs.main:AddButton({
     Title = "ESP",
     Description = "Click a couple of times to fix issues",
     Callback = function()
@@ -260,4 +260,5 @@ Tabs.settings:AddButton({
 })
 
 Window:SelectTab(1)
+
 
