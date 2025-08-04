@@ -341,8 +341,9 @@ Tabs.Badges:AddButton({
     Description = "Must be spawned in",
     Callback = function()
 if workspace:FindFirstChild("SiphonOrb") then
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = workspace:WaitForChild("SiphonOrb").CFrame
 firetouchinterest(game.Players.LocalPlayer.Character:WaitForChild("Head"), workspace:FindFirstChild("SiphonOrb"), 0)
-task.wait(1)
+task.wait(0.1)
 firetouchinterest(game.Players.LocalPlayer.Character:WaitForChild("Head"), workspace:FindFirstChild("SiphonOrb"), 1)
 else
 Fluent:Notify({Title = "Interface", Content = "Could not find workspace.SiphonOrb", SubContent = "", Duration = 3})
@@ -363,31 +364,19 @@ firetouchinterest(HRP, ArenaPart, 0)
 task.wait(0.5)
 firetouchinterest(HRP, ArenaPart, 1)
 task.wait(0.5)
-HRP.CFrame = CFrame.new(220.62793, 26.9119072, 189.395142, 0.760179281)
+HRP.CFrame = CFrame.new(220.62793, 26.9119072, 189.395142)
 task.wait(0.5)
 fireproximityprompt(workspace.Arena.CannonIsland.GlovelHoleInTheWall.ProximityPrompt)
 task.wait(5)
 HRP.CFrame = workspace.Arena.CannonIsland.TreasureSpots._treasureSpot1.CFrame
-local args = {{index = 2, cf = CFrame.new(80.14021301269531, -6.172861576080322, -47.72377014160156, 1, 3.632716172319306e-08, 0.000003070895445489441, -3.632721146118456e-08, 1, 1.6263223656665104e-08, -0.000003070895445489441, -1.6263333790789147e-08, 1)}}
-game:GetService("ReplicatedStorage"):WaitForChild("DigEvent"):FireServer(unpack(args))
-local args = {{index = 2, cf = CFrame.new(80.14021301269531, -6.172861576080322, -47.72377014160156, 1, 3.632716172319306e-08, 0.000003070895445489441, -3.632721146118456e-08, 1, 1.6263223656665104e-08, -0.000003070895445489441, -1.6263333790789147e-08, 1)}}
-game:GetService("ReplicatedStorage"):WaitForChild("DigEvent"):FireServer(unpack(args))
-local args = {{index = 2, cf = CFrame.new(80.14021301269531, -6.172861576080322, -47.72377014160156, 1, 3.632716172319306e-08, 0.000003070895445489441, -3.632721146118456e-08, 1, 1.6263223656665104e-08, -0.000003070895445489441, -1.6263333790789147e-08, 1)}}
-game:GetService("ReplicatedStorage"):WaitForChild("DigEvent"):FireServer(unpack(args))
-local args = {{index = 2, cf = CFrame.new(80.14021301269531, -6.172861576080322, -47.72377014160156, 1, 3.632716172319306e-08, 0.000003070895445489441, -3.632721146118456e-08, 1, 1.6263223656665104e-08, -0.000003070895445489441, -1.6263333790789147e-08, 1)}}
-game:GetService("ReplicatedStorage"):WaitForChild("DigEvent"):FireServer(unpack(args))
-local args = {{index = 2, cf = CFrame.new(80.14021301269531, -6.172861576080322, -47.72377014160156, 1, 3.632716172319306e-08, 0.000003070895445489441, -3.632721146118456e-08, 1, 1.6263223656665104e-08, -0.000003070895445489441, -1.6263333790789147e-08, 1)}}
-game:GetService("ReplicatedStorage"):WaitForChild("DigEvent"):FireServer(unpack(args))
-local args = {{index = 2, cf = CFrame.new(80.14021301269531, -6.172861576080322, -47.72377014160156, 1, 3.632716172319306e-08, 0.000003070895445489441, -3.632721146118456e-08, 1, 1.6263223656665104e-08, -0.000003070895445489441, -1.6263333790789147e-08, 1)}}
-game:GetService("ReplicatedStorage"):WaitForChild("DigEvent"):FireServer(unpack(args))
-local args = {{index = 2, cf = CFrame.new(80.14021301269531, -6.172861576080322, -47.72377014160156, 1, 3.632716172319306e-08, 0.000003070895445489441, -3.632721146118456e-08, 1, 1.6263223656665104e-08, -0.000003070895445489441, -1.6263333790789147e-08, 1)}}
-game:GetService("ReplicatedStorage"):WaitForChild("DigEvent"):FireServer(unpack(args))
-local args = {{index = 2, cf = CFrame.new(80.14021301269531, -6.172861576080322, -47.72377014160156, 1, 3.632716172319306e-08, 0.000003070895445489441, -3.632721146118456e-08, 1, 1.6263223656665104e-08, -0.000003070895445489441, -1.6263333790789147e-08, 1)}}
-game:GetService("ReplicatedStorage"):WaitForChild("DigEvent"):FireServer(unpack(args))
-local args = {{index = 2, cf = CFrame.new(80.14021301269531, -6.172861576080322, -47.72377014160156, 1, 3.632716172319306e-08, 0.000003070895445489441, -3.632721146118456e-08, 1, 1.6263223656665104e-08, -0.000003070895445489441, -1.6263333790789147e-08, 1)}}
-game:GetService("ReplicatedStorage"):WaitForChild("DigEvent"):FireServer(unpack(args))
-local args = {{index = 2, cf = CFrame.new(80.14021301269531, -6.172861576080322, -47.72377014160156, 1, 3.632716172319306e-08, 0.000003070895445489441, -3.632721146118456e-08, 1, 1.6263223656665104e-08, -0.000003070895445489441, -1.6263333790789147e-08, 1)}}
-game:GetService("ReplicatedStorage"):WaitForChild("DigEvent"):FireServer(unpack(args))
+-- loop
+local startTime = tick()
+         while tick() - startTime < 3 do
+	   local args = {{index = 2, cf = CFrame.new(80.14021301269531, -6.172861576080322, -47.72377014160156, 1, 3.632716172319306e-08, 0.000003070895445489441, -3.632721146118456e-08, 1, 1.6263223656665104e-08, -0.000003070895445489441, -1.6263333790789147e-08, 1)}}
+           game:GetService("ReplicatedStorage"):WaitForChild("DigEvent"):FireServer(unpack(args))
+        task.wait()
+end
+--
 fireproximityprompt(workspace.TreasureChestFolder:FindFirstChild("TreasureChest").TreasureChest.ProximityPrompt)
 task.wait(0.5)
     end
@@ -772,6 +761,7 @@ Tabs.Settings:AddButton({
 })
 
 Window:SelectTab(1)
+
 
 
 
