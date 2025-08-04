@@ -303,7 +303,7 @@ game:GetService("ReplicatedStorage"):WaitForChild("Fortlol"):FireServer()
 task.wait(0.1)
 HRP.Anchored = false
 HRP.CFrame = CFrame.new(-16.0255108, 82.0030289, -10.3625078)
-task.wait(2)
+task.wait(6.5)
 game:GetService("ReplicatedStorage"):WaitForChild("Fortlol"):FireServer()
 task.wait(1)
 HRP.CFrame = CFrame.new(-16.3017368, 93.5031891, -20.5325336)
@@ -772,6 +772,7 @@ Tabs.Settings:AddButton({
 })
 
 Window:SelectTab(1)
+
 
 
 
