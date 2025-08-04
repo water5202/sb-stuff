@@ -146,34 +146,31 @@ local SlapAuraKeybind = Tabs.main:AddKeybind("SlapauraKeybind", {
     end
 })
 
-local currentSpeed = 0
-
-task.spawn(function()
-	while true do
-		local deltaTime = RunService.Heartbeat:Wait()
-
-		if currentSpeed > 0 then
-			local chr = game.Players.LocalPlayer.Character
-			local hum = chr and chr:FindFirstChildWhichIsA("Humanoid")
-
-			if chr and hum and hum.MoveDirection.Magnitude > 0 then
-				local moveVector = hum.MoveDirection.Unit * currentSpeed * 5 * deltaTime
-				chr:TranslateBy(moveVector)
-			end
-		end
-	end
-end)
+local tpwalking = false
 
 local TPWALKSLIDER = Tabs.main:AddSlider("TPWALKSLIDER", {
-	Title = "Speed",
-	Description = "Bypass",
-	Default = 2,
-	Min = 0,
-	Max = 10,
-	Rounding = 1,
-	Callback = function(Value)
-		currentSpeed = Value
-	end
+    Title = "Speed",
+    Description = "Bypass",
+    Default = 0,
+    Min = 0,
+    Max = 10,
+    Rounding = 1,
+    Callback = function(Value)
+        local chr = speaker.Character
+        local hum = chr and chr:FindFirstChildWhichIsA("Humanoid")
+        tpwalking = false
+        wait()
+        tpwalking = true
+        task.spawn(function()
+            while tpwalking and chr and hum and hum.Parent do
+                local delta = RunService.Heartbeat:Wait()
+                if hum.MoveDirection.Magnitude > 0 then
+                    local speed = Value
+                    chr:TranslateBy(hum.MoveDirection * speed * delta * 10)
+                end
+            end
+        end)
+    end
 })
 
 Tabs.main:AddButton({
@@ -260,5 +257,6 @@ Tabs.settings:AddButton({
 })
 
 Window:SelectTab(1)
+
 
 
