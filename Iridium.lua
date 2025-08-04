@@ -356,7 +356,7 @@ firetouchinterest(HRP, ArenaPart, 0)
 task.wait(0.5)
 firetouchinterest(HRP, ArenaPart, 1)
 task.wait(0.5)
-HRP.CFrame = CFrame.new(220.62793, 26.9119072, 189.395142, 0.760179281, 2.943524e-08, -0.649713337, 2.955138e-08, 1, 7.98807491e-08, 0.649713337, -7.99236162e-08, 0.760179281)
+HRP.CFrame = CFrame.new(220.62793, 26.9119072, 189.395142, 0.760179281)
 task.wait(0.5)
 fireproximityprompt(workspace.Arena.CannonIsland.GlovelHoleInTheWall.ProximityPrompt)
 task.wait(5)
@@ -766,5 +766,6 @@ Tabs.Settings:AddButton({
 })
 
 Window:SelectTab(1)
+
 
 
