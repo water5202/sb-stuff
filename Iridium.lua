@@ -299,7 +299,7 @@ HRP.CFrame = CFrame.new(-16.0255108, 82.0030289, -10.3625078)
 task.wait(2)
 game:GetService("ReplicatedStorage"):WaitForChild("Fortlol"):FireServer()
 task.wait(1)
-HRP.CFrame = CFrame.new(-16.3017368, 93.5031891, -20.5325336, 0.999718368)
+HRP.CFrame = CFrame.new(-16.3017368, 93.5031891, -20.5325336)
 task.wait(0.5)
 localplayer.Character.Humanoid.Health = 0
     end
@@ -335,7 +335,7 @@ Tabs.Badges:AddButton({
     Callback = function()
 if workspace:FindFirstChild("SiphonOrb") then
 firetouchinterest(game.Players.LocalPlayer.Character:WaitForChild("Head"), workspace:FindFirstChild("SiphonOrb"), 0)
-task.wait(0.1)
+task.wait(1)
 firetouchinterest(game.Players.LocalPlayer.Character:WaitForChild("Head"), workspace:FindFirstChild("SiphonOrb"), 1)
 else
 Fluent:Notify({Title = "Interface", Content = "Could not find workspace.SiphonOrb", SubContent = "", Duration = 3})
@@ -766,4 +766,5 @@ Tabs.Settings:AddButton({
 })
 
 Window:SelectTab(1)
+
 
