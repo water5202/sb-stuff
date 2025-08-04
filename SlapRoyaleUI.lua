@@ -111,8 +111,8 @@ local Slappering = Tabs.main:AddToggle("SlapAura", {
             task.spawn(function()
                 while Slapping do
                     for _,PLAYER in pairs(game.Players:GetChildren()) do
-		      if PLAYER ~= game.Players.LocalPlayer and PLAYER.Character and PLAYER.Character:FindFirstChild("Head") then -- crucial checks			
-                        local args = {PLAYER.Character:WaitForChild("Head")} -- basic understanding is game looks for part to hit within hitbox ( we can expand this probably but idk where )				
+		      if PLAYER ~= game.Players.LocalPlayer and PLAYER.Character and PLAYER.Character:FindFirstChild("Head") then -- crucial checks
+                        local args = {PLAYER.Character:WaitForChild("Head")} -- basic understanding is game looks for part to hit within hitbox ( we can expand this probably but idk where )
                         game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("Slap"):FireServer(unpack(args))
 			task.wait(0.0001)
                      end
@@ -146,28 +146,27 @@ local SlapAuraKeybind = Tabs.main:AddKeybind("SlapauraKeybind", {
     end
 })
 
-local tpwalking = true -- default will be true cant be disabled since there is already a way to
 local currentSpeed = 0
 
 task.spawn(function()
 	while true do
-		RunService.Heartbeat:Wait()
+		local deltaTime = RunService.Heartbeat:Wait()
 
 		if currentSpeed > 0 then
 			local chr = game.Players.LocalPlayer.Character
 			local hum = chr and chr:FindFirstChildWhichIsA("Humanoid")
 
-			if chr and hum and hum.Parent and hum.MoveDirection.Magnitude > 0 then
-				chr:TranslateBy(hum.MoveDirection.Unit * currentSpeed * 5 * RunService.Heartbeat:Wait()) -- PORTED FROM IY
+			if chr and hum and hum.MoveDirection.Magnitude > 0 then
+				local moveVector = hum.MoveDirection.Unit * currentSpeed * 5 * deltaTime
+				chr:TranslateBy(moveVector)
 			end
 		end
-	   task.wait(0.001)
 	end
 end)
 
 local TPWALKSLIDER = Tabs.main:AddSlider("TPWALKSLIDER", {
-	Title = "WalkSpeed Bypass",
-	Description = "",
+	Title = "Speed",
+	Description = "Bypass",
 	Default = 2,
 	Min = 0,
 	Max = 10,
@@ -177,10 +176,23 @@ local TPWALKSLIDER = Tabs.main:AddSlider("TPWALKSLIDER", {
 	end
 })
 
+Tab:AddButton({
+    Title = "ESP",
+    Description = "Click a couple of times to fix issues",
+    Callback = function()
 task.spawn(function()
-   for _, item in pairs(workspace.Items:GetChildren()) do
-task.wait(0.5)
-        local esp = Instance.new("Highlight")
+for _, item in pairs(workspace.Items:GetChildren()) do
+local nce = Instance.new("Highlight")
+local ncb = Instance.new("BillboardGui")
+local ncl = Instance.new("TextLabel")
+
+
+local esp = nce:Clone()
+local billboard = ncb:Clone()
+local label = ncl:Clone()
+
+
+if not item:FindFirstChild("ItemESP") then
         esp.Name = "ItemESP"
         esp.FillColor = Color3.new(46, 139, 87)
         esp.FillTransparency = 0.5
@@ -188,15 +200,17 @@ task.wait(0.5)
         esp.OutlineTransparency = 0
         esp.Adornee = item
         esp.Parent = item
-task.wait(0.5)
-        local billboard = Instance.new("BillboardGui")
+end
+
+if not item:FindFirstChild("ItemBillboard") then
         billboard.Name = "ItemBillboard"
         billboard.Size = UDim2.new(0, 30, 0, 20)
         billboard.StudsOffset = Vector3.new(0, 3, 0)
         billboard.AlwaysOnTop = true
         billboard.Parent = item
-task.wait(0.5)
-        local label = Instance.new("TextLabel")
+end
+
+if not item:WaitForChild("ItemBillboard"):FindFirstChild("ItemLabel") then
         label.Name = "ItemLabel"
         label.Size = UDim2.new(1, 0, 1, 0)
         label.BackgroundTransparency = 1
@@ -207,9 +221,12 @@ task.wait(0.5)
 	label.TextStrokeTransparency = 0.5
         label.TextScaled = true
         label.Parent = billboard
-     end
+end
+end
 end)
--- progress
+    end
+})
+
 Tabs.main:AddButton({
     Title = "Jump off bus",
     Description = "Very Blatant",
@@ -243,3 +260,4 @@ Tabs.settings:AddButton({
 })
 
 Window:SelectTab(1)
+
