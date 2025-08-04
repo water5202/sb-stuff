@@ -60,13 +60,13 @@ brickvar = brickvar + 1
 BRICKLABEL.Text = tostring(brickvar)
 end
 --
-local bypass;
+local bypass
     bypass = hookmetamethod(game, "__namecall", function(method, ...) 
-        if getnamecallmethod() == "FireServer" and method == game.ReplicatedStorage.Ban then
+        if getnamecallmethod() == "FireServer" and method == game.ReplicatedStorage.Ban then -- jumpinfinity and shit
             return
-        elseif getnamecallmethod() == "FireServer" and method == game.ReplicatedStorage.AdminGUI then
+        elseif getnamecallmethod() == "FireServer" and method == game.ReplicatedStorage.AdminGUI then -- no clue what this is
             return
-        elseif getnamecallmethod() == "FireServer" and method == game.ReplicatedStorage.WalkSpeedChanged then
+        elseif getnamecallmethod() == "FireServer" and method == game.ReplicatedStorage.WalkSpeedChanged then -- walkspeed
             return
         end
         return bypass(method, ...)
@@ -82,7 +82,7 @@ local Platform = Instance.new("Part")
 Platform.Name = "SafeSpotPart"
 Platform.Parent = workspace
 Platform.CFrame = CFrame.new(-108000.6895, -122.158432, -2900.86475, 1, 0, 0, 0, 1, 0, 0, 0, 1)
-Platform.Size = Vector3.new(84, 5, 82)
+Platform.Size = Vector3.new(300, 5, 300)
 Platform.Transparency = 0.5
 Platform.Anchored = true
 
@@ -793,6 +793,7 @@ Tabs.Settings:AddButton({
 })
 
 Window:SelectTab(1)
+
 
 
 
