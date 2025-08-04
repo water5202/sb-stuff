@@ -250,7 +250,11 @@ Tabs.Badges:AddButton({
     Title = "Get Lamp",
     Description = "so free lmao",
     Callback = function()
-         game:GetService("ReplicatedStorage").nightmare:FireServer("LightBroken")
+	local startTime = tick()
+         while tick() - startTime < 3 do
+	   game:GetService("ReplicatedStorage").nightmare:FireServer("LightBroken")
+        task.wait()
+      end
     end
 })
 
@@ -361,7 +365,6 @@ task.wait(0.5)
 fireproximityprompt(workspace.Arena.CannonIsland.GlovelHoleInTheWall.ProximityPrompt)
 task.wait(5)
 HRP.CFrame = workspace.Arena.CannonIsland.TreasureSpots._treasureSpot1.CFrame
-HRP.Anchored = true
 local args = {{index = 2, cf = CFrame.new(80.14021301269531, -6.172861576080322, -47.72377014160156, 1, 3.632716172319306e-08, 0.000003070895445489441, -3.632721146118456e-08, 1, 1.6263223656665104e-08, -0.000003070895445489441, -1.6263333790789147e-08, 1)}}
 game:GetService("ReplicatedStorage"):WaitForChild("DigEvent"):FireServer(unpack(args))
 local args = {{index = 2, cf = CFrame.new(80.14021301269531, -6.172861576080322, -47.72377014160156, 1, 3.632716172319306e-08, 0.000003070895445489441, -3.632721146118456e-08, 1, 1.6263223656665104e-08, -0.000003070895445489441, -1.6263333790789147e-08, 1)}}
@@ -766,6 +769,7 @@ Tabs.Settings:AddButton({
 })
 
 Window:SelectTab(1)
+
 
 
 
