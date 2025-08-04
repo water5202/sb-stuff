@@ -166,7 +166,7 @@ local TPWALKSLIDER = Tabs.main:AddSlider("TPWALKSLIDER", {
                 local delta = RunService.Heartbeat:Wait()
                 if hum.MoveDirection.Magnitude > 0 then
                     local speed = Value
-                    chr:TranslateBy(hum.MoveDirection * speed * delta * 10)
+                    chr:TranslateBy(hum.MoveDirection * speed * delta * 2)
                 end
             end
         end)
@@ -257,6 +257,7 @@ Tabs.settings:AddButton({
 })
 
 Window:SelectTab(1)
+
 
 
 
