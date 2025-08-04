@@ -156,7 +156,7 @@ local TPWALKSLIDER = Tabs.main:AddSlider("TPWALKSLIDER", {
     Max = 10,
     Rounding = 1,
     Callback = function(Value)
-        local chr = speaker.Character
+        local chr = game.Players.LocalPlayer.Character
         local hum = chr and chr:FindFirstChildWhichIsA("Humanoid")
         tpwalking = false
         wait()
@@ -257,6 +257,7 @@ Tabs.settings:AddButton({
 })
 
 Window:SelectTab(1)
+
 
 
 
