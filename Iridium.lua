@@ -38,6 +38,15 @@ local GOTOPLAYER = nil
 local brickvar
 local GS
 local Duplicate = ReplicatedStorage:WaitForChild("Duplicate") -- Replica's Duplicate Event
+
+local F = workspace.Lobby:WaitForChild("GloveStands")
+
+for _, obj in ipairs(F:GetChildren()) do
+    if string.find(obj.Name:lower(), "Unknown") then
+        obj:Destroy()
+    end
+end
+
 -- 1
 function SpawnReplica()
 Duplicate:FireServer()
@@ -145,19 +154,6 @@ task.wait(0.001)
     end
 end)
 
-local GloveStandText = Tabs.Info:AddParagraph({
-        Title = "",
-        Content = "Increased alot"
-})
-
-task.spawn(function()
-while true do
-GS = #workspace.Lobby.GloveStands:GetChildren()
-GloveStandText:SetTitle("Glove Stands // " .. GS)
-task.wait(0.001)
-    end
-end)
-
 local KeypadText = Tabs.Info:AddParagraph({
         Title = "Keypad Spawned // No",
         Content = "Elude Keypad"
@@ -201,6 +197,38 @@ if game.Workspace:FindFirstChild("Toolbox") then
 ToolBoxText:SetTitle("Toolbox // Yes")
 			else
 ToolBoxText:SetTitle("Toolbox // No")
+end
+task.wait(0.001)
+    end
+end)
+
+local JetOrbBox = Tabs.Info:AddParagraph({
+        Title = "JetOrb // No",
+        Content = "Checks for JetOrb"
+})
+
+task.spawn(function()
+while true do
+if game.Workspace:FindFirstChild("JetOrb") then
+JetOrbBox:SetTitle("JetOrb // Yes")
+			else
+JetOrbBox:SetTitle("JetOrb // No")
+end
+task.wait(0.001)
+    end
+end)
+
+local PhaseOrbBox = Tabs.Info:AddParagraph({
+        Title = "PhaseOrb // No",
+        Content = "Checks for PhaseOrb"
+})
+
+task.spawn(function()
+while true do
+if game.Workspace:FindFirstChild("PhaseOrb") then
+PhaseOrbBox:SetTitle("PhaseOrb // Yes")
+			else
+PhaseOrbBox:SetTitle("PhaseOrb // No")
 end
 task.wait(0.001)
     end
@@ -765,6 +793,7 @@ Tabs.Settings:AddButton({
 })
 
 Window:SelectTab(1)
+
 
 
 
