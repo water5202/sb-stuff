@@ -38,15 +38,6 @@ local GOTOPLAYER = nil
 local brickvar
 local GS
 local Duplicate = ReplicatedStorage:WaitForChild("Duplicate") -- Replica's Duplicate Event
-
-local F = workspace.Lobby:WaitForChild("GloveStands")
-
-for _, obj in ipairs(F:GetChildren()) do
-    if string.find(obj.Name:lower(), "Unknown") then
-        obj:Destroy()
-    end
-end
-
 -- 1
 function SpawnReplica()
 Duplicate:FireServer()
@@ -60,7 +51,7 @@ brickvar = brickvar + 1
 BRICKLABEL.Text = tostring(brickvar)
 end
 --
-local bypass
+local bypass;
     bypass = hookmetamethod(game, "__namecall", function(method, ...) 
         if getnamecallmethod() == "FireServer" and method == game.ReplicatedStorage.Ban then -- jumpinfinity and shit
             return
@@ -793,6 +784,7 @@ Tabs.Settings:AddButton({
 })
 
 Window:SelectTab(1)
+
 
 
 
