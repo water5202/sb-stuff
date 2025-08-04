@@ -356,7 +356,7 @@ Tabs.Badges:AddButton({
     Description = "Make sure you have Hitman Quest",
     Callback = function()
 if not workspace.Arena.CannonIsland.TreasureSpots:FindFIrstChild("_treasureSpot1") then
-Fluent:Notify({Title = "Interface", Content = "You don't have Hunt for the Hunter", SubContent = "", Duration = 3})
+Fluent:Notify({Title = "Interface", Content = "You don't have {Hunt for the Hunter}", SubContent = "", Duration = 3})
 end
 localplayer.Character.Humanoid.Health = 0
 task.wait(5)
@@ -382,6 +382,7 @@ end
 --
 fireproximityprompt(workspace.TreasureChestFolder:FindFirstChild("TreasureChest").TreasureChest.ProximityPrompt)
 task.wait(0.5)
+localplayer.Character.Humanoid.Health = 0
     end
 })
 
@@ -764,6 +765,7 @@ Tabs.Settings:AddButton({
 })
 
 Window:SelectTab(1)
+
 
 
 
