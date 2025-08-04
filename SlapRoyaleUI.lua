@@ -1,6 +1,7 @@
-
 local Fluent = loadstring(game:HttpGet("https://github.com/dawid-scripts/Fluent/releases/latest/download/main.lua"))()
 Fluent:Notify({Title = "Interface", Content = "Script is beta!", SubContent = "", Duration = 5})
+local Players = game:GetService("Players")
+local RunService = game:GetService("RunService")
 
 local NoLava = Instance.new("Part")
 NoLava.Name = ""
@@ -113,7 +114,7 @@ local Slappering = Tabs.main:AddToggle("SlapAura", {
 		      if PLAYER ~= game.Players.LocalPlayer and PLAYER.Character and PLAYER.Character:FindFirstChild("Head") then -- crucial checks			
                         local args = {PLAYER.Character:WaitForChild("Head")} -- basic understanding is game looks for part to hit within hitbox ( we can expand this probably but idk where )				
                         game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("Slap"):FireServer(unpack(args))
-			task.wait(0.001)
+			task.wait(0.0001)
                      end
                    end
                 end
@@ -145,27 +146,56 @@ local SlapAuraKeybind = Tabs.main:AddKeybind("SlapauraKeybind", {
     end
 })
 
+local tpwalking = true -- default will be true cant be disabled since there is already a way to
+local currentSpeed = 0
+
+task.spawn(function()
+	while true do
+		RunService.Heartbeat:Wait()
+
+		if currentSpeed > 0 then
+			local chr = game.Players.LocalPlayer.Character
+			local hum = chr and chr:FindFirstChildWhichIsA("Humanoid")
+
+			if chr and hum and hum.Parent and hum.MoveDirection.Magnitude > 0 then
+				chr:TranslateBy(hum.MoveDirection.Unit * currentSpeed * 5 * RunService.Heartbeat:Wait()) -- PORTED FROM IY
+			end
+		end
+	   task.wait(0.001)
+	end
+end)
+
+local TPWALKSLIDER = Tabs.main:AddSlider("TPWALKSLIDER", {
+	Title = "WalkSpeed Bypass",
+	Description = "",
+	Default = 2,
+	Min = 0,
+	Max = 10,
+	Rounding = 1,
+	Callback = function(Value)
+		currentSpeed = Value
+	end
+})
+
 task.spawn(function()
    for _, item in pairs(workspace.Items:GetChildren()) do
-    if not item:FindFirstChild("ItemESP") then
+task.wait(0.5)
         local esp = Instance.new("Highlight")
         esp.Name = "ItemESP"
-        esp.FillColor = Color3.new(1, 1, 1)
-        esp.FillTransparency = 0
+        esp.FillColor = Color3.new(46, 139, 87)
+        esp.FillTransparency = 0.5
         esp.OutlineColor = Color3.new(1, 1, 1)
         esp.OutlineTransparency = 0
         esp.Adornee = item
         esp.Parent = item
-    end
-
-    if not item:FindFirstChild("ItemBillboard") then
+task.wait(0.5)
         local billboard = Instance.new("BillboardGui")
         billboard.Name = "ItemBillboard"
         billboard.Size = UDim2.new(0, 30, 0, 20)
         billboard.StudsOffset = Vector3.new(0, 3, 0)
         billboard.AlwaysOnTop = true
         billboard.Parent = item
-
+task.wait(0.5)
         local label = Instance.new("TextLabel")
         label.Name = "ItemLabel"
         label.Size = UDim2.new(1, 0, 1, 0)
@@ -177,7 +207,6 @@ task.spawn(function()
 	label.TextStrokeTransparency = 0.5
         label.TextScaled = true
         label.Parent = billboard
-    end
      end
 end)
 -- progress
@@ -214,4 +243,3 @@ Tabs.settings:AddButton({
 })
 
 Window:SelectTab(1)
-
