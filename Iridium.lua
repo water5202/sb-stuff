@@ -354,7 +354,10 @@ Fluent:Notify({Title = "Interface", Content = "Could not find workspace.SiphonOr
 Tabs.Badges:AddButton({
     Title = "Get Glovel",
     Description = "Make sure you have Hitman Quest",
-    Callback = function()	
+    Callback = function()
+if not workspace.Arena.CannonIsland.TreasureSpots:FindFIrstChild("_treasureSpot1") then
+Fluent:Notify({Title = "Interface", Content = "You don't have Hunt for the Hunter", SubContent = "", Duration = 3})
+end
 localplayer.Character.Humanoid.Health = 0
 task.wait(5)
 fireclickdetector(workspace.Lobby.Extended.ClickDetector)
@@ -761,6 +764,7 @@ Tabs.Settings:AddButton({
 })
 
 Window:SelectTab(1)
+
 
 
 
