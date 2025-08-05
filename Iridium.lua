@@ -51,35 +51,53 @@ brickvar = brickvar + 1
 BRICKLABEL.Text = tostring(brickvar)
 end
 -- no ban yt
-task.spawn(function()
-while true do
-if game.Players.LocalPlayer.Character:WaitForChild("Head"):WaitForChild("Nametag"):FindFirstChild("deviceImage") then
-   game.Players.LocalPlayer.Character:WaitForChild("Head"):WaitForChild("Nametag"):FindFirstChild("deviceImage"):Destroy()
-end
-task.wait(0.001)
-end
-end)
+local function setupCharacter(character)
+	task.spawn(function()
+		while character and character:FindFirstChild("Head") do
+			local nametag = character.Head:FindFirstChild("Nametag")
+			if nametag then
+				local deviceImage = nametag:FindFirstChild("deviceImage")
+				if deviceImage then
+					deviceImage:Destroy()
+				end
+			end
+			task.wait(0.1)
+		end
+	end)
 
-task.spawn(function()
-while true do
-local head = game.Players.LocalPlayer.Character:WaitForChild("Head")
-local labels = head:WaitForChild("Nametag"):WaitForChild("Labels")
-local bottom = labels:FindFirstChild("BottomLabel")
-local top = labels:FindFirstChild("TopLabel")
-if bottom and top then
-   local t = tick()
-   local r = math.sin(t * 2) * 0.5 + 0.5
-   local g = math.sin(t * 2 + 2) * 0.5 + 0.5
-   local b = math.sin(t * 2 + 4) * 0.5 + 0.5
-   local color = Color3.new(r, g, b)
-   bottom.Text = "RnVja1RoaXNHYW1l"
-   top.Text = "RnVja1RoaXNHYW1l"
-   bottom.TextColor3 = color
-   top.TextColor3 = color
+	task.spawn(function()
+		while character and character:FindFirstChild("Head") do
+			local nametag = character.Head:FindFirstChild("Nametag")
+			if nametag then
+				local labels = nametag:FindFirstChild("Labels")
+				if labels then
+					local bottom = labels:FindFirstChild("BottomLabel")
+					local top = labels:FindFirstChild("TopLabel")
+					if bottom and top then
+						local t = tick()
+						local r = math.sin(t * 2) * 0.5 + 0.5
+						local g = math.sin(t * 2 + 2) * 0.5 + 0.5
+						local b = math.sin(t * 2 + 4) * 0.5 + 0.5
+						local color = Color3.new(r, g, b)
+
+						bottom.Text = "furrydestroyer69"
+						top.Text = "furrydestroyer69"
+						bottom.TextColor3 = color
+						top.TextColor3 = color
+					end
+				end
+			end
+			task.wait(0.05)
+		end
+	end)
 end
-task.wait(0.001)
+
+local character = script:FindFirstAncestorOfClass("Player").Character
+if character then
+	setupCharacter(character)
 end
-end)
+
+script:FindFirstAncestorOfClass("Player").CharacterAdded:Connect(setupCharacter)
 --
 local bypass;
     bypass = hookmetamethod(game, "__namecall", function(method, ...) 
@@ -855,6 +873,7 @@ Tabs.Settings:AddButton({
 })
 
 Window:SelectTab(1)
+
 
 
 
