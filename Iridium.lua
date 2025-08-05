@@ -104,8 +104,9 @@ local bypass;
 	    return
         end
         return bypass(method, ...)
-	Fluent:Notify({Title = "Interface", Content = "Bypassed AntiCheat!", SubContent = "via hookmetamethod", Duration = 5})
 end)
+
+Fluent:Notify({Title = "Interface", Content = "Bypassed AntiCheat!", SubContent = "", Duration = 5})
 
 if game.Workspace:FindFirstChild("SafeSpotPart") then 
     game.Workspace.SafeSpotPart:Destroy() 
@@ -888,3 +889,4 @@ Tabs.Settings:AddButton({
 })
 
 Window:SelectTab(1)
+
