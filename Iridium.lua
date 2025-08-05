@@ -595,12 +595,12 @@ game:GetService("TeleportService"):Teleport(11828384869)
     end
 })
 
-local SectionFish = Tabs.AutoFarming:AddSection("FishSec")
+local SectionFish = Tabs.AutoFarming:AddSection("Fish")
 Section:AddParagraph({
-    Title = "Fish"
+    Title = ""
 })
 
-Tabs.AutoFarming:AddButton({
+Tabs.AutoFarming.SectionFish:AddButton({
     Title = "Equip ZZZZZZZ",
     Description = "",
     Callback = function()
@@ -632,12 +632,12 @@ game:GetService("TeleportService"):Teleport(17290438723)
     end
 })
 
-local SectionBC = Tabs.AutoFarming:AddSection("BC")
+local SectionBC = Tabs.AutoFarming:AddSection("Brick Master")
 Section:AddParagraph({
-    Title = "Brick Master"
+    Title = ""
 })
 
-Tabs.AutoFarming:AddButton({
+Tabs.AutoFarming.SectionBC:AddButton({
     Title = "Equip Brick",
     Description = "",
     Callback = function()
@@ -647,7 +647,7 @@ Tabs.AutoFarming:AddButton({
 
 local brickfarming = false
 
-local brickfarmer = Tabs.AutoFarming:AddToggle("TheCoolestBrickToggle", {
+local brickfarmer = Tabs.AutoFarming.SectionBC:AddToggle("TheCoolestBrickToggle", {
     Title = "Auto BrickMaster",
     Description = "",
     Default = false,
@@ -664,12 +664,12 @@ task.wait(1.3)
     end
 })
 
-local SectionB = Tabs.AutoFarming:AddSection("BobSec")
+local SectionB = Tabs.AutoFarming:AddSection("Bob Farm")
 Section:AddParagraph({
-    Title = "Bob Farm"
+    Title = ""
 })
 
-Tabs.AutoFarming:AddButton({
+Tabs.AutoFarming.SectionB:AddButton({
     Title = "Equip Replica",
     Description = "",
     Callback = function()
@@ -679,7 +679,7 @@ Tabs.AutoFarming:AddButton({
 
 local bobfarming = false
 
-local bobfarmtoggle = Tabs.AutoFarming:AddToggle("SexySpawnReplica", {
+local bobfarmtoggle = Tabs.AutoFarming.SectionB:AddToggle("SexySpawnReplica", {
     Title = "Auto Replica",
     Description = "Don't press E",
     Default = false,
@@ -697,14 +697,14 @@ local bobfarmtoggle = Tabs.AutoFarming:AddToggle("SexySpawnReplica", {
     end
 })
 
-local SectionHammer = Tabs.AutoFarming:AddSection("HammerSec")
+local SectionHammer = Tabs.AutoFarming:AddSection("Hammer")
 Section:AddParagraph({
-    Title = "Hammer"
+    Title = ""
 })
 
 local toolboxfarming = false
 
-local toolboxtoggle = Tabs.AutoFarming:AddToggle("SexyGetToolBox", {
+local toolboxtoggle = Tabs.AutoFarming.SectionHammer:AddToggle("SexyGetToolBox", {
     Title = "Auto Toolbox" ,
     Description = "",
     Default = false,
@@ -723,12 +723,12 @@ local toolboxtoggle = Tabs.AutoFarming:AddToggle("SexyGetToolBox", {
     end
 })
 
-local SectionMisc = Tabs.AutoFarming:AddSection("MiscSec")
+local SectionMisc = Tabs.AutoFarming:AddSection("Misc")
 Section:AddParagraph({
-    Title = "SafeSpot And Misc"
+    Title = ""
 })
 
-Tabs.AutoFarming:AddButton({
+Tabs.AutoFarming.SectionMisc:AddButton({
     Title = "Teleport Safespot",
     Description = "",
     Callback = function()
@@ -895,6 +895,7 @@ Tabs.Settings:AddButton({
 })
 
 Window:SelectTab(1)
+
 
 
 
