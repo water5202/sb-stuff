@@ -90,7 +90,8 @@ local Window = Fluent:CreateWindow({
 local Tabs = {
     AutoFarming = Window:AddTab({ Title = "Auto Farming", Icon = "hammer" }),
     SlapFarm = Window:AddTab({ Title = "Slap Farming", Icon = "hammer" }),
-    Badges = Window:AddTab({ Title = "Badges", Icon = "box" }),
+    Badges = Window:AddTab({ Title = "Badges", Icon = "award" }),
+    TP = Window:AddTab({ Title = "Teleports", Icon = "box" })
     Info = Window:AddTab({ Title = "Info", Icon = "info" }),
     Settings = Window:AddTab({ Title = "Settings", Icon = "settings" })
 }
@@ -604,13 +605,12 @@ local toolboxtoggle = Tabs.AutoFarming:AddToggle("SexyGetToolBox", {
     Callback = function(state)
        toolboxfarming = state
         if toolboxfarming and localplayer.Character:FindFirstChild("entered") then
-	task.wait(0.5)
             task.spawn(function()
                 while toolboxfarming do
 		if game.Workspace:FindFirstChild("Toolbox") then
 			fireclickdetector(game.Workspace:FindFirstChild("Toolbox").ClickDetector)
                 end
-		task.wait(5.5)
+		task.wait(0.001)
                 end
             end)
         end
@@ -704,7 +704,7 @@ firetouchinterest(HRP, Slapples.Glove, 0)
 task.wait(0.5)
 firetouchinterest(HRP, Slapples.Glove, 1)
 end
-		task.wait(1)
+		task.wait(0.001)
                 end
             end)
         end
@@ -778,12 +778,13 @@ Tabs.Settings:AddButton({
     Title = "Unload UI",
     Description = "Unloads UI",
     Callback = function()
-                game.Workspace:WaitForChild("SafeSpotPart"):Destroy()
-                Fluent:Destroy()
+        game.Workspace:WaitForChild("SafeSpotPart"):Destroy()
+        Fluent:Destroy()
     end
 })
 
 Window:SelectTab(1)
+
 
 
 
