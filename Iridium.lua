@@ -600,7 +600,7 @@ Section:AddParagraph({
     Title = ""
 })
 
-Tabs.AutoFarming.SectionFish:AddButton({
+SectionFish:AddButton({
     Title = "Equip ZZZZZZZ",
     Description = "",
     Callback = function()
@@ -637,7 +637,7 @@ Section:AddParagraph({
     Title = ""
 })
 
-Tabs.AutoFarming.SectionBC:AddButton({
+SectionBC:AddButton({
     Title = "Equip Brick",
     Description = "",
     Callback = function()
@@ -647,7 +647,7 @@ Tabs.AutoFarming.SectionBC:AddButton({
 
 local brickfarming = false
 
-local brickfarmer = Tabs.AutoFarming.SectionBC:AddToggle("TheCoolestBrickToggle", {
+local brickfarmer = SectionBC:AddToggle("TheCoolestBrickToggle", {
     Title = "Auto BrickMaster",
     Description = "",
     Default = false,
@@ -669,7 +669,7 @@ Section:AddParagraph({
     Title = ""
 })
 
-Tabs.AutoFarming.SectionB:AddButton({
+SectionB:AddButton({
     Title = "Equip Replica",
     Description = "",
     Callback = function()
@@ -679,7 +679,7 @@ Tabs.AutoFarming.SectionB:AddButton({
 
 local bobfarming = false
 
-local bobfarmtoggle = Tabs.AutoFarming.SectionB:AddToggle("SexySpawnReplica", {
+local bobfarmtoggle = SectionB:AddToggle("SexySpawnReplica", {
     Title = "Auto Replica",
     Description = "Don't press E",
     Default = false,
@@ -704,7 +704,7 @@ Section:AddParagraph({
 
 local toolboxfarming = false
 
-local toolboxtoggle = Tabs.AutoFarming.SectionHammer:AddToggle("SexyGetToolBox", {
+local toolboxtoggle = SectionHammer:AddToggle("SexyGetToolBox", {
     Title = "Auto Toolbox" ,
     Description = "",
     Default = false,
@@ -728,7 +728,7 @@ Section:AddParagraph({
     Title = ""
 })
 
-Tabs.AutoFarming.SectionMisc:AddButton({
+SectionMisc:AddButton({
     Title = "Teleport Safespot",
     Description = "",
     Callback = function()
@@ -799,7 +799,7 @@ Tabs.SlapFarm:AddButton({
 
 local slapplefarming = false
 
-local slapplefarmtoggle = Tabs.AutoFarming:AddToggle("SexySlappleTouch", {
+local slapplefarmtoggle = SectionMisc:AddToggle("SexySlappleTouch", {
     Title = "Auto Slapples",
     Description = "Lags a little?",
     Default = false,
@@ -824,7 +824,7 @@ end
 
 local platefarming = false
 
-local platefarmer = Tabs.AutoFarming:AddToggle("TheCoolestPlateToggle", {
+local platefarmer = SectionMisc:AddToggle("TheCoolestPlateToggle", {
     Title = "Auto Plate",
     Description = "Tycoon Glove",
     Default = false,
@@ -843,7 +843,7 @@ task.wait(0.001)
     end
 })
 
-Tabs.AutoFarming:AddButton({
+SectionMisc:AddButton({
     Title = "AntiAfk",
     Description = "Prevents Kick",
     Callback = function()
@@ -895,6 +895,7 @@ Tabs.Settings:AddButton({
 })
 
 Window:SelectTab(1)
+
 
 
 
