@@ -174,7 +174,7 @@ local TPWALKSLIDER = Tabs.main:AddSlider("TPWALKSLIDER", {
 })
 
 Tabs.main:AddButton({
-    Title = "ESP",
+    Title = "Item ESP",
     Description = "Click a couple of times to fix issues",
     Callback = function()
 task.spawn(function()
@@ -224,6 +224,45 @@ end)
     end
 })
 
+local runHighlight = false
+ -- not finished
+local EspToggle = Tabs.Visuals:AddToggle("ESPVAL", {
+    Title = "Player ESP",
+    Description = "Shows all Players",
+    Default = false,
+    Callback = function(state)
+        runHighlight = state
+        if runHighlight then
+            task.spawn(function()
+                while runHighlight do
+                    for _, plr in pairs(Players:GetPlayers()) do
+                        if plr ~= Players.LocalPlayer and plr.Character then
+                            if not plr.Character:FindFirstChild("ESPHighlight") then
+                                local highlight = Instance.new("Highlight")
+                                highlight.Name = "ESPHighlight"
+                                highlight.FillTransparency = 1
+                                highlight.OutlineTransparency = 0
+                                highlight.OutlineColor = Color3.new(1, 1, 1)
+                                highlight.Parent = plr.Character
+                            end
+                        end
+                    end
+                    task.wait(0.7)
+                end
+            end)
+        else
+            for _, plr in pairs(Players:GetPlayers()) do
+                if plr ~= Players.LocalPlayer and plr.Character then
+                    local highlight = plr.Character:FindFirstChild("ESPHighlight")
+                    if highlight then
+                        highlight:Destroy()
+                    end
+                end
+            end
+        end
+    end
+})
+
 Tabs.main:AddButton({
     Title = "Jump off bus",
     Description = "Very Blatant",
@@ -257,6 +296,7 @@ Tabs.settings:AddButton({
 })
 
 Window:SelectTab(1)
+
 
 
 
