@@ -84,8 +84,9 @@ end
 
 task.spawn(function()
 while true do
-if game.Players.LocalPlayer.Character then
-setupCharacter(game.Players.LocalPlayer.Character)
+local character = game.Players.LocalPlayer.Character
+if character then
+setupCharacter(character)
 end
 task.wait(0.01)
 end
@@ -865,6 +866,7 @@ Tabs.Settings:AddButton({
 })
 
 Window:SelectTab(1)
+
 
 
 
