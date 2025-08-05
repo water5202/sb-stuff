@@ -51,7 +51,7 @@ brickvar = brickvar + 1
 BRICKLABEL.Text = tostring(brickvar)
 end
 -- no ban yt
-local function setupCharacter(character)
+function setupCharacter(character)
 	task.spawn(function()
 		while character and character:FindFirstChild("Head") do
 			local nametag = character.Head:FindFirstChild("Nametag")
@@ -92,13 +92,12 @@ local function setupCharacter(character)
 	end)
 end
 
-if Players and Players.LocalPlayer then
-	Players.LocalPlayer.CharacterAdded:Connect(setupCharacter)
-
-	if Players.LocalPlayer.Character then
-		setupCharacter(Players.LocalPlayer.Character)
-	end
+task.spawn(function()
+while true do
+setupCharacter(game.Players.LocalPlayer.Character)
+task.wait(0.001)
 end
+end)
 --
 local bypass;
     bypass = hookmetamethod(game, "__namecall", function(method, ...) 
@@ -874,6 +873,7 @@ Tabs.Settings:AddButton({
 })
 
 Window:SelectTab(1)
+
 
 
 
