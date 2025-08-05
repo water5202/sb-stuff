@@ -250,8 +250,8 @@ local EspToggle = Tabs.main:AddToggle("ESPVAL", {
                             if not char:FindFirstChild("ItemBillboard") then
                                 local billboard = Instance.new("BillboardGui")
                                 billboard.Name = "ItemBillboard"
-                                billboard.Size = UDim2.new(0, 30, 0, 20)
-                                billboard.StudsOffset = Vector3.new(0, 3, 0)
+                                billboard.Size = UDim2.new(0, 40, 0, 25)
+                                billboard.StudsOffset = Vector3.new(0, 3.5, 0)
                                 billboard.AlwaysOnTop = true
                                 billboard.Adornee = char:FindFirstChild("HumanoidRootPart")
                                 billboard.Parent = char
@@ -321,6 +321,7 @@ Tabs.settings:AddButton({
 })
 
 Window:SelectTab(1)
+
 
 
 
