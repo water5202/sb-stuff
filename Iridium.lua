@@ -52,7 +52,7 @@ BRICKLABEL.Text = tostring(brickvar)
 end
 -- no ban yt
 function setupCharacter(character)
-			local nametag = character.Head:FindFirstChild("Nametag")
+			local nametag = character:WaitForChild("Head"):FindFirstChild("Nametag")
 			if nametag then
 				local deviceImage = nametag:FindFirstChild("deviceImage")
 				if deviceImage then
@@ -60,7 +60,7 @@ function setupCharacter(character)
   end
 end
 	
-			local nametag = character.Head:FindFirstChild("Nametag")
+			local nametag = character:WaitForChild("Head"):FindFirstChild("Nametag")
 			if nametag then
 				local labels = nametag:FindFirstChild("Labels")
 				if labels then
@@ -866,6 +866,7 @@ Tabs.Settings:AddButton({
 })
 
 Window:SelectTab(1)
+
 
 
 
