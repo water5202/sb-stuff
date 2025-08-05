@@ -347,6 +347,7 @@ Tabs.Badges:AddButton({
 localplayer.Character.Humanoid.Health = 0
 if game.Players.LocalPlayer.leaderstats.Slaps.Value < 1499 then
 Fluent:Notify({Title = "Interface", Content = "Not Enough Slaps", SubContent = "", Duration = 5})
+return
 end
 task.wait(5)
 fireclickdetector(workspace.Lobby.Fort.ClickDetector)
@@ -824,4 +825,5 @@ Tabs.Settings:AddButton({
 })
 
 Window:SelectTab(1)
+
 
