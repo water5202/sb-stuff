@@ -166,7 +166,7 @@ local TPWALKSLIDER = Tabs.main:AddSlider("TPWALKSLIDER", {
                 local delta = RunService.Heartbeat:Wait()
                 if hum.MoveDirection.Magnitude > 0 then
                     local speed = Value
-                    chr:TranslateBy(hum.MoveDirection * speed * delta * 2)
+                    chr:TranslateBy(hum.MoveDirection * speed * delta * 5)
                 end
             end
         end)
@@ -225,7 +225,7 @@ end)
 })
 
 local runHighlight = false
- -- not finished
+
 local EspToggle = Tabs.main:AddToggle("ESPVAL", {
     Title = "Player ESP",
     Description = "Shows all Players",
@@ -236,14 +236,36 @@ local EspToggle = Tabs.main:AddToggle("ESPVAL", {
             task.spawn(function()
                 while runHighlight do
                     for _, plr in pairs(Players:GetPlayers()) do
-                        if plr ~= Players.LocalPlayer and plr.Character then
-                            if not plr.Character:FindFirstChild("ESPHighlight") then
+                        if plr ~= Players.LocalPlayer and plr.Character and plr.Character:FindFirstChild("HumanoidRootPart") then
+                            local char = plr.Character
+                            if not char:FindFirstChild("ESPHighlight") then
                                 local highlight = Instance.new("Highlight")
                                 highlight.Name = "ESPHighlight"
                                 highlight.FillTransparency = 1
                                 highlight.OutlineTransparency = 0
                                 highlight.OutlineColor = Color3.new(1, 1, 1)
-                                highlight.Parent = plr.Character
+                                highlight.Parent = char
+                            end
+                            if not char:FindFirstChild("ItemBillboard") then
+                                local billboard = Instance.new("BillboardGui")
+                                billboard.Name = "ItemBillboard"
+                                billboard.Size = UDim2.new(0, 30, 0, 20)
+                                billboard.StudsOffset = Vector3.new(0, 3, 0)
+                                billboard.AlwaysOnTop = true
+                                billboard.Adornee = char:FindFirstChild("HumanoidRootPart")
+                                billboard.Parent = char
+
+                                local label = Instance.new("TextLabel")
+                                label.Name = "ItemLabel"
+                                label.Size = UDim2.new(1, 0, 1, 0)
+                                label.BackgroundTransparency = 1
+                                label.Text = plr.Name
+                                label.Font = Enum.Font.RobotoMono
+                                label.TextColor3 = Color3.new(1, 1, 1)
+                                label.TextStrokeColor3 = Color3.new(0, 0, 0)
+                                label.TextStrokeTransparency = 0.5
+                                label.TextScaled = true
+                                label.Parent = billboard
                             end
                         end
                     end
@@ -253,10 +275,12 @@ local EspToggle = Tabs.main:AddToggle("ESPVAL", {
         else
             for _, plr in pairs(Players:GetPlayers()) do
                 if plr ~= Players.LocalPlayer and plr.Character then
-                    local highlight = plr.Character:FindFirstChild("ESPHighlight")
-                    if highlight then
-                        highlight:Destroy()
-                    end
+                    local char = plr.Character
+                    local highlight = char:FindFirstChild("ESPHighlight")
+                    if highlight then highlight:Destroy() end
+
+                    local billboard = char:FindFirstChild("ItemBillboard")
+                    if billboard then billboard:Destroy() end
                 end
             end
         end
@@ -296,6 +320,7 @@ Tabs.settings:AddButton({
 })
 
 Window:SelectTab(1)
+
 
 
 
