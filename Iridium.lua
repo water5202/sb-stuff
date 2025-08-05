@@ -457,7 +457,7 @@ Tabs.Badges:AddButton({
     Title = "Get Glovel",
     Description = "Make sure you have Hitman Quest",
     Callback = function()
-if not workspace.Arena.CannonIsland.TreasureSpots:FindFIrstChild("_treasureSpot1") then
+if not workspace.Arena.CannonIsland.TreasureSpots:FindFirstChild("_treasureSpot1") then
 Fluent:Notify({Title = "Interface", Content = "You don't have {Hunt for the Hunter}", SubContent = "", Duration = 3})
 end
 localplayer.Character.Humanoid.Health = 0
@@ -866,6 +866,7 @@ Tabs.Settings:AddButton({
 })
 
 Window:SelectTab(1)
+
 
 
 
