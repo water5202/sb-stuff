@@ -108,6 +108,7 @@ local Slappering = Tabs.main:AddToggle("SlapAura", {
     Callback = function(state)
         Slapping = state
         if Slapping then
+	    Fluent:Notify({Title = "Interface", Content = "Slap Aura Toggled On!", SubContent = "", Duration = 3})
             task.spawn(function()
                 while Slapping do
                     for _,PLAYER in pairs(game.Players:GetChildren()) do
@@ -119,6 +120,8 @@ local Slappering = Tabs.main:AddToggle("SlapAura", {
                    end
                 end
             end)
+	else
+            Fluent:Notify({Title = "Interface", Content = "Slap Aura Toggled Off!", SubContent = "", Duration = 3})
         end
     end
 })
@@ -243,8 +246,8 @@ local EspToggle = Tabs.main:AddToggle("ESPVAL", {
                                 highlight.Name = "ESPHighlight"
                                 highlight.FillTransparency = 0.5
                                 highlight.OutlineTransparency = 0
-                                highlight.OutlineColor = Color3.new(255, 182, 193)
-				highlight.FillColor = Color3.new(255, 182, 193)
+                                highlight.OutlineColor = Color3.new(255, 255, 255)
+				highlight.FillColor = Color3.new(139, 0, 0)
                                 highlight.Parent = char
                             end
                             if not char:FindFirstChild("ItemBillboard") then
@@ -321,6 +324,7 @@ Tabs.settings:AddButton({
 })
 
 Window:SelectTab(1)
+
 
 
 
