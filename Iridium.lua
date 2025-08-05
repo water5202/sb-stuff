@@ -85,7 +85,7 @@ end
 task.spawn(function()
 while true do
 setupCharacter(game.Players.LocalPlayer.Character)
-task.wait(0.4)
+task.wait(0.01)
 end
 end)
 --
@@ -863,6 +863,7 @@ Tabs.Settings:AddButton({
 })
 
 Window:SelectTab(1)
+
 
 
 
