@@ -226,7 +226,7 @@ end)
 
 local runHighlight = false
  -- not finished
-local EspToggle = Tabs.Visuals:AddToggle("ESPVAL", {
+local EspToggle = Tabs.main:AddToggle("ESPVAL", {
     Title = "Player ESP",
     Description = "Shows all Players",
     Default = false,
@@ -296,6 +296,7 @@ Tabs.settings:AddButton({
 })
 
 Window:SelectTab(1)
+
 
 
 
