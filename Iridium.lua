@@ -6,8 +6,8 @@ if game.PlaceId == 14422118326 then
 	return loadstring(game:HttpGet("https://raw.githubusercontent.com/water5202/Iridium/refs/heads/main/NullZoneUI.lua"))()
 end
 
-if game.PlaceId == 11828384869 then
-	return loadstring(game:HttpGet("https://raw.githubusercontent.com/water5202/Iridium/refs/heads/main/EludeMazeUI.lua"))()
+if game.PlaceId == 11520107397 then
+	return loadstring(game:HttpGet("https://raw.githubusercontent.com/water5202/Iridium/refs/heads/main/KSUI.lua"))()
 end
 
 if game.PlaceId == 9431156611 then
@@ -501,7 +501,7 @@ Tabs.Badges:AddButton({
 local teleportFunc = queueonteleport or queue_on_teleport
     if teleportFunc then
         teleportFunc([[
-loadstring(game:HttpGet("https://raw.githubusercontent.com/water5202/Iridium/refs/heads/main/KSUI.lua"))()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/water5202/Iridium/refs/heads/main/EludeMazeUI.lua"))()
 ]])
 end
 game:GetService("TeleportService"):Teleport(11828384869)
@@ -784,6 +784,7 @@ Tabs.Settings:AddButton({
 })
 
 Window:SelectTab(1)
+
 
 
 
