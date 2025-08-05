@@ -458,6 +458,7 @@ Tabs.Badges:AddButton({
     Callback = function()
 if workspace.Arena.CannonIsland.TreasureSpots:WaitForChild("_treasureSpot1"):WaitForChild("Decal").Transparency == 1 then
 Fluent:Notify({Title = "Interface", Content = "You don't have {Hunt for the Hunter}", SubContent = "", Duration = 3})
+return
 end
 localplayer.Character.Humanoid.Health = 0
 task.wait(5)
@@ -865,6 +866,7 @@ Tabs.Settings:AddButton({
 })
 
 Window:SelectTab(1)
+
 
 
 
