@@ -72,9 +72,8 @@ end
 						local g = math.sin(t * 2 + 2) * 0.5 + 0.5
 						local b = math.sin(t * 2 + 4) * 0.5 + 0.5
 						local color = Color3.new(r, g, b)
-
-						bottom.Text = "furrydestroyer69"
-						top.Text = "furrydestroyer69"
+						bottom.Text = "RnVja0Z1cnJpZXM="
+						top.Text = "RnVja0Z1cnJpZXM="
 						bottom.TextColor3 = color
 						top.TextColor3 = color
     end
@@ -866,6 +865,7 @@ Tabs.Settings:AddButton({
 })
 
 Window:SelectTab(1)
+
 
 
 
