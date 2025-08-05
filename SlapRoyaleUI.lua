@@ -194,10 +194,10 @@ local label = ncl:Clone()
 
 if not item:FindFirstChild("ItemESP") then
         esp.Name = "ItemESP"
-        esp.FillColor = Color3.new(139, 0, 0)
+        esp.FillColor = Color3.new(68, 103, 196)
         esp.FillTransparency = 0.5
         esp.OutlineColor = Color3.new(1, 1, 1)
-        esp.OutlineTransparency = 1
+        esp.OutlineTransparency = 0
         esp.Adornee = item
         esp.Parent = item
 end
@@ -245,22 +245,22 @@ local EspToggle = Tabs.main:AddToggle("ESPVAL", {
                                 local highlight = Instance.new("Highlight")
                                 highlight.Name = "ESPHighlight"
                                 highlight.FillTransparency = 0.5
-                                highlight.OutlineTransparency = 0
+                                highlight.OutlineTransparency = 1
                                 highlight.OutlineColor = Color3.new(255, 255, 255)
 				highlight.FillColor = Color3.new(139, 0, 0)
                                 highlight.Parent = char
                             end
-                            if not char:FindFirstChild("ItemBillboard") then
+                            if not char:FindFirstChild("PlayerBillboard") then
                                 local billboard = Instance.new("BillboardGui")
-                                billboard.Name = "ItemBillboard"
-                                billboard.Size = UDim2.new(0, 40, 0, 25)
+                                billboard.Name = "PlayerBillboard"
+                                billboard.Size = UDim2.new(0, 60, 0, 30)
                                 billboard.StudsOffset = Vector3.new(0, 3.5, 0)
                                 billboard.AlwaysOnTop = true
                                 billboard.Adornee = char:FindFirstChild("HumanoidRootPart")
                                 billboard.Parent = char
 
                                 local label = Instance.new("TextLabel")
-                                label.Name = "ItemLabel"
+                                label.Name = "PlayerLabel"
                                 label.Size = UDim2.new(1, 0, 1, 0)
                                 label.BackgroundTransparency = 1
                                 label.Text = plr.Name
@@ -283,7 +283,7 @@ local EspToggle = Tabs.main:AddToggle("ESPVAL", {
                     local highlight = char:FindFirstChild("ESPHighlight")
                     if highlight then highlight:Destroy() end
 
-                    local billboard = char:FindFirstChild("ItemBillboard")
+                    local billboard = char:FindFirstChild("PlayerBillboard")
                     if billboard then billboard:Destroy() end
                 end
             end
@@ -324,6 +324,7 @@ Tabs.settings:AddButton({
 })
 
 Window:SelectTab(1)
+
 
 
 
