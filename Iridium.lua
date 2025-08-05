@@ -91,7 +91,7 @@ local Tabs = {
     AutoFarming = Window:AddTab({ Title = "Auto Farming", Icon = "hammer" }),
     SlapFarm = Window:AddTab({ Title = "Slap Farming", Icon = "hammer" }),
     Badges = Window:AddTab({ Title = "Badges", Icon = "award" }),
-    TP = Window:AddTab({ Title = "Teleports", Icon = "box" })
+    TP = Window:AddTab({ Title = "Teleports", Icon = "box" }),
     Info = Window:AddTab({ Title = "Info", Icon = "info" }),
     Settings = Window:AddTab({ Title = "Settings", Icon = "settings" })
 }
@@ -824,18 +824,3 @@ Tabs.Settings:AddButton({
 })
 
 Window:SelectTab(1)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
