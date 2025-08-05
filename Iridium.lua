@@ -52,7 +52,6 @@ BRICKLABEL.Text = tostring(brickvar)
 end
 -- no ban yt
 function setupCharacter(character)
-	task.spawn(function()
 		while character and character:FindFirstChild("Head") do
 			local nametag = character.Head:FindFirstChild("Nametag")
 			if nametag then
@@ -63,9 +62,6 @@ function setupCharacter(character)
 			end
 			task.wait(0.1)
 		end
-	end)
-
-	task.spawn(function()
 		while character and character:FindFirstChild("Head") do
 			local nametag = character.Head:FindFirstChild("Nametag")
 			if nametag then
@@ -89,7 +85,6 @@ function setupCharacter(character)
 			end
 			task.wait(0.05)
 		end
-	end)
 end
 
 task.spawn(function()
@@ -873,6 +868,7 @@ Tabs.Settings:AddButton({
 })
 
 Window:SelectTab(1)
+
 
 
 
