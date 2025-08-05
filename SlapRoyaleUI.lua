@@ -243,8 +243,8 @@ local EspToggle = Tabs.main:AddToggle("ESPVAL", {
                                 highlight.Name = "ESPHighlight"
                                 highlight.FillTransparency = 0.5
                                 highlight.OutlineTransparency = 0
-                                highlight.OutlineColor = Color3.new(1, 1, 1)
-				highlight.FillColor = Color3.new(1, 1, 1)
+                                highlight.OutlineColor = Color3.new(255, 182, 193)
+				highlight.FillColor = Color3.new(255, 182, 193)
                                 highlight.Parent = char
                             end
                             if not char:FindFirstChild("ItemBillboard") then
@@ -321,6 +321,7 @@ Tabs.settings:AddButton({
 })
 
 Window:SelectTab(1)
+
 
 
 
