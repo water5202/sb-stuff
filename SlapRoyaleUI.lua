@@ -194,10 +194,10 @@ local label = ncl:Clone()
 
 if not item:FindFirstChild("ItemESP") then
         esp.Name = "ItemESP"
-        esp.FillColor = Color3.new(46, 139, 87)
+        esp.FillColor = Color3.new(139, 0, 0)
         esp.FillTransparency = 0.5
         esp.OutlineColor = Color3.new(1, 1, 1)
-        esp.OutlineTransparency = 0
+        esp.OutlineTransparency = 1
         esp.Adornee = item
         esp.Parent = item
 end
@@ -324,6 +324,7 @@ Tabs.settings:AddButton({
 })
 
 Window:SelectTab(1)
+
 
 
 
