@@ -116,7 +116,7 @@ Tabs.TP:AddButton({
     Title = "Cannon Island Teleport",
     Description = "",
     Callback = function()
-	game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = CFrame.new(312.536377, 21.1950035, 204.848511, 0.17416954)
+	game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = CFrame.new(312.536377, 21.1950035, 204.848511)
     end
 })
 
@@ -824,3 +824,4 @@ Tabs.Settings:AddButton({
 })
 
 Window:SelectTab(1)
+
