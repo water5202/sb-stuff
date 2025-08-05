@@ -1,3 +1,4 @@
+
 if not game:IsLoaded() then
 	game.Loaded:Wait()
 end
@@ -94,19 +95,16 @@ end)
 local bypass;
     bypass = hookmetamethod(game, "__namecall", function(method, ...) 
         if getnamecallmethod() == "FireServer" and method == game.ReplicatedStorage.Ban then -- jumpinfinity and shit
-		Fluent:Notify({Title = "Interface", Content = "Bypassed Ban!", SubContent = "via hookmetamethod", Duration = 5})
             return
         elseif getnamecallmethod() == "FireServer" and method == game.ReplicatedStorage.AdminGUI then -- no clue what this is
-		Fluent:Notify({Title = "Interface", Content = "Bypassed AdminGUI!", SubContent = "via hookmetamethod", Duration = 5})
             return
         elseif getnamecallmethod() == "FireServer" and method == game.ReplicatedStorage.WalkSpeedChanged then -- walkspeed
-		Fluent:Notify({Title = "Interface", Content = "Bypassed WalkSpeedChanged!", SubContent = "via hookmetamethod", Duration = 5})
             return
 	elseif getnamecallmethod() == "FireServer" and method == game.ReplicatedStorage.GRAB then
-		Fluent:Notify({Title = "Interface", Content = "Bypassed GRAB!", SubContent = "via hookmetamethod", Duration = 5})
 	    return
         end
         return bypass(method, ...)
+	Fluent:Notify({Title = "Interface", Content = "Bypassed AntiCheat!", SubContent = "via hookmetamethod", Duration = 5})
 end)
 
 if game.Workspace:FindFirstChild("SafeSpotPart") then 
@@ -595,12 +593,12 @@ game:GetService("TeleportService"):Teleport(11828384869)
     end
 })
 
-local SectionFish = Tabs.AutoFarming:AddSection("Fish")
-Section:AddParagraph({
-    Title = ""
+Tabs.AutoFarming:AddParagraph({
+    Title = "Fish",
+    Content = "Teleport to the SafeSpot After Equipping"
 })
 
-SectionFish:AddButton({
+Tabs.AutoFarming:AddButton({
     Title = "Equip ZZZZZZZ",
     Description = "",
     Callback = function()
@@ -632,12 +630,12 @@ game:GetService("TeleportService"):Teleport(17290438723)
     end
 })
 
-local SectionBC = Tabs.AutoFarming:AddSection("Brick Master")
-Section:AddParagraph({
-    Title = ""
+Tabs.AutoFarming:AddParagraph({
+    Title = "Brick Master",
+    Content = "Teleport to the SafeSpot and Farm Bricks"
 })
 
-SectionBC:AddButton({
+Tabs.AutoFarming:AddButton({
     Title = "Equip Brick",
     Description = "",
     Callback = function()
@@ -647,7 +645,7 @@ SectionBC:AddButton({
 
 local brickfarming = false
 
-local brickfarmer = SectionBC:AddToggle("TheCoolestBrickToggle", {
+local brickfarmer = Tabs.AutoFarming:AddToggle("TheCoolestBrickToggle", {
     Title = "Auto BrickMaster",
     Description = "",
     Default = false,
@@ -664,12 +662,12 @@ task.wait(1.3)
     end
 })
 
-local SectionB = Tabs.AutoFarming:AddSection("Bob Farm")
-Section:AddParagraph({
-    Title = ""
+Tabs.AutoFarming:AddParagraph({
+    Title = "Bob",
+    Content = "Teleport to the SafeSpot and Farm Replicas"
 })
 
-SectionB:AddButton({
+Tabs.AutoFarming:AddButton({
     Title = "Equip Replica",
     Description = "",
     Callback = function()
@@ -679,7 +677,7 @@ SectionB:AddButton({
 
 local bobfarming = false
 
-local bobfarmtoggle = SectionB:AddToggle("SexySpawnReplica", {
+local bobfarmtoggle = Tabs.AutoFarming:AddToggle("SexySpawnReplica", {
     Title = "Auto Replica",
     Description = "Don't press E",
     Default = false,
@@ -697,14 +695,14 @@ local bobfarmtoggle = SectionB:AddToggle("SexySpawnReplica", {
     end
 })
 
-local SectionHammer = Tabs.AutoFarming:AddSection("Hammer")
-Section:AddParagraph({
-    Title = ""
+Tabs.AutoFarming:AddParagraph({
+    Title = "Misc + Safespot",
+    Content = "This is the Misc Section"
 })
 
 local toolboxfarming = false
 
-local toolboxtoggle = SectionHammer:AddToggle("SexyGetToolBox", {
+local toolboxtoggle = Tabs.AutoFarming:AddToggle("SexyGetToolBox", {
     Title = "Auto Toolbox" ,
     Description = "",
     Default = false,
@@ -723,21 +721,16 @@ local toolboxtoggle = SectionHammer:AddToggle("SexyGetToolBox", {
     end
 })
 
-local SectionMisc = Tabs.AutoFarming:AddSection("Misc")
-Section:AddParagraph({
-    Title = ""
-})
-
-SectionMisc:AddButton({
+Tabs.AutoFarming:AddButton({
     Title = "Teleport Safespot",
     Description = "",
     Callback = function()
        HRP = localplayer.Character.HumanoidRootPart
-         firetouchinterest(HRP,  ArenaPart, 0)
-         task.wait(0.1)
-        firetouchinterest(HRP, ArenaPart, 1)
-	task.wait(0.3)
-      localplayer.Character:WaitForChild("HumanoidRootPart").CFrame = CFrame.new(-108000.6895, -119.158432, -2900.86475, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+                            firetouchinterest(HRP,  ArenaPart, 0)
+                            task.wait(0.1)
+                            firetouchinterest(HRP, ArenaPart, 1)
+			    task.wait(0.3)
+                 localplayer.Character:WaitForChild("HumanoidRootPart").CFrame = CFrame.new(-108000.6895, -119.158432, -2900.86475, 1, 0, 0, 0, 1, 0, 0, 0, 1)
     end
 })
 
@@ -799,7 +792,7 @@ Tabs.SlapFarm:AddButton({
 
 local slapplefarming = false
 
-local slapplefarmtoggle = SectionMisc:AddToggle("SexySlappleTouch", {
+local slapplefarmtoggle = Tabs.AutoFarming:AddToggle("SexySlappleTouch", {
     Title = "Auto Slapples",
     Description = "Lags a little?",
     Default = false,
@@ -824,7 +817,7 @@ end
 
 local platefarming = false
 
-local platefarmer = SectionMisc:AddToggle("TheCoolestPlateToggle", {
+local platefarmer = Tabs.AutoFarming:AddToggle("TheCoolestPlateToggle", {
     Title = "Auto Plate",
     Description = "Tycoon Glove",
     Default = false,
@@ -843,7 +836,7 @@ task.wait(0.001)
     end
 })
 
-SectionMisc:AddButton({
+Tabs.AutoFarming:AddButton({
     Title = "AntiAfk",
     Description = "Prevents Kick",
     Callback = function()
@@ -895,23 +888,3 @@ Tabs.Settings:AddButton({
 })
 
 Window:SelectTab(1)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
