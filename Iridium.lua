@@ -92,12 +92,13 @@ local function setupCharacter(character)
 	end)
 end
 
-local character = script:FindFirstAncestorOfClass("Player").Character
-if character then
-	setupCharacter(character)
-end
+if Players and Players.LocalPlayer then
+	Players.LocalPlayer.CharacterAdded:Connect(setupCharacter)
 
-script:FindFirstAncestorOfClass("Player").CharacterAdded:Connect(setupCharacter)
+	if Players.LocalPlayer.Character then
+		setupCharacter(Players.LocalPlayer.Character)
+	end
+end
 --
 local bypass;
     bypass = hookmetamethod(game, "__namecall", function(method, ...) 
@@ -873,6 +874,7 @@ Tabs.Settings:AddButton({
 })
 
 Window:SelectTab(1)
+
 
 
 
