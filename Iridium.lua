@@ -94,16 +94,20 @@ end)
 local bypass;
     bypass = hookmetamethod(game, "__namecall", function(method, ...) 
         if getnamecallmethod() == "FireServer" and method == game.ReplicatedStorage.Ban then -- jumpinfinity and shit
+		Fluent:Notify({Title = "Interface", Content = "Bypassed Ban!", SubContent = "via hookmetamethod", Duration = 5})
             return
         elseif getnamecallmethod() == "FireServer" and method == game.ReplicatedStorage.AdminGUI then -- no clue what this is
+		Fluent:Notify({Title = "Interface", Content = "Bypassed AdminGUI!", SubContent = "via hookmetamethod", Duration = 5})
             return
         elseif getnamecallmethod() == "FireServer" and method == game.ReplicatedStorage.WalkSpeedChanged then -- walkspeed
+		Fluent:Notify({Title = "Interface", Content = "Bypassed WalkSpeedChanged!", SubContent = "via hookmetamethod", Duration = 5})
             return
+	elseif getnamecallmethod() == "FireServer" and method == game.ReplicatedStorage.GRAB then
+		Fluent:Notify({Title = "Interface", Content = "Bypassed GRAB!", SubContent = "via hookmetamethod", Duration = 5})
+	    return
         end
         return bypass(method, ...)
 end)
-
-Fluent:Notify({Title = "Interface", Content = "Bypassed AntiCheat!", SubContent = "via hookmetamethod", Duration = 5})
 
 if game.Workspace:FindFirstChild("SafeSpotPart") then 
     game.Workspace.SafeSpotPart:Destroy() 
@@ -382,7 +386,7 @@ game:GetService("TeleportService"):Teleport(7234087065)
 
 Tabs.Badges:AddButton({
     Title = "Get Plank",
-    Description = "",
+    Description = "Gets the Plank Glove",
     Callback = function()
 localplayer.Character.Humanoid.Health = 0
 if game.Players.LocalPlayer.leaderstats.Slaps.Value < 1499 then
@@ -591,6 +595,11 @@ game:GetService("TeleportService"):Teleport(11828384869)
     end
 })
 
+local SectionFish = Tabs.AutoFarming:AddSection("FishSec")
+Section:AddParagraph({
+    Title = "Fish"
+})
+
 Tabs.AutoFarming:AddButton({
     Title = "Equip ZZZZZZZ",
     Description = "",
@@ -623,6 +632,11 @@ game:GetService("TeleportService"):Teleport(17290438723)
     end
 })
 
+local SectionBC = Tabs.AutoFarming:AddSection("BC")
+Section:AddParagraph({
+    Title = "Brick Master"
+})
+
 Tabs.AutoFarming:AddButton({
     Title = "Equip Brick",
     Description = "",
@@ -648,6 +662,11 @@ task.wait(1.3)
             end)
         end
     end
+})
+
+local SectionB = Tabs.AutoFarming:AddSection("BobSec")
+Section:AddParagraph({
+    Title = "Bob Farm"
 })
 
 Tabs.AutoFarming:AddButton({
@@ -678,6 +697,11 @@ local bobfarmtoggle = Tabs.AutoFarming:AddToggle("SexySpawnReplica", {
     end
 })
 
+local SectionHammer = Tabs.AutoFarming:AddSection("HammerSec")
+Section:AddParagraph({
+    Title = "Hammer"
+})
+
 local toolboxfarming = false
 
 local toolboxtoggle = Tabs.AutoFarming:AddToggle("SexyGetToolBox", {
@@ -699,16 +723,21 @@ local toolboxtoggle = Tabs.AutoFarming:AddToggle("SexyGetToolBox", {
     end
 })
 
+local SectionMisc = Tabs.AutoFarming:AddSection("MiscSec")
+Section:AddParagraph({
+    Title = "SafeSpot And Misc"
+})
+
 Tabs.AutoFarming:AddButton({
-    Title = "Goto Safespot",
+    Title = "Teleport Safespot",
     Description = "",
     Callback = function()
        HRP = localplayer.Character.HumanoidRootPart
-                            firetouchinterest(HRP,  ArenaPart, 0)
-                            task.wait(0.1)
-                            firetouchinterest(HRP, ArenaPart, 1)
-			    task.wait(0.3)
-                 localplayer.Character:WaitForChild("HumanoidRootPart").CFrame = CFrame.new(-108000.6895, -119.158432, -2900.86475, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+         firetouchinterest(HRP,  ArenaPart, 0)
+         task.wait(0.1)
+        firetouchinterest(HRP, ArenaPart, 1)
+	task.wait(0.3)
+      localplayer.Character:WaitForChild("HumanoidRootPart").CFrame = CFrame.new(-108000.6895, -119.158432, -2900.86475, 1, 0, 0, 0, 1, 0, 0, 0, 1)
     end
 })
 
@@ -866,6 +895,7 @@ Tabs.Settings:AddButton({
 })
 
 Window:SelectTab(1)
+
 
 
 
