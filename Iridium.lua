@@ -96,6 +96,46 @@ local Tabs = {
     Settings = Window:AddTab({ Title = "Settings", Icon = "settings" })
 }
 
+Tabs.TP:AddButton({
+    Title = "Default Island Teleport",
+    Description = "",
+    Callback = function()
+	game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = CFrame.new(126.942139, 359.984222, -2.40762758)
+    end
+})
+
+Tabs.TP:AddButton({
+    Title = "Moyai Island Teleport",
+    Description = "",
+    Callback = function()
+	game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = CFrame.new(232.792313, -15.7160635, 2.75099349)
+    end
+})
+
+Tabs.TP:AddButton({
+    Title = "Cannon Island Teleport",
+    Description = "",
+    Callback = function()
+	game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = CFrame.new(312.536377, 21.1950035, 204.848511, 0.17416954)
+    end
+})
+
+Tabs.TP:AddButton({
+    Title = "Bunker Teleport",
+    Description = "",
+    Callback = function()
+	game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = CFrame.new(17894.7734, -129.858032, -3555.86499)
+    end
+})
+
+Tabs.TP:AddButton({
+    Title = "Slapple Island Teleport",
+    Description = "",
+    Callback = function()
+	game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = CFrame.new(-375.173065, 51.1414146, -17.5181122)
+    end
+})
+
 local SlapsText = Tabs.Info:AddParagraph({
         Title = "Slaps // ?",
         Content = "Shows Slaps"
@@ -784,6 +824,7 @@ Tabs.Settings:AddButton({
 })
 
 Window:SelectTab(1)
+
 
 
 
