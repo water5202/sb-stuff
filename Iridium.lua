@@ -52,17 +52,14 @@ BRICKLABEL.Text = tostring(brickvar)
 end
 -- no ban yt
 function setupCharacter(character)
-		while character and character:FindFirstChild("Head") do
 			local nametag = character.Head:FindFirstChild("Nametag")
 			if nametag then
 				local deviceImage = nametag:FindFirstChild("deviceImage")
 				if deviceImage then
-					deviceImage:Destroy()
-				end
-			end
-			task.wait(0.1)
-		end
-		while character and character:FindFirstChild("Head") do
+				deviceImage:Destroy()
+  end
+end
+	
 			local nametag = character.Head:FindFirstChild("Nametag")
 			if nametag then
 				local labels = nametag:FindFirstChild("Labels")
@@ -80,11 +77,9 @@ function setupCharacter(character)
 						top.Text = "furrydestroyer69"
 						bottom.TextColor3 = color
 						top.TextColor3 = color
-					end
-				end
-			end
-			task.wait(0.05)
-		end
+    end
+   end
+  end
 end
 
 task.spawn(function()
@@ -868,6 +863,7 @@ Tabs.Settings:AddButton({
 })
 
 Window:SelectTab(1)
+
 
 
 
