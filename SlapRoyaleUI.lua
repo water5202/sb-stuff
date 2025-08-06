@@ -1,4 +1,9 @@
 local Fluent = loadstring(game:HttpGet("https://github.com/dawid-scripts/Fluent/releases/latest/download/main.lua"))()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/water5202/Iridium/refs/heads/main/SRCUSTOMUIGUI2LUA"))()
+game.Players.LocalPlayer:WaitForChild("PlayerGui"):WaitForChild("HUD").Enabled = false
+
+
+Fluent:Notify({Title = "Interface", Content = "Custom UI Loaded!", SubContent = "", Duration = 5})
 Fluent:Notify({Title = "Interface", Content = "Script is beta!", SubContent = "", Duration = 5})
 local Players = game:GetService("Players")
 local RunService = game:GetService("RunService")
@@ -324,6 +329,7 @@ Tabs.settings:AddButton({
 })
 
 Window:SelectTab(1)
+
 
 
 
