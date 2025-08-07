@@ -27,7 +27,7 @@ NoAcid.Transparency = 1
 NoAcid.CanCollide = false
 
 local Window = Fluent:CreateWindow({
-    Title = "Slap Royale // " .. identifyexecutor(),
+    Title = "Water Client // " .. identifyexecutor(),
     SubTitle = "",
     TabWidth = 120,
     Size = UDim2.fromOffset(400, 300),
@@ -329,6 +329,7 @@ Tabs.settings:AddButton({
 })
 
 Window:SelectTab(1)
+
 
 
 
