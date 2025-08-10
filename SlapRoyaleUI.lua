@@ -3,7 +3,6 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/water5202/Iridium/ref
 game.Players.LocalPlayer:WaitForChild("PlayerGui"):WaitForChild("HUD").Enabled = false
 Fluent:Notify({Title = "Interface", Content = "Custom UI Loaded!", SubContent = "", Duration = 5})
 Fluent:Notify({Title = "Interface", Content = "{Players} is Players ingame Not Alive!", SubContent = "", Duration = 5})
-Fluent:Notify({Title = "Interface", Content = "Script is beta!", SubContent = "", Duration = 5})
 
 local Players = game:GetService("Players")
 local RunService = game:GetService("RunService")
@@ -370,4 +369,5 @@ Tabs.settings:AddButton({
 })
 
 Window:SelectTab(1)
+
 
