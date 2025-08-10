@@ -1,10 +1,10 @@
 local Fluent = loadstring(game:HttpGet("https://github.com/dawid-scripts/Fluent/releases/latest/download/main.lua"))()
 loadstring(game:HttpGet("https://raw.githubusercontent.com/water5202/Iridium/refs/heads/main/SRCUSTOMUIGUI2LUA"))()
 game.Players.LocalPlayer:WaitForChild("PlayerGui"):WaitForChild("HUD").Enabled = false
-
-
 Fluent:Notify({Title = "Interface", Content = "Custom UI Loaded!", SubContent = "", Duration = 5})
+Fluent:Notify({Title = "Interface", Content = "{Players} is Players ingame Not Alive!", SubContent = "", Duration = 5})
 Fluent:Notify({Title = "Interface", Content = "Script is beta!", SubContent = "", Duration = 5})
+
 local Players = game:GetService("Players")
 local RunService = game:GetService("RunService")
 
@@ -27,7 +27,7 @@ NoAcid.Transparency = 1
 NoAcid.CanCollide = false
 
 local Window = Fluent:CreateWindow({
-    Title = "Water Client // " .. identifyexecutor(),
+    Title = "H20 Client // " .. identifyexecutor(),
     SubTitle = "",
     TabWidth = 120,
     Size = UDim2.fromOffset(400, 300),
@@ -323,6 +323,7 @@ Tabs.settings:AddButton({
 })
 
 Window:SelectTab(1)
+
 
 
 
