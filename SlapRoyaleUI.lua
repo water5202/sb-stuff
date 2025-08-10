@@ -187,15 +187,9 @@ Tabs.main:AddButton({
     Callback = function()
 task.spawn(function()
 for _, item in pairs(workspace.Items:GetChildren()) do
-local nce = Instance.new("Highlight")
-local ncb = Instance.new("BillboardGui")
-local ncl = Instance.new("TextLabel")
-
-
-local esp = nce:Clone()
-local billboard = ncb:Clone()
-local label = ncl:Clone()
-
+local esp = Instance.new("Highlight")
+local billboard = Instance.new("BillboardGui")
+local label = Instance.new("TextLabel")
 
 if not item:FindFirstChild("ItemESP") then
         esp.Name = "ItemESP"
@@ -329,6 +323,7 @@ Tabs.settings:AddButton({
 })
 
 Window:SelectTab(1)
+
 
 
 
