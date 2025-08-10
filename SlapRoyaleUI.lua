@@ -165,7 +165,7 @@ local CannonTP = Tabs.main:AddDropdown("CannonTP", {
 CannonTP:OnChanged(function(Value)
     if Value == "School" then
         fireclickdetector(workspace.Map.SuspensionSchool:WaitForChild("Cannon").ClickDetector)
-    elseif Value == "Graveyard Place" then
+    elseif Value == "Graveyard" then
         fireclickdetector(workspace.Map.HallowHills:WaitForChild("Cannon").ClickDetector)
     elseif Value == "Market" then
         fireclickdetector(workspace.Map.MiniMarket:WaitForChild("Cannon").ClickDetector)
@@ -193,7 +193,7 @@ local TPWALKSLIDER = Tabs.main:AddSlider("TPWALKSLIDER", {
                 local delta = RunService.Heartbeat:Wait()
                 if hum.MoveDirection.Magnitude > 0 then
                     local speed = Value
-                    chr:TranslateBy(hum.MoveDirection * speed * delta * 5)
+                    chr:TranslateBy(hum.MoveDirection * speed * delta * 10)
                 end
             end
         end)
@@ -347,3 +347,4 @@ Tabs.settings:AddButton({
 })
 
 Window:SelectTab(1)
+
