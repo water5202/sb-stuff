@@ -8,6 +8,15 @@ Fluent:Notify({Title = "Interface", Content = "Script is beta!", SubContent = ""
 local Players = game:GetService("Players")
 local RunService = game:GetService("RunService")
 
+local AntiVoid = Instance.new("Part")
+AntiVoid.Name = ""
+AntiVoid.Parent = workspace
+AntiVoid.Size = Vector3.new(100000, 1, 100000)
+AntiVoid.CFrame = CFrame.new(-240.64537, -70, 405.806458, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+AntiVoid.Anchored = true
+AntiVoid.Transparency = 1
+AntiVoid.CanCollide = false
+
 local NoLava = Instance.new("Part")
 NoLava.Name = ""
 NoLava.Parent = workspace
@@ -95,11 +104,15 @@ NoLava.Transparency = 0.5
 NoLava.CanCollide = true
 NoAcid.Transparency = 0.5
 NoAcid.CanCollide = true
+AntiVoid.Transparency = 0.5
+AntiVoid.CanCollide = true
 	else
 NoLava.Transparency = 1
 NoLava.CanCollide = false
 NoAcid.Transparency = 1
 NoAcid.CanCollide = false
+AntiVoid.Transparency = 1
+AntiVoid.CanCollide = false
         end
     end 
 })
@@ -165,7 +178,7 @@ local CannonTP = Tabs.main:AddDropdown("CannonTP", {
 CannonTP:OnChanged(function(Value)
     if Value == "School" then
         fireclickdetector(workspace.Map.SuspensionSchool:WaitForChild("Cannon").ClickDetector)
-    elseif Value == "Graveyard" then
+    elseif Value == "Graveyard Place" then
         fireclickdetector(workspace.Map.HallowHills:WaitForChild("Cannon").ClickDetector)
     elseif Value == "Market" then
         fireclickdetector(workspace.Map.MiniMarket:WaitForChild("Cannon").ClickDetector)
@@ -193,7 +206,7 @@ local TPWALKSLIDER = Tabs.main:AddSlider("TPWALKSLIDER", {
                 local delta = RunService.Heartbeat:Wait()
                 if hum.MoveDirection.Magnitude > 0 then
                     local speed = Value
-                    chr:TranslateBy(hum.MoveDirection * speed * delta * 10)
+                    chr:TranslateBy(hum.MoveDirection * speed * delta * 5)
                 end
             end
         end)
@@ -347,4 +360,3 @@ Tabs.settings:AddButton({
 })
 
 Window:SelectTab(1)
-
