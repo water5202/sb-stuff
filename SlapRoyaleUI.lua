@@ -85,6 +85,16 @@ local PlayerText = Tabs.main:AddParagraph({
         Content = "Players"
 })
 
+Tabs.main:AddParagraph({
+    Title = "Important",
+    Content = "Exploiting is risky alone, \nthe moderation team is strict. \nDon't get caught Cheating!"
+})
+
+Tabs.main:AddParagraph({
+    Title = "Changelog //",
+    Content = "[+] Added Cannon Teleport  \n[+] Added Custom UI \n[=] Item Vacumn coming soon"
+})
+
 task.spawn(function()
     while true do
     local playersinnumb = #game:GetService("Players"):GetChildren()
@@ -95,8 +105,8 @@ end)
 
 local AntiTerrain = Tabs.main:AddToggle("ATT", 
 {
-    Title = "Anti Lava + Acid", 
-    Description = "Prevents you from dying via Acid or Lava",
+    Title = "Anti Lava + Acid + Void", 
+    Description = "Prevents you from dying via Acid or Lava or Void",
     Default = false,
     Callback = function(state)
 	if state then
@@ -360,3 +370,4 @@ Tabs.settings:AddButton({
 })
 
 Window:SelectTab(1)
+
