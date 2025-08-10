@@ -183,7 +183,7 @@ local TPWALKSLIDER = Tabs.main:AddSlider("TPWALKSLIDER", {
 
 Tabs.main:AddButton({
     Title = "Item ESP",
-    Description = "Click a couple of times to fix issues",
+    Description = "",
     Callback = function()
 task.spawn(function()
 for _, item in pairs(workspace.Items:GetChildren()) do
@@ -212,6 +212,22 @@ if not item:WaitForChild("ItemBillboard"):FindFirstChild("ItemLabel") then
 end
 end
 end)
+    end
+})
+
+Tabs.main:AddButton({
+    Title = "Hitbox Expander",
+    Description = "Literally undetectable",
+    Callback = function()
+for _, player in pairs(game.Players:GetChildren()) do
+if player ~= game.Players.LocalPlayer then
+        local character = player.Character
+        local hrp = character:WaitForChild("HumanoidRootPart")
+        hrp.Size = Vector3.new(10, 10, 10)
+        hrp.Transparency = 0.5
+		hrp.CanCollide = false
+    end
+end
     end
 })
 
@@ -312,6 +328,7 @@ Tabs.settings:AddButton({
 })
 
 Window:SelectTab(1)
+
 
 
 
