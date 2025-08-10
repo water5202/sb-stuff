@@ -79,19 +79,19 @@ task.wait(0.1)
 end			
 end)
 
-local PlayerText = Tabs.main:AddParagraph({
-        Title = "0/30",
-        Content = "Players"
-})
-
 Tabs.main:AddParagraph({
-    Title = "Important",
-    Content = "Exploiting is risky alone, \nthe moderation team is strict. \nDon't get caught Cheating!"
+    Title = "Disclaimer!",
+    Content = "Exploiting is risky alone, the moderation team is strict. \nDon't get caught cheating, I'm not responsible!"
 })
 
 Tabs.main:AddParagraph({
     Title = "Changelog //",
-    Content = "[+] Added Cannon Teleport  \n[+] Added Custom UI \n[=] Item Vacumn coming soon"
+    Content = "[+] Added Cannon Teleport \n[+] Added Hitbox Expander \n[+] Added AntiVoid \n[+] Added Custom UI \n[=] Item Vacumn coming soon..."
+})
+
+local PlayerText = Tabs.main:AddParagraph({
+        Title = "0/30",
+        Content = "Players"
 })
 
 task.spawn(function()
@@ -369,5 +369,3 @@ Tabs.settings:AddButton({
 })
 
 Window:SelectTab(1)
-
-
