@@ -280,31 +280,46 @@ G2L["5"] = Instance.new("UICorner", G2L["2"]);
 
 -- StarterGui..SPS.hahaskidded
 local function C_3()
-local Players = game:GetService("Players")
-local RunService = game:GetService("RunService")
+local speedLabel = script.Parent
+local player = game.Players.LocalPlayer
 
-local player = Players.LocalPlayer
-local character = player.Character or player.CharacterAdded:Wait()
-local humanoidRootPart = character:WaitForChild("HumanoidRootPart")
+local hrp
+local lastPosition = Vector3.new()
+local lastTime = tick()
 
-local textLabel = script.Parent
-
-local function getSpeed()
-	local velocity = humanoidRootPart.Velocity
-	local horizontalVelocity = Vector3.new(velocity.X, 0, velocity.Z)
-	return math.round(horizontalVelocity.Magnitude)
+local function setupCharacter(character)
+    hrp = character:WaitForChild("HumanoidRootPart")
+    lastPosition = hrp.Position
+    lastTime = tick()
 end
 
-RunService.RenderStepped:Connect(function()
-	if humanoidRootPart then
-		textLabel.Text = tostring(getSpeed())
-	end
+player.CharacterAdded:Connect(setupCharacter)
+if player.Character then
+    setupCharacter(player.Character)
+end
+
+local function calculateSpeed()
+    if not hrp then return 0 end
+
+    local currentPosition = hrp.Position
+    local currentTime = tick()
+
+    local distance = (currentPosition - lastPosition).Magnitude
+    local deltaTime = currentTime - lastTime
+
+    local speed = distance / (deltaTime > 0 and deltaTime or 1)
+
+    lastPosition = currentPosition
+    lastTime = currentTime
+
+    return speed
+end
+
+game:GetService("RunService").RenderStepped:Connect(function()
+    local speed = calculateSpeed()
+    speedLabel.Text = speed
 end)
 
-player.CharacterAdded:Connect(function(char)
-	character = char
-	humanoidRootPart = char:WaitForChild("HumanoidRootPart")
-end)
 end;
 task.spawn(C_3);
 -- StarterGui..SPS.skidded2
