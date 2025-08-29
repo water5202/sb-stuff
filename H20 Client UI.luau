@@ -722,7 +722,7 @@ local tpwalking = false
 
 local TPWALKBYPASS = TabThree.new("slider",{ 
 text = "Speed Bypass",
-size = 15 
+size = 100 
 })
 
 TPWALKBYPASS.event:Connect(function(var)
@@ -751,3 +751,4 @@ game:GetService("Lighting"):WaitForChild("Blur").Enabled = not game:GetService("
 game:GetService("CoreGui"):WaitForChild("imgui2").Enabled = not game:GetService("CoreGui"):WaitForChild("imgui2").Enabled
 end
 end)
+
