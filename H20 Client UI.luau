@@ -369,7 +369,6 @@ return G2L["1"], require;
 end
 
 LoadLabel()
-LoadSpeedMeter()
 task.wait(5)
 local Lib = loadstring(game:HttpGet("https://raw.githubusercontent.com/Singularity5490/rbimgui-2/main/rbimgui-2.lua"))()
 NotifLib:Notify({Title = "H20 Client", Content = "Loaded GUI!", SubContent = "water.5202", Duration = 5})
