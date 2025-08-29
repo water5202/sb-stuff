@@ -568,7 +568,7 @@ ESP.event:Connect(function(bool)
                                 highlight.FillTransparency = 0.5
                                 highlight.OutlineTransparency = 1
                                 highlight.OutlineColor = Color3.new(255, 255, 255)
-				highlight.FillColor = Color3.new(139, 0, 0)
+				                highlight.FillColor = Color3.new(0.286274, 0.654901, 0.603921)
                                 highlight.Parent = char
                             end
                             if not char:FindFirstChild("PlayerBillboard") then
