@@ -280,32 +280,34 @@ G2L["5"] = Instance.new("UICorner", G2L["2"]);
 
 -- StarterGui..SPS.hahaskidded
 local function C_3()
-local script = G2L["3"];
-	local Players = game:GetService("Players")
-	local RunService = game:GetService("RunService")
-	
-	local player = Players.LocalPlayer
-	local character = player.Character or player.CharacterAdded:Wait()
-	local humanoidRootPart = character:WaitForChild("HumanoidRootPart")
-	
-	local textLabel = script.Parent
-	
-	local function getSpeed()
-		local velocity = humanoidRootPart.Velocity
-		local speed = Vector3.new(velocity.X, 0, velocity.Z).Magnitude
-		return speed + 0.5
+local Players = game:GetService("Players")
+local RunService = game:GetService("RunService")
+
+local player = Players.LocalPlayer
+local character = player.Character or player.CharacterAdded:Wait()
+local humanoid = character:WaitForChild("Humanoid")
+local humanoidRootPart = character:WaitForChild("HumanoidRootPart")
+
+local textLabel = script.Parent
+
+local function getSpeed()
+	local moveDirection = humanoid.MoveDirection
+	local speed = moveDirection.Magnitude * humanoid.WalkSpeed
+	return speed + 0.5
+end
+
+RunService.RenderStepped:Connect(function()
+	if character and humanoid then
+		textLabel.Text = tostring(getSpeed())
 	end
-	
-	RunService.RenderStepped:Connect(function()
-		if character and humanoidRootPart then
-			textLabel.Text = tostring(getSpeed())
-		end
-	end)
-	
-	player.CharacterAdded:Connect(function(char)
-		character = char
-		humanoidRootPart = char:WaitForChild("HumanoidRootPart")
-	end)
+end)
+
+player.CharacterAdded:Connect(function(char)
+	character = char
+	humanoid = char:WaitForChild("Humanoid")
+	humanoidRootPart = char:WaitForChild("HumanoidRootPart")
+end)
+
 	
 end;
 task.spawn(C_3);
