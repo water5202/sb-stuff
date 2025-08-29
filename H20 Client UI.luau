@@ -465,16 +465,18 @@ task.spawn(C_6);
 -- StarterGui.H20.Load
 local function C_7()
 local script = G2L["7"];
-	NotifLib:Notify({Title = "H20 Client", Content = "Loaded!", SubContent = "water.5202", Duration = 5})
+	NotifLib:Notify({Title = "H20 Client", Content = "Loading GUI...!", SubContent = "water.5202", Duration = 5})
 end;
 task.spawn(C_7);
 
 return G2L["1"], require;
 end
 
-local Lib = loadstring(game:HttpGet("https://raw.githubusercontent.com/Singularity5490/rbimgui-2/main/rbimgui-2.lua"))()
 LoadLabel()
 LoadSpeedMeter()
+task.wait(5)
+local Lib = loadstring(game:HttpGet("https://raw.githubusercontent.com/Singularity5490/rbimgui-2/main/rbimgui-2.lua"))()
+NotifLib:Notify({Title = "H20 Client", Content = "Loaded GUI!", SubContent = "water.5202", Duration = 5})
 
 local Window = Lib.new({
     text = "H20 ~ " .. identifyexecutor(),
@@ -715,6 +717,32 @@ game:GetService("VirtualInputManager"):SendKeyEvent(true,"Space",false,x) -- no 
 end
 
 end)
+
+local tpwalking = false
+
+local TPWALKBYPASS = TabThree.new("slider",{ 
+text = "Speed Bypass",
+size = 15 
+})
+
+TPWALKBYPASS.event:Connect(function(var)
+        local chr = game.Players.LocalPlayer.Character
+        local hum = chr and chr:FindFirstChildWhichIsA("Humanoid")
+        tpwalking = false
+        wait()
+        tpwalking = true
+        task.spawn(function()
+            while tpwalking and chr and hum and hum.Parent do
+                local delta = game:GetService("RunService").Heartbeat:Wait()
+                if hum.MoveDirection.Magnitude > 0 then
+                local speed = var
+                chr:TranslateBy(hum.MoveDirection * speed * delta * 5)
+            end
+        end
+    end)    
+end)
+
+
 
 game:GetService("CoreGui"):WaitForChild("imgui2").Enabled = false
 game:GetService("UserInputService").InputBegan:Connect(function(input, gameProcessedEvent)
