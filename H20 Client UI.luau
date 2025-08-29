@@ -548,6 +548,71 @@ local TabTwo = Window.new({
     text = "Visual",
 })
 
+local runHighlight = false
+
+local ESP = TabTwo.new("switch", {
+    text = "Player ESP",
+})
+
+ESP.event:Connect(function(bool)
+        runHighlight = bool
+        if runHighlight then
+            task.spawn(function()
+                while runHighlight do
+                    for _, plr in pairs(game.Players:GetPlayers()) do
+                        if plr ~= game.Players.LocalPlayer and plr.Character and plr.Character:FindFirstChild("HumanoidRootPart") then
+                            local char = plr.Character
+                            if not char:FindFirstChild("ESPHighlight") then
+                                local highlight = Instance.new("Highlight")
+                                highlight.Name = "ESPHighlight"
+                                highlight.FillTransparency = 0.5
+                                highlight.OutlineTransparency = 1
+                                highlight.OutlineColor = Color3.new(255, 255, 255)
+				highlight.FillColor = Color3.new(139, 0, 0)
+                                highlight.Parent = char
+                            end
+                            if not char:FindFirstChild("PlayerBillboard") then
+                                local billboard = Instance.new("BillboardGui")
+                                billboard.Name = "PlayerBillboard"
+                                billboard.Size = UDim2.new(0, 60, 0, 30)
+                                billboard.StudsOffset = Vector3.new(0, 3.5, 0)
+                                billboard.AlwaysOnTop = true
+                                billboard.Adornee = char:FindFirstChild("HumanoidRootPart")
+                                billboard.Parent = char
+
+                                local label = Instance.new("TextLabel")
+                                label.Name = "PlayerLabel"
+                                label.Size = UDim2.new(1, 0, 1, 0)
+                                label.BackgroundTransparency = 1
+                                label.Text = plr.Name
+                                label.Font = Enum.Font.RobotoMono
+                                label.TextColor3 = Color3.new(1, 1, 1)
+                                label.TextStrokeColor3 = Color3.new(0, 0, 0)
+                                label.TextStrokeTransparency = 0.5
+                                label.TextScaled = true
+                                label.Parent = billboard
+                            end
+                        end
+                    end
+                    task.wait(0.7)
+                end
+            end)
+        else
+            for _, plr in pairs(game.Players:GetPlayers()) do
+                if plr ~= game.Players.LocalPlayer and plr.Character then
+                    local char = plr.Character
+                    local highlight = char:FindFirstChild("ESPHighlight")
+                    if highlight then highlight:Destroy() end
+
+                    local billboard = char:FindFirstChild("PlayerBillboard")
+                    if billboard then billboard:Destroy() end
+            end
+        end
+    end
+end)
+
+
+
 local ItemESP = TabTwo.new("button", {
     text = "Item ESP (Cannot Undo)",
 })
