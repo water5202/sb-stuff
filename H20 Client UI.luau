@@ -286,16 +286,21 @@ local previousPosition
 local sps = 0
 local deltaTime = 0.1
 
+local function getHRP()
+    local character = player.Character or player.CharacterAdded:Wait()
+    return character:WaitForChild("HumanoidRootPart")
+end
+
+local hrp = getHRP()
+
 while true do
     wait(deltaTime)
-    local character = player.Character
-    local hrp = character and character:FindFirstChild("HumanoidRootPart")
     
     if hrp then
         if previousPosition then
             local distance = (hrp.Position - previousPosition).Magnitude
             sps = distance / deltaTime
-            textLabel.Text = string.format(sps)
+            textLabel.Text = string.format("%.2f", sps)
         end
         previousPosition = hrp.Position
     else
@@ -303,7 +308,6 @@ while true do
         textLabel.Text = "0"
     end
 end
-
 end;
 task.spawn(C_3);
 -- StarterGui..SPS.skidded2
@@ -747,4 +751,4 @@ if input.KeyCode == Enum.KeyCode.H and not gameProcessedEvent then
 game:GetService("Lighting"):WaitForChild("Blur").Enabled = not game:GetService("Lighting"):WaitForChild("Blur").Enabled
 game:GetService("CoreGui"):WaitForChild("imgui2").Enabled = not game:GetService("CoreGui"):WaitForChild("imgui2").Enabled
 end
-end)s
+end)
