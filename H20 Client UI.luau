@@ -280,45 +280,29 @@ G2L["5"] = Instance.new("UICorner", G2L["2"]);
 
 -- StarterGui..SPS.hahaskidded
 local function C_3()
-local speedLabel = script.Parent
 local player = game.Players.LocalPlayer
+local textLabel = script.Parent
+local previousPosition
+local sps = 0
+local deltaTime = 0.1
 
-local hrp
-local lastPosition = Vector3.new()
-local lastTime = tick()
-
-local function setupCharacter(character)
-    hrp = character:WaitForChild("HumanoidRootPart")
-    lastPosition = hrp.Position
-    lastTime = tick()
+while true do
+    wait(deltaTime)
+    local character = player.Character
+    local hrp = character and character:FindFirstChild("HumanoidRootPart")
+    
+    if hrp then
+        if previousPosition then
+            local distance = (hrp.Position - previousPosition).Magnitude
+            sps = distance / deltaTime
+            textLabel.Text = string.format(sps)
+        end
+        previousPosition = hrp.Position
+    else
+        previousPosition = nil
+        textLabel.Text = "0"
+    end
 end
-
-player.CharacterAdded:Connect(setupCharacter)
-if player.Character then
-    setupCharacter(player.Character)
-end
-
-local function calculateSpeed()
-    if not hrp then return 0 end
-
-    local currentPosition = hrp.Position
-    local currentTime = tick()
-
-    local distance = (currentPosition - lastPosition).Magnitude
-    local deltaTime = currentTime - lastTime
-
-    local speed = distance / (deltaTime > 0 and deltaTime or 1)
-
-    lastPosition = currentPosition
-    lastTime = currentTime
-
-    return speed
-end
-
-game:GetService("RunService").RenderStepped:Connect(function()
-    local speed = calculateSpeed()
-    speedLabel.Text = speed
-end)
 
 end;
 task.spawn(C_3);
@@ -763,4 +747,4 @@ if input.KeyCode == Enum.KeyCode.H and not gameProcessedEvent then
 game:GetService("Lighting"):WaitForChild("Blur").Enabled = not game:GetService("Lighting"):WaitForChild("Blur").Enabled
 game:GetService("CoreGui"):WaitForChild("imgui2").Enabled = not game:GetService("CoreGui"):WaitForChild("imgui2").Enabled
 end
-end)
+end)s
