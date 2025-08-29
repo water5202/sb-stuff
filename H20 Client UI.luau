@@ -285,30 +285,26 @@ local RunService = game:GetService("RunService")
 
 local player = Players.LocalPlayer
 local character = player.Character or player.CharacterAdded:Wait()
-local humanoid = character:WaitForChild("Humanoid")
 local humanoidRootPart = character:WaitForChild("HumanoidRootPart")
 
 local textLabel = script.Parent
 
 local function getSpeed()
-	local moveDirection = humanoid.MoveDirection
-	local speed = moveDirection.Magnitude * humanoid.WalkSpeed
-	return speed + 0.5
+	local velocity = humanoidRootPart.Velocity
+	local horizontalVelocity = Vector3.new(velocity.X, 0, velocity.Z)
+	return math.round(horizontalVelocity.Magnitude)
 end
 
 RunService.RenderStepped:Connect(function()
-	if character and humanoid then
+	if humanoidRootPart then
 		textLabel.Text = tostring(getSpeed())
 	end
 end)
 
 player.CharacterAdded:Connect(function(char)
 	character = char
-	humanoid = char:WaitForChild("Humanoid")
 	humanoidRootPart = char:WaitForChild("HumanoidRootPart")
 end)
-
-	
 end;
 task.spawn(C_3);
 -- StarterGui..SPS.skidded2
