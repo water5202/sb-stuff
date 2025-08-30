@@ -653,6 +653,7 @@ local RESETBHOP = TabThree.new("button", {
 })
 
 RESETBHOP.event:Connect(function()
+    tpwalking = false
     speed = 0
 end)
 
