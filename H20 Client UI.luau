@@ -361,17 +361,17 @@ task.spawn(C_6);
 -- StarterGui.H20.Load
 local function C_7()
 local script = G2L["7"];
-	NotifLib:Notify({Title = "H20 Client", Content = "Loading GUI...!", SubContent = "water.5202", Duration = 5})
+	NotifLib:Notify({Title = "H20 Client", Content = "Loading GUI...", SubContent = "water.5202", Duration = 3})
 end;
 task.spawn(C_7);
 
 return G2L["1"], require;
 end
 
+task.wait(3)
 LoadLabel()
-task.wait(5)
 local Lib = loadstring(game:HttpGet("https://raw.githubusercontent.com/Singularity5490/rbimgui-2/main/rbimgui-2.lua"))()
-NotifLib:Notify({Title = "H20 Client", Content = "Loaded GUI!", SubContent = "water.5202", Duration = 5})
+NotifLib:Notify({Title = "H20 Client", Content = "Loaded GUI!", SubContent = "water.5202", Duration = 3})
 
 local Window = Lib.new({
     text = "H20 ~ " .. identifyexecutor(),
@@ -432,6 +432,16 @@ end
 end
 end
 end)
+
+local PanicKick = TabOne.new("button", {
+    text = "Panic Kick",
+})
+
+PanicKick.event:Connect(function()
+game.Players.LocalPlayer:Kick("")
+game:GetService("TeleportService"):Teleport(403373529)
+end)
+
 
 local AutoCodeButton = TabOne.new("button", {
     text = "Auto Code",
@@ -511,7 +521,7 @@ end)
 
 
 local ItemESP = TabTwo.new("button", {
-    text = "Item ESP (Cannot Undo)",
+    text = "Item ESP",
 })
 ItemESP.event:Connect(function()
 for _, item in pairs(workspace.Items:GetChildren()) do
@@ -614,9 +624,10 @@ end
 end)
 
 local tpwalking = false
+local speed
 
 local TPWALKBYPASS = TabThree.new("slider",{ 
-text = "Speed Bypass",
+text = "BHOP",
 size = 100 
 })
 
@@ -630,13 +641,20 @@ TPWALKBYPASS.event:Connect(function(var)
             while tpwalking and chr and hum and hum.Parent do
                 local delta = game:GetService("RunService").Heartbeat:Wait()
                 if hum.MoveDirection.Magnitude > 0 then
-                local speed = var
+                speed = var
                 chr:TranslateBy(hum.MoveDirection * speed * delta * 5)
             end
         end
     end)    
 end)
 
+local RESETBHOP = TabThree.new("button", {
+    text = "Reset BHOP Speed",
+})
+
+RESETBHOP.event:Connect(function()
+    speed = 0
+end)
 
 
 game:GetService("CoreGui"):WaitForChild("imgui2").Enabled = false
