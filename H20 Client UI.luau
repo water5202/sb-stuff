@@ -374,7 +374,7 @@ local Lib = loadstring(game:HttpGet("https://raw.githubusercontent.com/Singulari
 NotifLib:Notify({Title = "H20 Client", Content = "Loaded GUI!", SubContent = "water.5202", Duration = 3})
 
 local Window = Lib.new({
-    text = "H20 ~ " .. identifyexecutor(),
+    text = "H20 - " .. identifyexecutor(),
     size = UDim2.new(300, 200),
 })
 
