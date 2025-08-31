@@ -1,7 +1,7 @@
-Use this at your **OWN RISK**, I'm not responsible for any bans.
+Hacked Client for Slap Royale.
 #
 ```lua
-loadstring(game:HttpGet("https://raw.githubusercontent.com/water5202/Iridium/refs/heads/main/Iridium.lua"))()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/water5202/Iridium/refs/heads/main/Loader.lua"))()
 ```
 #
-Final SRUI update for now!
+Reworking...
