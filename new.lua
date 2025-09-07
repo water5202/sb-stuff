@@ -547,7 +547,7 @@ local tpwalking = false
 
 local TPWALKBYPASS = TabThree.new("slider",{ 
 text = "Speed Bypass",
-size = 150
+size = 150,
 max = 20
 })
 
