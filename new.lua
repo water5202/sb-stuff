@@ -227,110 +227,6 @@ NoAcid.Anchored = true
 NoAcid.Transparency = 1
 NoAcid.CanCollide = false
 
-function LoadSpeedMeter()
---[=[
- d888b  db    db d888888b      .d888b.      db      db    db  .d8b.  
-88' Y8b 88    88   `88'        VP  `8D      88      88    88 d8' `8b 
-88      88    88    88            odD'      88      88    88 88ooo88 
-88  ooo 88    88    88          .88'        88      88    88 88~~~88 
-88. ~8~ 88b  d88   .88.        j88.         88booo. 88b  d88 88   88    @uniquadev
- Y888P  ~Y8888P' Y888888P      888888D      Y88888P ~Y8888P' YP   YP  CONVERTER 
-]=]
-
--- Instances: 5 | Scripts: 2 | Modules: 0 | Tags: 0
-local G2L = {};
-
--- StarterGui.
-G2L["1"] = Instance.new("ScreenGui", game:GetService("CoreGui"));
-G2L["1"]["Name"] = [[]];
-G2L["1"]["ZIndexBehavior"] = Enum.ZIndexBehavior.Global;
-
-
--- StarterGui..SPS
-G2L["2"] = Instance.new("TextLabel", G2L["1"]);
-G2L["2"]["TextStrokeTransparency"] = 0;
-G2L["2"]["BorderSizePixel"] = 0;
-G2L["2"]["TextSize"] = 14;
-G2L["2"]["TextStrokeColor3"] = Color3.fromRGB(47, 159, 155);
-G2L["2"]["BackgroundColor3"] = Color3.fromRGB(66, 66, 66);
-G2L["2"]["FontFace"] = Font.new([[rbxasset://fonts/families/Ubuntu.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal);
-G2L["2"]["TextColor3"] = Color3.fromRGB(168, 251, 251);
-G2L["2"]["BackgroundTransparency"] = 1;
-G2L["2"]["Size"] = UDim2.new(0, 120, 0, 50);
-G2L["2"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
-G2L["2"]["Text"] = [[Placeholder]];
-G2L["2"]["Name"] = [[SPS]];
-G2L["2"]["Position"] = UDim2.new(0.86102, 0, 0.84383, 0);
-
-
--- StarterGui..SPS.hahaskidded
-G2L["3"] = Instance.new("LocalScript", G2L["2"]);
-G2L["3"]["Name"] = [[hahaskidded]];
-
-
--- StarterGui..SPS.skidded2
-G2L["4"] = Instance.new("LocalScript", G2L["2"]);
-G2L["4"]["Name"] = [[skidded2]];
-
-
--- StarterGui..SPS.UICorner
-G2L["5"] = Instance.new("UICorner", G2L["2"]);
-
-
-
--- StarterGui..SPS.hahaskidded
-local function C_3()
-local script = G2L["3"];
-	local Players = game:GetService("Players")
-	local RunService = game:GetService("RunService")
-	
-	local player = Players.LocalPlayer
-	local character = player.Character or player.CharacterAdded:Wait()
-	local humanoidRootPart = character:WaitForChild("HumanoidRootPart")
-	
-	local textLabel = script.Parent
-	
-	local function getSpeed()
-		local velocity = humanoidRootPart.Velocity
-		local speed = Vector3.new(velocity.X, 0, velocity.Z).Magnitude
-		return speed + 0.5
-	end
-	
-	RunService.RenderStepped:Connect(function()
-		if character and humanoidRootPart then
-			textLabel.Text = tostring(getSpeed())
-		end
-	end)
-	
-	player.CharacterAdded:Connect(function(char)
-		character = char
-		humanoidRootPart = char:WaitForChild("HumanoidRootPart")
-	end)
-	
-end;
-task.spawn(C_3);
--- StarterGui..SPS.skidded2
-local function C_4()
-local script = G2L["4"];
-	local textLabel = script.Parent
-	local RunService = game:GetService("RunService")
-	
-	local lightBlue = Color3.fromRGB(135, 206, 250)
-	local deepBlue = Color3.fromRGB(78, 204, 158)
-	
-	local t = 0
-	RunService.RenderStepped:Connect(function(dt)
-		t = t + dt
-		local alpha = (math.sin(t*2) + 1) / 2
-		local color = lightBlue:Lerp(deepBlue, alpha)
-		textLabel.TextColor3 = color
-	end)
-end;
-task.spawn(C_4);
-
-return G2L["1"], require;
-end
-
 function LoadLabel()
 if game:GetService("CoreGui"):FindFirstChild("H20") then
 game:GetService("CoreGui"):FindFirstChild("H20"):Destroy()
@@ -472,10 +368,10 @@ task.spawn(C_7);
 return G2L["1"], require;
 end
 
+print("WHax Loading!")
 local Lib = loadstring(game:HttpGet("https://raw.githubusercontent.com/Singularity5490/rbimgui-2/main/rbimgui-2.lua"))()
 LoadLabel()
-LoadSpeedMeter()
-
+loadstring(game:HttpGet('https://raw.githubusercontent.com/water5202/MKWIISM/refs/heads/main/Loader.lua'))()
 local Window = Lib.new({
     text = "H20 ~ " .. identifyexecutor(),
     size = UDim2.new(300, 200),
@@ -658,3 +554,4 @@ game:GetService("Lighting"):WaitForChild("Blur").Enabled = not game:GetService("
 game:GetService("CoreGui"):WaitForChild("imgui2").Enabled = not game:GetService("CoreGui"):WaitForChild("imgui2").Enabled
 end
 end)
+
