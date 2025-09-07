@@ -179,11 +179,7 @@ if not game:IsLoaded() then
 end
 
 game:GetService("StarterGui"):SetCore("SendNotification",{Title = "Water's Bypasser"; Text = "Waiting Until Loaded..."; Duration = 10})
-task.wait(10)
-game:GetService("Players").LocalPlayer:WaitForChild("PlayerGui"):WaitForChild("SquidInk"):Destroy()
-game:GetService("Players").LocalPlayer:WaitForChild("PlayerGui"):WaitForChild("MobileShiftLock"):WaitForChild("Button").Size = UDim2.new(0.0306147113, 0, 0.0301305633, 0)
-game:GetService("Players").LocalPlayer:WaitForChild("PlayerGui"):WaitForChild("MobileShiftLock"):WaitForChild("Button").Visible = true
-game:GetService("Players").LocalPlayer:WaitForChild("PlayerGui"):WaitForChild("MobileShiftLock"):WaitForChild("Button").Position = UDim2.new(0.924731195, 0, 0.753002405, 0)
+task.wait(5)
 local hook;
 hook = hookmetamethod(game, "__namecall", function(method, ...)
 if getnamecallmethod() == "FireServer" and method == game.ReplicatedStorage.GRAB then
@@ -551,7 +547,8 @@ local tpwalking = false
 
 local TPWALKBYPASS = TabThree.new("slider",{ 
 text = "Speed Bypass",
-size = 30 
+size = 150
+max = 20
 })
 
 TPWALKBYPASS.event:Connect(function(var)
@@ -578,5 +575,3 @@ game:GetService("Lighting"):WaitForChild("Blur").Enabled = not game:GetService("
 game:GetService("CoreGui"):WaitForChild("imgui2").Enabled = not game:GetService("CoreGui"):WaitForChild("imgui2").Enabled
 end
 end)
-
-
