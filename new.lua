@@ -410,7 +410,7 @@ if HitboxT then
 spawn(function()
 while HitboxT do
 	for _,Players in pairs(game.Players:GetChildren()) do
-	if Players ~= game.Players.LocalPlayer and Players.Character and Players.Character.HumanoidRootPart then
+	if Players ~= game.Players.LocalPlayer and Players.Character and Players.Character:FindFirstChild("HumanoidRootPart") then
 	Players.Character:WaitForChild("HumanoidRootPart").Size = Vector3.new(9,9,9)
 	Players.Character:WaitForChild("HumanoidRootPart").Transparency = 0.5
 	end
@@ -639,3 +639,4 @@ game:GetService("Lighting"):WaitForChild("Blur").Enabled = not game:GetService("
 game:GetService("CoreGui"):WaitForChild("imgui2").Enabled = not game:GetService("CoreGui"):WaitForChild("imgui2").Enabled
 end
 end)
+
