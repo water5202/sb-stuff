@@ -415,12 +415,12 @@ while HitboxT do
 	Players.Character:WaitForChild("HumanoidRootPart").Transparency = 0.5
 	end
 	end
-task.wait(0.001)
+task.wait()
 end
 end)
 else
 for _,Players in pairs(game.Players:GetChildren()) do
-if Players.Character and Players.Character.HumanoidRootPart and Players ~= game.Players.LocalPlayer then
+if Players.Character and Players.Character:FindFirstChild("HumanoidRootPart") and Players ~= game.Players.LocalPlayer then
 Players.Character:WaitForChild("HumanoidRootPart").Size = Vector3.new(2,2,1)
 Players.Character:WaitForChild("HumanoidRootPart").Transparency = 1
 end
@@ -639,4 +639,5 @@ game:GetService("Lighting"):WaitForChild("Blur").Enabled = not game:GetService("
 game:GetService("CoreGui"):WaitForChild("imgui2").Enabled = not game:GetService("CoreGui"):WaitForChild("imgui2").Enabled
 end
 end)
+
 
