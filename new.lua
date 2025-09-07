@@ -547,6 +547,30 @@ end
 
 end)
 
+local tpwalking = false
+
+local TPWALKBYPASS = TabThree.new("slider",{ 
+text = "Speed Bypass",
+size = 30 
+})
+
+TPWALKBYPASS.event:Connect(function(var)
+        local chr = game.Players.LocalPlayer.Character
+        local hum = chr and chr:FindFirstChildWhichIsA("Humanoid")
+        tpwalking = false
+        wait()
+        tpwalking = true
+        task.spawn(function()
+            while tpwalking and chr and hum and hum.Parent do
+                local delta = game:GetService("RunService").Heartbeat:Wait()
+                if hum.MoveDirection.Magnitude > 0 then
+                local speed = var
+                chr:TranslateBy(hum.MoveDirection * speed * delta * 5)
+            end
+        end
+    end)    
+end)
+
 game:GetService("CoreGui"):WaitForChild("imgui2").Enabled = false
 game:GetService("UserInputService").InputBegan:Connect(function(input, gameProcessedEvent)
 if input.KeyCode == Enum.KeyCode.H and not gameProcessedEvent then
@@ -554,4 +578,5 @@ game:GetService("Lighting"):WaitForChild("Blur").Enabled = not game:GetService("
 game:GetService("CoreGui"):WaitForChild("imgui2").Enabled = not game:GetService("CoreGui"):WaitForChild("imgui2").Enabled
 end
 end)
+
 
