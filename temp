@@ -224,7 +224,7 @@ SoundZone2.Parent = workspace
 
 local sound2 = Instance.new("Sound")
 sound2.Name = ""
-sound2.SoundId = "rbxassetid://5822789407"
+sound2.SoundId = "rbxassetid://345052019"
 sound2.Volume = 0.4
 sound2.Parent = workspace
 
