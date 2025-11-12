@@ -1,4 +1,4 @@
-```Hacked``` Client for Slap Royale.
+```Hacked``` Client for Slap Royale. and other scripts for said games
 #
 I fully quit sb, all of this code will stay for now
 #
